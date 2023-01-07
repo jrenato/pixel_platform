@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0lynlbqdgd8"]
+
+[ext_resource type="PackedScene" uid="uid://beq02bfej832s" path="res://Block.tscn" id="1_thraq"]
+[ext_resource type="PackedScene" uid="uid://bqpfdj3d0l8as" path="res://Player.tscn" id="2_0mvch"]
+
+[node name="World" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(117, 117)
+
+[node name="Block2" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(135, 117)
+
+[node name="Block3" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(153, 117)
+
+[node name="Block4" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(171, 117)
+
+[node name="Block5" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(189, 99)
+
+[node name="Block11" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(189, 117)
+
+[node name="Block6" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(207, 99)
+
+[node name="Block10" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(207, 81)
+
+[node name="Block7" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(225, 81)
+
+[node name="Block8" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(243, 81)
+
+[node name="Block9" parent="." instance=ExtResource("1_thraq")]
+position = Vector2(261, 81)
+
+[node name="Player" parent="." instance=ExtResource("2_0mvch")]
+position = Vector2(138, 64)
