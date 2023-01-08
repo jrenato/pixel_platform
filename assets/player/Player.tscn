@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqpfdj3d0l8as"]
+[gd_scene load_steps=6 format=3 uid="uid://bx0k7kkgxmth2"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_n4t3k"]
-[ext_resource type="Texture2D" uid="uid://df6t71d65760p" path="res://characters_packed.png" id="1_oi3ma"]
+[ext_resource type="Script" path="res://assets/player/Player.gd" id="1_qh5p3"]
+[ext_resource type="Texture2D" uid="uid://df6t71d65760p" path="res://assets/player/characters_packed.png" id="2_vsdn0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t02m6"]
-atlas = ExtResource("1_oi3ma")
+atlas = ExtResource("2_vsdn0")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ro1ay"]
@@ -20,7 +20,7 @@ radius = 7.0
 height = 18.0
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_n4t3k")
+script = ExtResource("1_qh5p3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_ro1ay")
