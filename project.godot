@@ -13,6 +13,7 @@ config_version=5
 config/name="Pixel Platform"
 run/main_scene="res://assets/world/World.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
+run/max_fps=59
 config/icon="res://icon.svg"
 
 [display]
