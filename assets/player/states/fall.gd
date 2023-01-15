@@ -2,12 +2,10 @@ extends BaseState
 
 @export var move_speed : float = 120
 @export var run_node : NodePath
-@export var dash_node : NodePath
 @export var walk_node : NodePath
 @export var idle_node : NodePath
 
 @onready var run_state : BaseState = get_node(run_node)
-@onready var dash_state: BaseState = get_node(dash_node)
 @onready var walk_state : BaseState = get_node(walk_node)
 @onready var idle_state : BaseState = get_node(idle_node)
 
