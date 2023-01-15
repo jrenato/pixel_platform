@@ -1,7 +1,5 @@
 extends BaseState
 
-var friction : int = 10
-
 @export var jump_node : NodePath
 @export var fall_node : NodePath
 @export var walk_node : NodePath
@@ -33,7 +31,7 @@ func input(_event : InputEvent) -> BaseState:
 
 
 func physics_process(delta : float) -> BaseState:
-	player.velocity.x = move_toward(player.velocity.x, 0, friction)
+	player.velocity.x = move_toward(player.velocity.x, 0, player.friction)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 

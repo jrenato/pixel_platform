@@ -36,11 +36,11 @@ func physics_process(delta : float) -> BaseState:
 		player.animations.flip_h = false
 	elif move > 0:
 		player.animations.flip_h = true
-	
-	player.velocity.x = move * move_speed
+
+	player.velocity.x = move_toward(player.velocity.x, move * move_speed, player.friction)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
-	
+
 	if move == 0:
 		return idle_state
 
@@ -52,5 +52,5 @@ func get_movement_input() -> int:
 		return -1
 	elif Input.is_action_pressed("move_right"):
 		return 1
-	
+
 	return 0

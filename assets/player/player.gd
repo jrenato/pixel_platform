@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+@export var friction : int = 30
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
