@@ -12,11 +12,13 @@ extends BaseState
 @onready var walk_state: BaseState = get_node(walk_node)
 @onready var idle_state: BaseState = get_node(idle_node)
 
+
 func enter() -> void:
 	# This calls the base class enter function, which is necessary here
 	# to make sure the animation switches
 	super.enter()
 	player.velocity.y = -jump_force
+
 
 func physics_process(delta : float) -> BaseState:
 	var move = 0

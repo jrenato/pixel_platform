@@ -5,6 +5,7 @@ extends MoveState
 var current_dash_time : float = 0
 var dash_direction : int = 0
 
+
 # Upon entering the state, set dash direction to either current input or the direction the player is facing if no input is pressed
 func enter() -> void:
 	super.enter()
@@ -16,13 +17,16 @@ func enter() -> void:
 	else:
 		dash_direction = -1
 
+
 # Override MoveState input() since we don't want to change states based on player input
 func input(_event : InputEvent) -> BaseState:
 	return null
 
+
 # Move in the dash_direction every frame
 func get_movement_input() -> int:
 	return dash_direction
+
 
 # Track how long we've been dashing so we know when to exit
 func process(delta: float) -> BaseState:

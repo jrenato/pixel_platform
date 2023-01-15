@@ -1,5 +1,7 @@
 extends BaseState
 
+var friction : int = 10
+
 @export var jump_node : NodePath
 @export var fall_node : NodePath
 @export var walk_node : NodePath
@@ -12,9 +14,11 @@ extends BaseState
 @onready var run_state : BaseState = get_node(run_node)
 @onready var dash_state : BaseState = get_node(dash_node)
 
+
 func enter() -> void:
 	super.enter()
-	player.velocity.x = 0
+	#player.velocity.x = 0
+
 
 func input(_event : InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
@@ -27,9 +31,10 @@ func input(_event : InputEvent) -> BaseState:
 		return dash_state
 	return null
 
+
 func physics_process(delta : float) -> BaseState:
+	player.velocity.x = move_toward(player.velocity.x, 0, friction)
 	player.velocity.y += player.gravity * delta
-	#player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	player.move_and_slide()
 
 	if !player.is_on_floor():
