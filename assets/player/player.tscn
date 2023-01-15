@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://c7nb0m3fqashk"]
+[gd_scene load_steps=11 format=3 uid="uid://ctql7jtc7a15i"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
-[ext_resource type="Texture2D" uid="uid://df6t71d65760p" path="res://assets/images/characters_packed.png" id="2_cbaoc"]
+[ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
 [ext_resource type="PackedScene" uid="uid://dlyjjygyhdxmc" path="res://assets/player/states/state_manager.tscn" id="3_i74eb"]
 [ext_resource type="Script" path="res://assets/player/states/idle.gd" id="4_rmbbq"]
 [ext_resource type="Script" path="res://assets/player/states/walk.gd" id="5_1t6yd"]
@@ -14,71 +14,6 @@
 radius = 5.0
 height = 17.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4k1wp"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i16j7"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t02m6"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrdl2"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gygiq"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ndwim"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow083"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c458m"]
-atlas = ExtResource("2_cbaoc")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ro1ay"]
-animations = [{
-"frames": [SubResource("AtlasTexture_4k1wp")],
-"loop": false,
-"name": &"dash",
-"speed": 5.0
-}, {
-"frames": [SubResource("AtlasTexture_i16j7")],
-"loop": false,
-"name": &"fall",
-"speed": 5.0
-}, {
-"frames": [SubResource("AtlasTexture_t02m6")],
-"loop": false,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [SubResource("AtlasTexture_qrdl2")],
-"loop": false,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [SubResource("AtlasTexture_gygiq"), SubResource("AtlasTexture_ndwim")],
-"loop": true,
-"name": &"run",
-"speed": 10.0
-}, {
-"frames": [SubResource("AtlasTexture_ow083"), SubResource("AtlasTexture_c458m")],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_e6etg")
 
@@ -87,7 +22,7 @@ position = Vector2(0, 3.5)
 shape = SubResource("CapsuleShape2D_if3x5")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_ro1ay")
+frames = ExtResource("2_17vh0")
 animation = &"fall"
 
 [node name="state_manager" parent="." instance=ExtResource("3_i74eb")]
