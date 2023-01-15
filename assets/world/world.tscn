@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1638b418q04q"]
+[gd_scene load_steps=5 format=3 uid="uid://dc6x3glokcijs"]
 
-[ext_resource type="PackedScene" uid="uid://bx0k7kkgxmth2" path="res://assets/player/Player.tscn" id="2_0mvch"]
-[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/world/tiles_packed.png" id="3_3kohn"]
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_bkq7v"]
+[ext_resource type="PackedScene" uid="uid://c7nb0m3fqashk" path="res://assets/player/player.tscn" id="2_6char"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bptca"]
-texture = ExtResource("3_3kohn")
+texture = ExtResource("1_bkq7v")
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -576,5 +576,5 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(1114119, 262145, 6, 1114137, 327681, 6, 1114114, 262145, 6, 1114127, 393217, 6, 1114125, 327681, 6, 1114133, 262145, 6)
 
-[node name="Player" parent="." instance=ExtResource("2_0mvch")]
-position = Vector2(302, 312)
+[node name="Player" parent="." instance=ExtResource("2_6char")]
+position = Vector2(309, 311)
