@@ -125,7 +125,7 @@ animation_name = "run"
 
 [node name="dash" type="Node" parent="state_manager"]
 script = ExtResource("7_ckpis")
-move_speed = 240.0
+move_speed = 360.0
 jump_node = NodePath("../jump")
 fall_node = NodePath("../fall")
 dash_node = NodePath(".")
