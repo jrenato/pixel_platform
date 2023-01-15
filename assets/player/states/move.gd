@@ -39,6 +39,7 @@ func physics_process(delta : float) -> BaseState:
 
 	player.velocity.x = move_toward(player.velocity.x, move * move_speed, player.friction)
 	player.velocity.y += player.gravity * delta
+
 	player.move_and_slide()
 
 	if move == 0:

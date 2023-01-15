@@ -9,9 +9,9 @@ var dash_direction : int = 0
 # Upon entering the state, set dash direction to either current input or the direction the player is facing if no input is pressed
 func enter() -> void:
 	super.enter()
-	
+
 	current_dash_time = dash_time
-	
+
 	if player.animations.flip_h:
 		dash_direction = 1
 	else:

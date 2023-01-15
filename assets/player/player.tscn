@@ -80,6 +80,7 @@ animation_name = "fall"
 script = ExtResource("9_e225q")
 fall_node = NodePath("../fall")
 run_node = NodePath("../run")
+dash_node = NodePath("../dash")
 walk_node = NodePath("../walk")
 idle_node = NodePath("../idle")
 animation_name = "jump"
