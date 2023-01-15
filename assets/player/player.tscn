@@ -25,6 +25,10 @@ shape = SubResource("CapsuleShape2D_if3x5")
 frames = ExtResource("2_17vh0")
 animation = &"fall"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+position_smoothing_enabled = true
+
 [node name="state_manager" parent="." instance=ExtResource("3_i74eb")]
 starting_state = NodePath("idle")
 
@@ -80,7 +84,6 @@ animation_name = "fall"
 script = ExtResource("9_e225q")
 fall_node = NodePath("../fall")
 run_node = NodePath("../run")
-dash_node = NodePath("../dash")
 walk_node = NodePath("../walk")
 idle_node = NodePath("../idle")
 animation_name = "jump"
