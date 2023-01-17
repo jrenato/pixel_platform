@@ -1,7 +1,7 @@
 extends MoveState
 
 var current_dash_time : float = 0
-var dash_direction : int = 0
+var dash_direction : float = 0.0
 
 
 # Upon entering the state, set dash direction to either current input or the direction the player is facing if no input is pressed
@@ -13,9 +13,9 @@ func enter() -> void:
 	current_dash_time = player.move_data.dash_time
 
 	if player.animations.flip_h:
-		dash_direction = 1
+		dash_direction = 1.0
 	else:
-		dash_direction = -1
+		dash_direction = -1.0
 
 
 # Override MoveState input() since we don't want to change states based on player input
@@ -24,7 +24,7 @@ func input(_event : InputEvent) -> BaseState:
 
 
 # Move in the dash_direction every frame
-func get_movement_input() -> int:
+func get_movement_input() -> float:
 	return dash_direction
 
 
