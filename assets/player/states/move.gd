@@ -48,9 +48,10 @@ func physics_process(delta : float) -> BaseState:
 
 
 func get_movement_input() -> float:
-	return Input.get_axis("move_left", "move_right")
-#	if Input.is_action_pressed("move_left"):
-#		return -1
-#	elif Input.is_action_pressed("move_right"):
-#		return 1
-#	return 0
+	#TODO: Why get_axis doesn't work
+#	return Input.get_axis("move_left", "move_right")
+	if Input.is_action_pressed("move_left"):
+		return -1.0
+	elif Input.is_action_pressed("move_right"):
+		return 1.0
+	return 0.0
