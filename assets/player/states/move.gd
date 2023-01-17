@@ -32,10 +32,9 @@ func physics_process(delta : float) -> BaseState:
 		return fall_state
 
 	var move = get_movement_input()
-	if move < 0:
-		player.animations.flip_h = false
-	elif move > 0:
-		player.animations.flip_h = true
+
+	if move != 0:
+		player.animations.flip_h = move > 0
 
 	player.velocity.x = move_toward(player.velocity.x, move * move_speed, player.friction)
 	player.velocity.y += player.gravity * delta
