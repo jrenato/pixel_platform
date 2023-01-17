@@ -709,6 +709,7 @@ texture_region_size = Vector2i(18, 18)
 [sub_resource type="TileSet" id="TileSet_bgncl"]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.764706, 0.117647, 0, 1)
@@ -747,4 +748,4 @@ position = Vector2(369, 342)
 position = Vector2(387, 342)
 
 [node name="Spikey" parent="." instance=ExtResource("5_m5mpe")]
-position = Vector2(460, 306)
+position = Vector2(696, 234)
