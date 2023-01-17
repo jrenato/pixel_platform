@@ -1,7 +1,5 @@
 extends BaseState
 
-@export var jump_force : float = 250
-@export var move_speed : float = 120
 @export var fall_node : NodePath
 @export var run_node : NodePath
 @export var walk_node : NodePath
@@ -17,7 +15,7 @@ func enter() -> void:
 	# This calls the base class enter function, which is necessary here
 	# to make sure the animation switches
 	super.enter()
-	player.velocity.y = -jump_force
+	player.velocity.y = -player.jump_force
 
 
 func physics_process(delta : float) -> BaseState:
@@ -29,7 +27,7 @@ func physics_process(delta : float) -> BaseState:
 		move = 1
 		player.animations.flip_h = true
 
-	player.velocity.x = move_toward(player.velocity.x, move * move_speed, player.friction)
+	player.velocity.x = move_toward(player.velocity.x, move * player.jump_move_speed, player.friction)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 

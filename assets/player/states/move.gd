@@ -1,7 +1,6 @@
 class_name MoveState
 extends BaseState
 
-@export var move_speed : float = 120
 @export var jump_node : NodePath
 @export var fall_node : NodePath
 @export var dash_node : NodePath
@@ -16,6 +15,7 @@ extends BaseState
 @onready var walk_state : BaseState = get_node(walk_node)
 @onready var run_state : BaseState = get_node(run_node)
 
+var current_move_speed : int = 0
 
 func input(_event : InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("jump"):
@@ -36,7 +36,7 @@ func physics_process(delta : float) -> BaseState:
 	if move != 0:
 		player.animations.flip_h = move > 0
 
-	player.velocity.x = move_toward(player.velocity.x, move * move_speed, player.friction)
+	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.friction)
 	player.velocity.y += player.gravity * delta
 
 	player.move_and_slide()

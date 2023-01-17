@@ -1,6 +1,5 @@
 extends BaseState
 
-@export var move_speed : float = 120
 @export var run_node : NodePath
 @export var walk_node : NodePath
 @export var idle_node : NodePath
@@ -19,7 +18,7 @@ func physics_process(delta : float) -> BaseState:
 		move = 1
 		player.animations.flip_h = true
 
-	player.velocity.x = move_toward(player.velocity.x, move * move_speed, player.friction)
+	player.velocity.x = move_toward(player.velocity.x, move * player.fall_move_speed, player.friction)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 

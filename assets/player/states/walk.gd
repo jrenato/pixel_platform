@@ -1,6 +1,11 @@
 extends MoveState
 
 
+func enter() -> void:
+	super.enter()
+	current_move_speed = player.walk_speed
+
+
 func input(event: InputEvent) -> BaseState:
 	# First run parent code and make sure we don't need to exit early
 	# based on its logic
