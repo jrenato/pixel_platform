@@ -7,6 +7,7 @@ extends CharacterBody2D
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animations : AnimatedSprite2D = $animations
+@onready var ladder_check : RayCast2D = $LadderCheck
 @onready var states : StateManager = $state_manager
 
 @onready var green_skin : SpriteFrames = load("res://assets/player/skins/PlayerGreenSkin.tres")
@@ -14,9 +15,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var orange_skin : SpriteFrames = load("res://assets/player/skins/PlayerOrangeSkin.tres")
 @onready var pink_skin : SpriteFrames = load("res://assets/player/skins/PlayerPinkSkin.tres")
 @onready var yellow_skin : SpriteFrames = load("res://assets/player/skins/PlayerYellowSkin.tres")
-
 @onready var skins = [green_skin, blue_skin, orange_skin, pink_skin, yellow_skin]
-
 var current_skin = 0
 
 func _ready() -> void:
