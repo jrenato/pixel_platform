@@ -36,7 +36,7 @@ func physics_process(delta : float) -> BaseState:
 	if move != 0:
 		player.animations.flip_h = move > 0
 
-	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.friction)
+	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.move_data.friction)
 	player.velocity.y += player.gravity * delta
 
 	player.move_and_slide()

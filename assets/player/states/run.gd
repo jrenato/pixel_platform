@@ -2,7 +2,7 @@ extends MoveState
 
 func enter() -> void:
 	super.enter()
-	current_move_speed = player.run_speed
+	current_move_speed = player.move_data.run_speed
 
 
 func input(event: InputEvent) -> BaseState:

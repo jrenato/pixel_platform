@@ -8,9 +8,9 @@ var dash_direction : int = 0
 func enter() -> void:
 	super.enter()
 
-	current_move_speed = player.dash_speed
+	current_move_speed = player.move_data.dash_speed
 
-	current_dash_time = player.dash_time
+	current_dash_time = player.move_data.dash_time
 
 	if player.animations.flip_h:
 		dash_direction = 1

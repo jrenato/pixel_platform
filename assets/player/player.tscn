@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctql7jtc7a15i"]
+[gd_scene load_steps=12 format=3 uid="uid://ctql7jtc7a15i"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
 [ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
+[ext_resource type="Resource" uid="uid://baibtl3nyo5s3" path="res://assets/player/resources/DefaultPlayerMovementData.tres" id="2_jbjvw"]
 [ext_resource type="PackedScene" uid="uid://dlyjjygyhdxmc" path="res://assets/player/states/state_manager.tscn" id="3_i74eb"]
 [ext_resource type="Script" path="res://assets/player/states/idle.gd" id="4_rmbbq"]
 [ext_resource type="Script" path="res://assets/player/states/walk.gd" id="5_1t6yd"]
@@ -18,6 +19,7 @@ height = 17.0
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_e6etg")
+move_data = ExtResource("2_jbjvw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.5)

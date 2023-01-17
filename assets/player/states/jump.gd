@@ -15,7 +15,7 @@ func enter() -> void:
 	# This calls the base class enter function, which is necessary here
 	# to make sure the animation switches
 	super.enter()
-	player.velocity.y = -player.jump_force
+	player.velocity.y = -player.move_data.jump_force
 
 
 func physics_process(delta : float) -> BaseState:
@@ -27,7 +27,7 @@ func physics_process(delta : float) -> BaseState:
 		move = 1
 		player.animations.flip_h = true
 
-	player.velocity.x = move_toward(player.velocity.x, move * player.jump_move_speed, player.friction)
+	player.velocity.x = move_toward(player.velocity.x, move * player.move_data.jump_move_speed, player.move_data.friction)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 
