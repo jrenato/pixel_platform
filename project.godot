@@ -8,34 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Node",
-"class": &"BaseState",
-"language": &"GDScript",
-"path": "res://assets/player/states/base_state.gd"
-}, {
-"base": "BaseState",
-"class": &"MoveState",
-"language": &"GDScript",
-"path": "res://assets/player/states/move.gd"
-}, {
-"base": "CharacterBody2D",
-"class": &"Player",
-"language": &"GDScript",
-"path": "res://assets/player/player.gd"
-}, {
-"base": "Node",
-"class": &"StateManager",
-"language": &"GDScript",
-"path": "res://assets/player/states/state_manager.gd"
-}]
-_global_script_class_icons={
-"BaseState": "",
-"MoveState": "",
-"Player": "",
-"StateManager": ""
-}
-
 [application]
 
 config/name="Pixel Platform"
@@ -51,6 +23,10 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[editor]
+
+export/convert_text_resources_to_binary=true
 
 [importer_defaults]
 

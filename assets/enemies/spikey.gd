@@ -10,7 +10,7 @@ func _ready() -> void:
 	velocity = Vector2.ZERO
 	up_direction = Vector2.UP
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var found_wall : bool = is_on_wall()
 	var found_edge : bool = not edge_check_left.is_colliding() or not edge_check_right.is_colliding()
 

@@ -55,7 +55,6 @@ animation_name = "walk"
 
 [node name="run" type="Node" parent="state_manager"]
 script = ExtResource("6_th8ny")
-move_speed = 180.0
 jump_node = NodePath("../jump")
 fall_node = NodePath("../fall")
 dash_node = NodePath("../dash")
@@ -66,7 +65,6 @@ animation_name = "run"
 
 [node name="dash" type="Node" parent="state_manager"]
 script = ExtResource("7_ckpis")
-move_speed = 360.0
 jump_node = NodePath("../jump")
 fall_node = NodePath("../fall")
 dash_node = NodePath(".")
