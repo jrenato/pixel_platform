@@ -29,6 +29,7 @@ animations = [{
 size = Vector2(15, 12)
 
 [node name="Spikey" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_uvubj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -40,6 +41,10 @@ animation = &"walk"
 position = Vector2(-0.5, -6)
 shape = SubResource("RectangleShape2D_kilhc")
 
-[node name="EdgeCheck" type="RayCast2D" parent="."]
+[node name="EdgeCheckRight" type="RayCast2D" parent="."]
 position = Vector2(7, -1)
+target_position = Vector2(0, 2)
+
+[node name="EdgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-8, -1)
 target_position = Vector2(0, 2)
