@@ -5,6 +5,7 @@ class_name PlayerMovementData
 
 @export var walk_speed : int = 120
 @export var run_speed : int = 180
+@export var climb_speed : int = 120
 @export var dash_speed : int = 240
 @export var dash_time : float = 0.4
 

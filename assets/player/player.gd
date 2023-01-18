@@ -7,8 +7,8 @@ extends CharacterBody2D
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animations : AnimatedSprite2D = $animations
-@onready var ladder_check : RayCast2D = $LadderCheck
 @onready var states : StateManager = $state_manager
+@onready var ladder_check : RayCast2D = $LadderCheck
 
 @onready var green_skin : SpriteFrames = load("res://assets/player/skins/PlayerGreenSkin.tres")
 @onready var blue_skin : SpriteFrames = load("res://assets/player/skins/PlayerBlueSkin.tres")
@@ -53,3 +53,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	states.process(delta)
+
+func is_on_ladder() -> bool:
+	if not ladder_check.is_colliding(): return false
+	var collider = ladder_check.get_collider()
+	if not collider is Ladder: return false
+
+	return true
