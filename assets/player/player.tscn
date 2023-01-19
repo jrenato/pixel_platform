@@ -111,4 +111,4 @@ animation_name = "jump"
 script = ExtResource("11_m0dk0")
 fall_node = NodePath("../fall")
 jump_node = NodePath("../jump")
-animation_name = "jump"
+animation_name = "walk"
