@@ -37,6 +37,12 @@ func input(_event : InputEvent) -> BaseState:
 	return null
 
 
+func process(_delta : float) -> BaseState:
+	if player.buffered_jump:
+		return jump_state
+	return null
+
+
 func physics_process(delta : float) -> BaseState:
 	player.velocity.x = move_toward(player.velocity.x, 0, player.move_data.friction)
 	player.velocity.y += player.gravity * delta

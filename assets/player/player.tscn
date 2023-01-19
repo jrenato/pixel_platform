@@ -49,6 +49,10 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [node name="state_manager" parent="." instance=ExtResource("3_i74eb")]
 starting_state = NodePath("idle")
 
@@ -119,3 +123,5 @@ script = ExtResource("11_m0dk0")
 fall_node = NodePath("../fall")
 jump_node = NodePath("../jump")
 animation_name = "walk"
+
+[connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]

@@ -20,6 +20,7 @@ func enter() -> void:
 	super.enter()
 	player.velocity.y = -player.move_data.jump_force
 	player.jump_count += 1
+	player.buffered_jump = false
 
 
 func input(_event : InputEvent) -> BaseState:

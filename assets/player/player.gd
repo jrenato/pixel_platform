@@ -7,10 +7,12 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var move_data : PlayerMovementData = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
 
 var jump_count : int = 0
+var buffered_jump : bool = false
 
 @onready var animations : AnimatedSprite2D = $Animations
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
+@onready var jump_buffer_timer : Timer = $JumpBufferTimer
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -23,14 +25,14 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	var handled = false
-
 	if Input.is_action_just_pressed("cycle_skin"):
-		handled = true
 		cycle_skin()
 
-	if not handled:
-		states.input(event)
+	if Input.is_action_just_pressed("jump"):
+		buffered_jump = true
+		jump_buffer_timer.start()
+
+	states.input(event)
 
 
 func cycle_skin() -> void:
@@ -61,3 +63,7 @@ func is_on_ladder() -> bool:
 	if not collider is Ladder: return false
 
 	return true
+
+
+func _on_jump_buffer_timer_timeout() -> void:
+	buffered_jump = false

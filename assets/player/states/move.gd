@@ -33,6 +33,12 @@ func input(_event : InputEvent) -> BaseState:
 	return null
 
 
+func process(_delta : float) -> BaseState:
+	if player.buffered_jump:
+		return jump_state
+	return null
+
+
 func physics_process(delta : float) -> BaseState:
 	if !player.is_on_floor():
 		return fall_state
