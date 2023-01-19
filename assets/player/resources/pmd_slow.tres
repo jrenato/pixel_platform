@@ -13,4 +13,4 @@ dash_time = 0.4
 jump_force = 200
 jump_move_speed = 90
 fall_move_speed = 90
-max_jump_count = 2
+max_jump_count = 1
