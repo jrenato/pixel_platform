@@ -20,7 +20,7 @@ func input(_event : InputEvent) -> BaseState:
 		return climb_state
 
 	# Double jump
-	if Input.is_action_just_pressed("jump") and player.current_jump_count < player.move_data.max_jump_count:
+	if Input.is_action_just_pressed("jump") and player.jump_count < player.move_data.max_jump_count:
 		return jump_state
 
 	return null
