@@ -12,3 +12,4 @@ class_name PlayerMovementData
 @export var jump_force : int = 250
 @export var jump_move_speed : int = 120
 @export var fall_move_speed : int = 120
+@export var max_jump_count : int = 1

@@ -1,10 +1,12 @@
 class_name Player
 extends CharacterBody2D
 
-@export var move_data : Resource = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+@export var move_data : Resource = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
+
+var current_jump_count : int = 0
 
 @onready var animations : AnimatedSprite2D = $animations
 @onready var states : StateManager = $state_manager
@@ -52,7 +54,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
+	if current_jump_count > 0 and is_on_floor():
+		current_jump_count = 0
+
 	states.process(delta)
+
 
 func is_on_ladder() -> bool:
 	if not ladder_check.is_colliding(): return false

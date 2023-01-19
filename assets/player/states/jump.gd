@@ -12,11 +12,15 @@ extends BaseState
 @onready var idle_state: BaseState = get_node(idle_node)
 @onready var climb_state : BaseState = get_node(climb_node)
 
+var jump_input_released : bool = false
+
 func enter() -> void:
 	# This calls the base class enter function, which is necessary here
 	# to make sure the animation switches
 	super.enter()
 	player.velocity.y = -player.move_data.jump_force
+	player.current_jump_count += 1
+	jump_input_released = false
 
 
 func physics_process(delta : float) -> BaseState:
@@ -27,6 +31,15 @@ func physics_process(delta : float) -> BaseState:
 	elif Input.is_action_pressed("move_right"):
 		move = 1
 		player.animations.flip_h = true
+
+	if Input.is_action_just_released("jump") and not jump_input_released:
+		jump_input_released = true
+
+	if Input.is_action_just_pressed("jump") and jump_input_released:
+		print(player.current_jump_count, " < ", player.move_data.max_jump_count)
+		if player.current_jump_count < player.move_data.max_jump_count:
+			player.velocity.y = -player.move_data.jump_force
+			player.current_jump_count += 1
 
 	player.velocity.x = move_toward(player.velocity.x, move * player.move_data.jump_move_speed, player.move_data.friction)
 	player.velocity.y += player.gravity * delta
