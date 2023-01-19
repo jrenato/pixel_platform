@@ -15,12 +15,9 @@ extends BaseState
 var jump_input_released : bool = false
 
 func enter() -> void:
-	# This calls the base class enter function, which is necessary here
-	# to make sure the animation switches
 	super.enter()
 	player.velocity.y = -player.move_data.jump_force
 	player.current_jump_count += 1
-	jump_input_released = false
 
 
 func input(_event : InputEvent) -> BaseState:
@@ -29,12 +26,8 @@ func input(_event : InputEvent) -> BaseState:
 	if player.is_on_ladder() and ladder_input:
 		return climb_state
 
-	# Enable double jump command
-	if Input.is_action_just_released("jump") and not jump_input_released:
-		jump_input_released = true
-
-	# Double jumping
-	if Input.is_action_just_pressed("jump") and jump_input_released:
+	# Double jump
+	if Input.is_action_just_pressed("jump"):
 		print(player.current_jump_count, " < ", player.move_data.max_jump_count)
 		if player.current_jump_count < player.move_data.max_jump_count:
 			player.velocity.y = -player.move_data.jump_force
