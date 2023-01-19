@@ -8,7 +8,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var jump_count : int = 0
 
-@onready var animations : AnimatedSprite2D = $animations
+@onready var animations : AnimatedSprite2D = $Animations
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
 

@@ -27,7 +27,7 @@ script = ExtResource("1_e6etg")
 move_data = ExtResource("2_52spy")
 skins = [ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"), ExtResource("6_d428t"), ExtResource("7_gga2f")]
 
-[node name="animations" type="AnimatedSprite2D" parent="."]
+[node name="Animations" type="AnimatedSprite2D" parent="."]
 frames = ExtResource("2_17vh0")
 animation = &"fall"
 
