@@ -28,10 +28,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("cycle_skin"):
 		cycle_skin()
 
-	if Input.is_action_just_pressed("jump"):
-		buffered_jump = true
-		jump_buffer_timer.start()
-
 	states.input(event)
 
 
@@ -66,4 +62,6 @@ func is_on_ladder() -> bool:
 
 
 func _on_jump_buffer_timer_timeout() -> void:
+	# TODO: Maybe the jump_buffer_time logic should belong to fall_state?
+	# Create a Timer dynamically and buffer_jump on fall.exit() ?
 	buffered_jump = false

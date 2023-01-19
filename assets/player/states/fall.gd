@@ -19,9 +19,15 @@ func input(_event : InputEvent) -> BaseState:
 	if player.is_on_ladder() and ladder_input:
 		return climb_state
 
-	# Double jump
-	if Input.is_action_just_pressed("jump") and player.jump_count < player.move_data.max_jump_count:
-		return jump_state
+	if Input.is_action_just_pressed("jump"):
+		if player.jump_count < player.move_data.max_jump_count:
+			# Double jump
+			return jump_state
+		else:
+			# Prepare buffered jump
+			player.buffered_jump = true
+			player.jump_buffer_timer.start()
+
 
 	return null
 
