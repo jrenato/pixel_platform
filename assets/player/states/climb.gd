@@ -15,13 +15,9 @@ func enter() -> void:
 
 
 func physics_process(delta : float) -> BaseState:
-	var move = 0
-	if Input.is_action_pressed("move_up"):
-		move = -1
-	elif Input.is_action_pressed("move_down"):
-		move = 1
+	var move = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
-	player.velocity.y = move_toward(player.velocity.y, move * player.move_data.climb_speed, player.move_data.friction)
+	player.velocity = move * player.move_data.climb_speed
 	player.move_and_slide()
 
 	if Input.is_action_just_pressed("jump"):
