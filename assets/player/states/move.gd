@@ -42,6 +42,8 @@ func process(_delta : float) -> BaseState:
 
 func physics_process(delta : float) -> BaseState:
 	if !player.is_on_floor():
+		# To prevent false double jump instead of coyote jump
+		player.jump_count = 1
 		# Enable Coyote Jump
 		player.coyote_jump = true
 		player.coyote_jump_timer.start()
