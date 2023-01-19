@@ -1,13 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://bon174udiedte"]
+[gd_scene load_steps=17 format=3 uid="uid://bon174udiedte"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
 [ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
 [ext_resource type="Resource" uid="uid://d1y3pww8i3a1a" path="res://assets/player/resources/pmd_slow.tres" id="2_52spy"]
 [ext_resource type="PackedScene" uid="uid://dlyjjygyhdxmc" path="res://assets/player/states/state_manager.tscn" id="3_i74eb"]
+[ext_resource type="SpriteFrames" uid="uid://6ien8w2u202o" path="res://assets/player/skins/PlayerBlueSkin.tres" id="4_jcsf6"]
 [ext_resource type="Script" path="res://assets/player/states/idle.gd" id="4_rmbbq"]
 [ext_resource type="Script" path="res://assets/player/states/walk.gd" id="5_1t6yd"]
+[ext_resource type="SpriteFrames" uid="uid://b3t6od0o7qndl" path="res://assets/player/skins/PlayerOrangeSkin.tres" id="5_bfrsk"]
+[ext_resource type="SpriteFrames" uid="uid://dryf23mw6831m" path="res://assets/player/skins/PlayerPinkSkin.tres" id="6_d428t"]
 [ext_resource type="Script" path="res://assets/player/states/run.gd" id="6_th8ny"]
 [ext_resource type="Script" path="res://assets/player/states/dash.gd" id="7_ckpis"]
+[ext_resource type="SpriteFrames" uid="uid://ct41s2kehh7q2" path="res://assets/player/skins/PlayerYellowSkin.tres" id="7_gga2f"]
 [ext_resource type="Script" path="res://assets/player/states/fall.gd" id="8_urqgr"]
 [ext_resource type="Script" path="res://assets/player/states/jump.gd" id="9_e225q"]
 [ext_resource type="Script" path="res://assets/player/states/climb.gd" id="11_m0dk0"]
@@ -21,6 +25,7 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_e6etg")
 move_data = ExtResource("2_52spy")
+skins = [ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"), ExtResource("6_d428t"), ExtResource("7_gga2f")]
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 frames = ExtResource("2_17vh0")

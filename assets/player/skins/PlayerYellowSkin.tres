@@ -36,32 +36,56 @@ region = Rect2(0, 24, 24, 24)
 
 [resource]
 animations = [{
-"frames": [SubResource("AtlasTexture_wbx56")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbx56")
+}],
 "loop": false,
 "name": &"dash",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_wlciy")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlciy")
+}],
 "loop": false,
 "name": &"fall",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_l4rnn")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4rnn")
+}],
 "loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_4wq8e")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wq8e")
+}],
 "loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_gov1b"), SubResource("AtlasTexture_dnewx")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gov1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnewx")
+}],
 "loop": true,
 "name": &"run",
 "speed": 10.0
 }, {
-"frames": [SubResource("AtlasTexture_ytndh"), SubResource("AtlasTexture_ekng2")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytndh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekng2")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0

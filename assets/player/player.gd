@@ -12,12 +12,7 @@ var jump_count : int = 0
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
 
-@onready var green_skin : SpriteFrames = load("res://assets/player/skins/PlayerGreenSkin.tres")
-@onready var blue_skin : SpriteFrames = load("res://assets/player/skins/PlayerBlueSkin.tres")
-@onready var orange_skin : SpriteFrames = load("res://assets/player/skins/PlayerOrangeSkin.tres")
-@onready var pink_skin : SpriteFrames = load("res://assets/player/skins/PlayerPinkSkin.tres")
-@onready var yellow_skin : SpriteFrames = load("res://assets/player/skins/PlayerYellowSkin.tres")
-@onready var skins = [green_skin, blue_skin, orange_skin, pink_skin, yellow_skin]
+@export var skins: Array[SpriteFrames] = []
 var current_skin = 0
 
 func _ready() -> void:
