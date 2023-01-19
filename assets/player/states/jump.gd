@@ -23,6 +23,26 @@ func enter() -> void:
 	jump_input_released = false
 
 
+func input(_event : InputEvent) -> BaseState:
+	# Climb while jumping
+	var ladder_input : bool = Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down")
+	if player.is_on_ladder() and ladder_input:
+		return climb_state
+
+	# Enable double jump command
+	if Input.is_action_just_released("jump") and not jump_input_released:
+		jump_input_released = true
+
+	# Double jumping
+	if Input.is_action_just_pressed("jump") and jump_input_released:
+		print(player.current_jump_count, " < ", player.move_data.max_jump_count)
+		if player.current_jump_count < player.move_data.max_jump_count:
+			player.velocity.y = -player.move_data.jump_force
+			player.current_jump_count += 1
+
+	return null
+
+
 func physics_process(delta : float) -> BaseState:
 	var move = 0
 	if Input.is_action_pressed("move_left"):
@@ -31,15 +51,6 @@ func physics_process(delta : float) -> BaseState:
 	elif Input.is_action_pressed("move_right"):
 		move = 1
 		player.animations.flip_h = true
-
-	if Input.is_action_just_released("jump") and not jump_input_released:
-		jump_input_released = true
-
-	if Input.is_action_just_pressed("jump") and jump_input_released:
-		print(player.current_jump_count, " < ", player.move_data.max_jump_count)
-		if player.current_jump_count < player.move_data.max_jump_count:
-			player.velocity.y = -player.move_data.jump_force
-			player.current_jump_count += 1
 
 	player.velocity.x = move_toward(player.velocity.x, move * player.move_data.jump_move_speed, player.move_data.friction)
 	player.velocity.y += player.gravity * delta
@@ -54,9 +65,5 @@ func physics_process(delta : float) -> BaseState:
 				return run_state
 			return walk_state
 		return idle_state
-
-	var ladder_input : bool = Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down")
-	if player.is_on_ladder() and ladder_input:
-		return climb_state
 
 	return null

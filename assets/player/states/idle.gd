@@ -29,6 +29,11 @@ func input(_event : InputEvent) -> BaseState:
 		return jump_state
 	elif Input.is_action_just_pressed("dash"):
 		return dash_state
+
+	var ladder_input : bool = Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down")
+	if player.is_on_ladder() and ladder_input:
+		return climb_state
+
 	return null
 
 
@@ -36,10 +41,6 @@ func physics_process(delta : float) -> BaseState:
 	player.velocity.x = move_toward(player.velocity.x, 0, player.move_data.friction)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
-
-	var ladder_input : bool = Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down")
-	if player.is_on_ladder() and ladder_input:
-		return climb_state
 
 	if !player.is_on_floor():
 		return fall_state
