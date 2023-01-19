@@ -24,7 +24,7 @@ func enter() -> void:
 
 func input(_event : InputEvent) -> BaseState:
 	# Climb while jumping
-	var ladder_input : bool = Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down")
+	var ladder_input : bool = Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down")
 	if player.is_on_ladder() and ladder_input:
 		return climb_state
 
