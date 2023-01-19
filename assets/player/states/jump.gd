@@ -1,12 +1,14 @@
 extends BaseState
 
 @export var fall_node : NodePath
+@export var jump_node : NodePath
 @export var run_node : NodePath
 @export var walk_node : NodePath
 @export var idle_node : NodePath
 @export var climb_node : NodePath
 
 @onready var fall_state: BaseState = get_node(fall_node)
+@onready var jump_state: BaseState = get_node(jump_node)
 @onready var run_state: BaseState = get_node(run_node)
 @onready var walk_state: BaseState = get_node(walk_node)
 @onready var idle_state: BaseState = get_node(idle_node)
@@ -27,11 +29,8 @@ func input(_event : InputEvent) -> BaseState:
 		return climb_state
 
 	# Double jump
-	if Input.is_action_just_pressed("jump"):
-		print(player.current_jump_count, " < ", player.move_data.max_jump_count)
-		if player.current_jump_count < player.move_data.max_jump_count:
-			player.velocity.y = -player.move_data.jump_force
-			player.current_jump_count += 1
+	if Input.is_action_just_pressed("jump") and player.current_jump_count < player.move_data.max_jump_count:
+		return jump_state
 
 	return null
 

@@ -92,6 +92,7 @@ animation_name = "dash"
 
 [node name="fall" type="Node" parent="state_manager"]
 script = ExtResource("8_urqgr")
+jump_node = NodePath("../jump")
 run_node = NodePath("../run")
 walk_node = NodePath("../walk")
 idle_node = NodePath("../idle")
@@ -101,6 +102,7 @@ animation_name = "fall"
 [node name="jump" type="Node" parent="state_manager"]
 script = ExtResource("9_e225q")
 fall_node = NodePath("../fall")
+jump_node = NodePath(".")
 run_node = NodePath("../run")
 walk_node = NodePath("../walk")
 idle_node = NodePath("../idle")

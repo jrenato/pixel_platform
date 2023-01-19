@@ -1,10 +1,12 @@
 extends BaseState
 
+@export var jump_node : NodePath
 @export var run_node : NodePath
 @export var walk_node : NodePath
 @export var idle_node : NodePath
 @export var climb_node : NodePath
 
+@onready var jump_state : BaseState = get_node(jump_node)
 @onready var run_state : BaseState = get_node(run_node)
 @onready var walk_state : BaseState = get_node(walk_node)
 @onready var idle_state : BaseState = get_node(idle_node)
@@ -12,11 +14,17 @@ extends BaseState
 
 
 func input(_event : InputEvent) -> BaseState:
+	# Climb
 	var ladder_input : bool = Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down")
 	if player.is_on_ladder() and ladder_input:
 		return climb_state
 
+	# Double jump
+	if Input.is_action_just_pressed("jump") and player.current_jump_count < player.move_data.max_jump_count:
+		return jump_state
+
 	return null
+
 
 func physics_process(delta : float) -> BaseState:
 	var move = 0
