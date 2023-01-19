@@ -4,7 +4,7 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@export var move_data : Resource = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
+@export var move_data : PlayerMovementData = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
 
 var jump_count : int = 0
 
