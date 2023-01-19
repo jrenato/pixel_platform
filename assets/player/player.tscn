@@ -50,7 +50,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [node name="state_manager" parent="." instance=ExtResource("3_i74eb")]
