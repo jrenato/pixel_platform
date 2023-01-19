@@ -21,7 +21,7 @@ func input(_event : InputEvent) -> BaseState:
 
 	if Input.is_action_just_pressed("jump"):
 		# Double jump
-		if player.jump_count < player.move_data.max_jump_count:
+		if player.jump_count > 0 and player.jump_count < player.move_data.max_jump_count:
 			return jump_state
 		# Coyote Jump
 		elif player.coyote_jump:
