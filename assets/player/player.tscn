@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
 [ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
-[ext_resource type="Resource" uid="uid://d1y3pww8i3a1a" path="res://assets/player/resources/pmd_slow.tres" id="2_kii57"]
+[ext_resource type="Resource" uid="uid://d1y3pww8i3a1a" path="res://assets/player/resources/pmd_slow.tres" id="2_52spy"]
 [ext_resource type="PackedScene" uid="uid://dlyjjygyhdxmc" path="res://assets/player/states/state_manager.tscn" id="3_i74eb"]
 [ext_resource type="Script" path="res://assets/player/states/idle.gd" id="4_rmbbq"]
 [ext_resource type="Script" path="res://assets/player/states/walk.gd" id="5_1t6yd"]
@@ -20,7 +20,7 @@ height = 17.0
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_e6etg")
-move_data = ExtResource("2_kii57")
+move_data = ExtResource("2_52spy")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 frames = ExtResource("2_17vh0")

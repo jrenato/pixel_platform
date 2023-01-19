@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var move_data : Resource
+@export var move_data : Resource = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
