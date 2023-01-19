@@ -8,11 +8,13 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var jump_count : int = 0
 var buffered_jump : bool = false
+var coyote_jump : bool = false
 
 @onready var animations : AnimatedSprite2D = $Animations
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
+@onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -65,3 +67,7 @@ func _on_jump_buffer_timer_timeout() -> void:
 	# TODO: Maybe the jump_buffer_time logic should belong to fall_state?
 	# Create a Timer dynamically and buffer_jump on fall.exit() ?
 	buffered_jump = false
+
+
+func _on_coyote_jump_timer_timeout() -> void:
+	coyote_jump = false

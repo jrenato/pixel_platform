@@ -19,6 +19,7 @@ extends BaseState
 
 var current_move_speed : int = 0
 
+
 func input(_event : InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("jump"):
 		return jump_state
@@ -41,6 +42,10 @@ func process(_delta : float) -> BaseState:
 
 func physics_process(delta : float) -> BaseState:
 	if !player.is_on_floor():
+		# Enable Coyote Jump
+		player.coyote_jump = true
+		player.coyote_jump_timer.start()
+
 		return fall_state
 
 	var move = get_movement_input()
