@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.0", "Mobile")
 run/max_fps=59
 config/icon="res://icon.svg"
 
+[autoload]
+
+SoundPlayer="*res://assets/sound/sound_player.tscn"
+
 [display]
 
 window/size/viewport_width=640

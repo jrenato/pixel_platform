@@ -14,7 +14,7 @@ func enter() -> void:
 	player.velocity = Vector2.ZERO
 
 
-func physics_process(delta : float) -> BaseState:
+func physics_process(_delta : float) -> BaseState:
 	var move = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	if move.length() == 0:
