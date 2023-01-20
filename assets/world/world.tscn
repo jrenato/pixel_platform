@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc6x3glokcijs"]
+[gd_scene load_steps=12 format=3 uid="uid://dc6x3glokcijs"]
 
 [ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_bkq7v"]
 [ext_resource type="Script" path="res://assets/world/world.gd" id="1_lfhq5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ciwl612dsdb7u" path="res://assets/hazards/spikes.tscn" id="3_mj75a"]
 [ext_resource type="PackedScene" uid="uid://57oc37ynrmeq" path="res://assets/enemies/spikey.tscn" id="5_m5mpe"]
 [ext_resource type="PackedScene" uid="uid://cu5e00y0pwtmg" path="res://assets/world/ladder/ladder.tscn" id="6_blbjj"]
+[ext_resource type="PackedScene" uid="uid://btfne1i0f2o60" path="res://assets/enemies/moving_spike.tscn" id="7_oo71u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bptca"]
 texture = ExtResource("1_bkq7v")
@@ -718,11 +719,23 @@ terrain_set_0/terrain_1/name = "Block"
 terrain_set_0/terrain_1/color = Color(0.792157, 0.180392, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_bptca")
 
+[sub_resource type="Curve2D" id="Curve2D_yl5jo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -90)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_7gh3t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 81, -18, 0, 0, 0, 0, 9, -18, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 81, 0)
+}
+point_count = 5
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_lfhq5")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(1, 330)
+position = Vector2(0, 342)
 tile_set = SubResource("TileSet_bgncl")
 cell_quadrant_size = 18
 format = 2
@@ -738,31 +751,41 @@ layer_1/tile_data = PackedInt32Array(1048600, 262145, 6, 786438, 393217, 6, 1048
 
 [node name="Player" parent="." instance=ExtResource("2_6char")]
 z_index = 5
-position = Vector2(371, 479)
+position = Vector2(297, 648)
 
 [node name="Spikes2" parent="." instance=ExtResource("3_mj75a")]
-position = Vector2(352, 672)
+position = Vector2(351, 684)
 
 [node name="Spikes3" parent="." instance=ExtResource("3_mj75a")]
-position = Vector2(370, 672)
+position = Vector2(369, 684)
 
 [node name="Spikes4" parent="." instance=ExtResource("3_mj75a")]
-position = Vector2(388, 672)
+position = Vector2(387, 684)
 
 [node name="Spikey" parent="." instance=ExtResource("5_m5mpe")]
-position = Vector2(697, 564)
+position = Vector2(693, 576)
 
 [node name="Ladder" parent="." instance=ExtResource("6_blbjj")]
-position = Vector2(163, 636)
+position = Vector2(162, 648)
 
 [node name="Ladder2" parent="." instance=ExtResource("6_blbjj")]
-position = Vector2(163, 618)
+position = Vector2(162, 630)
 
 [node name="Ladder3" parent="." instance=ExtResource("6_blbjj")]
-position = Vector2(163, 600)
+position = Vector2(162, 612)
 
 [node name="Ladder4" parent="." instance=ExtResource("6_blbjj")]
-position = Vector2(163, 582)
+position = Vector2(162, 594)
 
 [node name="Ladder5" parent="." instance=ExtResource("6_blbjj")]
-position = Vector2(163, 564)
+position = Vector2(162, 576)
+
+[node name="MovingSpike" parent="." instance=ExtResource("7_oo71u")]
+position = Vector2(99, 549)
+curve = SubResource("Curve2D_yl5jo")
+animation_type = 1
+
+[node name="MovingSpike2" parent="." instance=ExtResource("7_oo71u")]
+position = Vector2(423, 558)
+curve = SubResource("Curve2D_7gh3t")
+animation_type = 0
