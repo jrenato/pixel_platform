@@ -1,32 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://btfne1i0f2o60"]
+[gd_scene load_steps=9 format=3 uid="uid://btfne1i0f2o60"]
 
 [ext_resource type="Texture2D" uid="uid://df6t71d65760p" path="res://assets/images/characters_packed.png" id="1_51a24"]
+[ext_resource type="Script" path="res://assets/enemies/moving_spike.gd" id="1_ecwhc"]
 [ext_resource type="PackedScene" uid="uid://d1vjchtcc8vfi" path="res://assets/components/hitbox.tscn" id="2_bqoum"]
-
-[sub_resource type="Curve2D" id="Curve2D_qk1tq"]
-_data = {
-"points": PackedVector2Array(0, 0, 37.195, 9.57716, 149, 44, 0, 0, 0, 0, 200, 50, 0, 0, 0, 0, 179, 88, 0, 0, 0, 0, 117, 94, 0, 0, 0, 0, 48, 81, 0, 0, 0, 0, 58, 47, 0, 0, 0, 0, 78, 47, 0, 0, 0, 0, 149, 44)
-}
-point_count = 8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_krjgr"]
 radius = 8.0
-
-[sub_resource type="Animation" id="Animation_weflt"]
-resource_name = "MoveAlongPath"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
 
 [sub_resource type="Animation" id="Animation_us2on"]
 length = 0.001
@@ -43,18 +22,51 @@ tracks/0/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_weflt"]
+resource_name = "MoveLoop"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_2kun4"]
+resource_name = "MoveBounce"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_07hk6"]
 _data = {
-"MoveAlongPath": SubResource("Animation_weflt"),
+"MoveBounce": SubResource("Animation_2kun4"),
+"MoveLoop": SubResource("Animation_weflt"),
 "RESET": SubResource("Animation_us2on")
 }
 
 [node name="MovingSpike" type="Path2D"]
-curve = SubResource("Curve2D_qk1tq")
+script = ExtResource("1_ecwhc")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(149, 44)
-progress = 354.079
 rotates = false
 
 [node name="Area2D" type="Node2D" parent="PathFollow2D"]
@@ -70,6 +82,7 @@ region_rect = Rect2(192, 0, 24, 24)
 shape = SubResource("CircleShape2D_krjgr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "MoveLoop"
 libraries = {
 "": SubResource("AnimationLibrary_07hk6")
 }
