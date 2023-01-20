@@ -55,6 +55,11 @@ func _process(delta: float) -> void:
 	states.process(delta)
 
 
+func take_damage() -> void:
+	SoundPlayer.play_sound(SoundPlayer.HURT)
+	get_tree().reload_current_scene()
+
+
 func is_on_ladder() -> bool:
 	if not ladder_check.is_colliding(): return false
 	var collider = ladder_check.get_collider()

@@ -18,6 +18,7 @@ var jump_input_released : bool = false
 
 func enter() -> void:
 	super.enter()
+	SoundPlayer.play_sound(SoundPlayer.JUMP)
 	player.velocity.y = -player.move_data.jump_force
 	player.jump_count += 1
 	player.buffered_jump = false
