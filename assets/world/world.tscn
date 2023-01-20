@@ -751,7 +751,7 @@ layer_1/tile_data = PackedInt32Array(1048600, 262145, 6, 786438, 393217, 6, 1048
 
 [node name="Player" parent="." instance=ExtResource("2_6char")]
 z_index = 5
-position = Vector2(297, 648)
+position = Vector2(298, 654)
 
 [node name="Spikes2" parent="." instance=ExtResource("3_mj75a")]
 position = Vector2(351, 684)
@@ -781,11 +781,13 @@ position = Vector2(162, 594)
 position = Vector2(162, 576)
 
 [node name="MovingSpike" parent="." instance=ExtResource("7_oo71u")]
-position = Vector2(99, 549)
+position = Vector2(98, 548)
 curve = SubResource("Curve2D_yl5jo")
-animation_type = 1
+speed = 100
+animation_type = 100
 
 [node name="MovingSpike2" parent="." instance=ExtResource("7_oo71u")]
 position = Vector2(423, 558)
 curve = SubResource("Curve2D_7gh3t")
-animation_type = 0
+speed = 100
+animation_type = 100
