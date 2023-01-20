@@ -10,7 +10,6 @@ enum ANIMATION_TYPE { LOOP, BOUNCE }
 		speed = value
 		# Set value if running inside editor (tool)
 		if Engine.is_editor_hint():
-			print("Updating speed in editor: ", speed)
 			animation_player.playback_speed = speed / curve.get_baked_length() 
 	get:
 		return speed
@@ -20,7 +19,6 @@ enum ANIMATION_TYPE { LOOP, BOUNCE }
 		animation_type = value
 		# Set value if running inside editor (tool)
 		if Engine.is_editor_hint():
-			print("Updating animation type in editor")
 			set_animation_type()
 	get:
 		return animation_type
