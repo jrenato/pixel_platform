@@ -754,6 +754,7 @@ z_index = 5
 position = Vector2(298, 654)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(30, 549)
 current = true
 limit_left = 0
 limit_top = 0
