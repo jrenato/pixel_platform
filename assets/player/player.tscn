@@ -35,12 +35,7 @@ animation = &"fall"
 position = Vector2(0, 3.5)
 shape = SubResource("CapsuleShape2D_if3x5")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-limit_left = 0
-limit_top = 0
-limit_bottom = 700
-position_smoothing_enabled = true
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
 [node name="LadderCheck" type="RayCast2D" parent="."]
 position = Vector2(0, -4)

@@ -12,6 +12,7 @@ var coyote_jump : bool = false
 
 @onready var animations : AnimatedSprite2D = $Animations
 @onready var states : StateManager = $state_manager
+@onready var remote_transform : RemoteTransform2D = $RemoteTransform2D
 @onready var ladder_check : RayCast2D = $LadderCheck
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
@@ -24,6 +25,10 @@ func _ready() -> void:
 	# that way they can move and react accordingly
 	states.init(self)
 	animations.frames = skins[0]
+
+
+func connect_camera(camera: Camera2D):
+	remote_transform.remote_path = camera.get_path()
 
 
 func _unhandled_input(event: InputEvent) -> void:
