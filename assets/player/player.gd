@@ -62,7 +62,8 @@ func _process(delta: float) -> void:
 
 func take_damage() -> void:
 	SoundPlayer.play_sound(SoundPlayer.HURT)
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	queue_free()
 
 
 func is_on_ladder() -> bool:
