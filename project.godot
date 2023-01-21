@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SoundPlayer="*res://assets/sound/sound_player.tscn"
+Events="*res://assets/world/events.gd"
 
 [display]
 

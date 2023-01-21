@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dc6x3glokcijs"]
+[gd_scene load_steps=13 format=3 uid="uid://dc6x3glokcijs"]
 
 [ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_bkq7v"]
 [ext_resource type="Script" path="res://assets/world/world.gd" id="1_lfhq5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://57oc37ynrmeq" path="res://assets/enemies/spikey.tscn" id="5_m5mpe"]
 [ext_resource type="PackedScene" uid="uid://cu5e00y0pwtmg" path="res://assets/world/ladder/ladder.tscn" id="6_blbjj"]
 [ext_resource type="PackedScene" uid="uid://btfne1i0f2o60" path="res://assets/enemies/moving_spike.tscn" id="7_oo71u"]
+[ext_resource type="PackedScene" uid="uid://c8aogabktl2f6" path="res://assets/world/checkpoint/checkpoint.tscn" id="8_lmhb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bptca"]
 texture = ExtResource("1_bkq7v")
@@ -761,6 +762,8 @@ limit_top = 0
 limit_bottom = 700
 position_smoothing_enabled = true
 
+[node name="RespawnTimer" type="Timer" parent="."]
+
 [node name="Spikes2" parent="." instance=ExtResource("3_mj75a")]
 position = Vector2(351, 684)
 
@@ -798,3 +801,6 @@ position = Vector2(98, 546)
 curve = SubResource("Curve2D_i7sjj")
 speed = 50
 animation_type = 1
+
+[node name="Checkpoint" parent="." instance=ExtResource("8_lmhb2")]
+position = Vector2(558, 648)
