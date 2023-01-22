@@ -21,10 +21,12 @@ func _on_player_died() -> void:
 	respawn_timer.start()
 	await respawn_timer.timeout
 
+	SoundPlayer.play_sound(SoundPlayer.RESPAWN)
 	player = player_scene.instantiate()
 	add_child(player)
 	player.position = spawn_position
 	player.connect_camera(camera)
 
 func _on_update_checkpoint(checkpoint_position) -> void:
+	SoundPlayer.play_sound(SoundPlayer.CHECKPOINT)
 	spawn_position = checkpoint_position

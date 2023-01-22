@@ -763,6 +763,7 @@ limit_bottom = 700
 position_smoothing_enabled = true
 
 [node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="Spikes2" parent="." instance=ExtResource("3_mj75a")]
 position = Vector2(351, 684)
