@@ -44,7 +44,7 @@ func process(_delta : float) -> BaseState:
 
 
 func physics_process(delta : float) -> BaseState:
-	player.velocity.x = move_toward(player.velocity.x, 0, player.move_data.friction)
+	player.velocity.x = move_toward(player.velocity.x, 0, player.move_data.friction * delta)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 

@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerMovementData
 
-@export var friction : int = 30
+@export var friction : int = 400
 
 @export var walk_speed : int = 120
 @export var run_speed : int = 180

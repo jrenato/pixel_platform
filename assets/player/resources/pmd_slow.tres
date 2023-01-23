@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_g8060")
-friction = 30
+friction = 400
 walk_speed = 90
 run_speed = 135
 climb_speed = 90
