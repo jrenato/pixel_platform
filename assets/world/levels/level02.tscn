@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cydt4bkdcfvu6"]
+
+[ext_resource type="PackedScene" uid="uid://do5t0ho81gupb" path="res://assets/world/level.tscn" id="1_jm71n"]
+[ext_resource type="PackedScene" uid="uid://b1bxxq7k7vj06" path="res://assets/world/tilemaps/grass_tilemap.tscn" id="2_7yymh"]
+
+[node name="Level" instance=ExtResource("1_jm71n")]
+
+[node name="GrassTileMap" parent="." index="3" instance=ExtResource("2_7yymh")]
