@@ -1,11 +1,10 @@
 extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export_file("*.tscn") var target_level_path = ""
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body: Node2D) -> void:
+	if not body is Player or target_level_path.is_empty():
+		return
+
+	get_tree().change_scene_to_file(target_level_path)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cne0afe5weu2h"]
+[gd_scene load_steps=12 format=3 uid="uid://cne0afe5weu2h"]
 
 [ext_resource type="PackedScene" uid="uid://do5t0ho81gupb" path="res://assets/world/level.tscn" id="1_nr8d1"]
 [ext_resource type="PackedScene" uid="uid://b1bxxq7k7vj06" path="res://assets/world/tilemaps/grass_tilemap.tscn" id="2_mu0s5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://57oc37ynrmeq" path="res://assets/enemies/spikey.tscn" id="6_sq2uj"]
 [ext_resource type="PackedScene" uid="uid://btfne1i0f2o60" path="res://assets/enemies/moving_spike.tscn" id="7_4p5gc"]
 [ext_resource type="PackedScene" uid="uid://cu5e00y0pwtmg" path="res://assets/world/ladder/ladder.tscn" id="8_hctwi"]
+[ext_resource type="PackedScene" uid="uid://d0a75ddfqdm6" path="res://assets/world/door/door.tscn" id="9_fk2bf"]
 
 [sub_resource type="Curve2D" id="Curve2D_j4lph"]
 _data = {
@@ -112,3 +113,7 @@ position = Vector2(450, 252)
 
 [node name="Ladder5" parent="Ladders" index="4" instance=ExtResource("8_hctwi")]
 position = Vector2(450, 234)
+
+[node name="Door" parent="." index="7" instance=ExtResource("9_fk2bf")]
+position = Vector2(270, 324)
+target_level_path = "res://assets/world/levels/level02.tscn"
