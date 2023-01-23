@@ -5,6 +5,7 @@ extends Node2D
 enum {HOVER, FALL, LAND, RISE}
 
 var state := HOVER
+var is_visible : bool = false
 
 @export var active : bool = true :
 	set(value):
@@ -60,7 +61,8 @@ func fall_state(delta : float) -> void:
 		var collision_point : Vector2 = raycast.get_collision_point()
 		position.y = collision_point.y
 		particles.emitting = true
-		SoundPlayer.play_sound(SoundPlayer.BOOM)
+		if is_visible:
+			SoundPlayer.play_sound(SoundPlayer.BOOM)
 		state = LAND
 
 
@@ -84,3 +86,11 @@ func _on_timer_timeout():
 			state = RISE
 			animated_sprite.play("Rising")
 			particles.emitting = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	is_visible = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	is_visible = false
