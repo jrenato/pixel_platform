@@ -10,8 +10,8 @@ var state := HOVER
 	set(value):
 		active = value
 		if Engine.is_editor_hint():
+			PhysicsServer2D.set_active(active)
 			await ready
-			await PhysicsServer2D.set_active(active)
 			timer.start()
 	get:
 		return active
