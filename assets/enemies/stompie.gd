@@ -1,4 +1,4 @@
-#@tool
+# @tool
 # TODO: is it possible to detect collisions with a tilemap in editor?
 extends Node2D
 
@@ -10,7 +10,8 @@ var state := HOVER
 	set(value):
 		active = value
 		if Engine.is_editor_hint():
-			PhysicsServer2D.set_active(active)
+			await ready
+			await PhysicsServer2D.set_active(active)
 			timer.start()
 	get:
 		return active
@@ -20,6 +21,7 @@ var state := HOVER
 		wait_time = value
 		# Set value if running inside editor (tool)
 		if Engine.is_editor_hint():
+			await ready
 			timer.wait_time = wait_time
 	get:
 		return wait_time
