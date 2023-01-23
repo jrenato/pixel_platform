@@ -69,6 +69,7 @@ speed = 0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotates = false
+loop = false
 
 [node name="Area2D" type="Node2D" parent="PathFollow2D"]
 
