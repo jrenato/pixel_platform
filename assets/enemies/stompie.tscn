@@ -54,7 +54,7 @@ angle_max = 360.0
 scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_8p17d")
 
-[node name="StompEnemy" type="Node2D"]
+[node name="Stompie" type="Node2D"]
 script = ExtResource("1_v6356")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
