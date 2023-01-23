@@ -80,9 +80,7 @@ func _on_timer_timeout():
 		HOVER:
 			state = FALL
 			animated_sprite.play("Falling")
-			print("Falling")
 		LAND:
 			state = RISE
 			animated_sprite.play("Rising")
 			particles.emitting = false
-			print("Rising")
