@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://do5t0ho81gupb"]
+
+[ext_resource type="Script" path="res://assets/world/level.gd" id="1_4o1d0"]
+[ext_resource type="PackedScene" uid="uid://bon174udiedte" path="res://assets/player/player.tscn" id="1_u013p"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_4o1d0")
+
+[node name="Player" parent="." instance=ExtResource("1_u013p")]
+z_index = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 700
+position_smoothing_enabled = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 1.5
