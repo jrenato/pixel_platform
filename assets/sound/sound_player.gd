@@ -1,7 +1,7 @@
 extends Node
 
 const HURT = preload("res://assets/sound/sounds/hurt.wav")
-const JUMP = preload("res://assets/sound/sounds/jump.wav")
+const JUMP = preload("res://assets/sound/sounds/jump2.wav")
 const BOOM = preload("res://assets/sound/sounds/boom.wav")
 const LOSE = preload("res://assets/sound/sounds/lose.wav")
 const RESPAWN = preload("res://assets/sound/sounds/respawn.wav")
