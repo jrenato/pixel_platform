@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo22jkherbk5f"]
+[gd_scene load_steps=6 format=3 uid="uid://bb62sn6q5npnp"]
 
-[ext_resource type="Script" path="res://assets/world/transitions.gd" id="1_p8cbx"]
+[ext_resource type="Script" path="res://assets/world/transitions.gd" id="1_4rpbr"]
 
 [sub_resource type="Animation" id="Animation_ttkb8"]
 resource_name = "EnterLevel"
@@ -80,7 +80,7 @@ _data = {
 
 [node name="Transitions" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_p8cbx")
+script = ExtResource("1_4rpbr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
