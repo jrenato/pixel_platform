@@ -21,3 +21,6 @@ bus = &"Sound"
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="AudioPlayers"]
 bus = &"Sound"
+
+[node name="SongAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
