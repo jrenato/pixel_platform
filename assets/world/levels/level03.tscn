@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0a75ddfqdm6" path="res://assets/world/door/door.tscn" id="3_xm7sb"]
 
 [node name="Level" instance=ExtResource("1_vu2sj")]
-song = "Dungeon"
+song = 1
 
 [node name="Player" parent="." index="0"]
 position = Vector2(198, 270)

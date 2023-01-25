@@ -8,9 +8,9 @@ var spawn_position : Vector2 = Vector2.ZERO
 @onready var camera : Camera2D = $Camera2D
 @onready var respawn_timer : Timer = $RespawnTimer
 
-#@export_enum("Adventure", "Dungeon") var song : String
+# TODO: This enum should be stored as a string
+@export_enum("Adventure", "Dungeon") var song : int = 0
 
-@export var song : String = "Adventure"
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.LIGHT_BLUE)
@@ -18,7 +18,14 @@ func _ready() -> void:
 	Events.connect("player_died", _on_player_died)
 	Events.connect("update_checkpoint", _on_update_checkpoint)
 	spawn_position = player.position
-	SoundPlayer.play_song(song)
+	_play_song()
+
+func _play_song() -> void:
+	match song:
+		0:
+			SoundPlayer.play_song(SoundPlayer.ADVENTURE)
+		1:
+			SoundPlayer.play_song(SoundPlayer.DUNGEON)
 
 
 func _on_player_died() -> void:
