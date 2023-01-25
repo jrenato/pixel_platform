@@ -13,7 +13,7 @@ z_index = 5
 current = true
 limit_left = 0
 limit_top = 0
-limit_bottom = 700
+limit_bottom = 360
 position_smoothing_enabled = true
 
 [node name="RespawnTimer" type="Timer" parent="."]
