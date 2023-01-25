@@ -66,6 +66,10 @@ func _process(delta: float) -> void:
 
 
 func take_damage() -> void:
+	die()
+
+
+func die() -> void:
 	SoundPlayer.play_sound(SoundPlayer.LOSE)
 	queue_free()
 	Events.emit_signal("player_died")
