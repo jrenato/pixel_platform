@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://assets/player/states/jump.gd" id="9_e225q"]
 [ext_resource type="Script" path="res://assets/player/states/climb.gd" id="11_m0dk0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3nc6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifbr5"]
 radius = 5.0
 height = 17.0
 
@@ -35,7 +35,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_t3nc6")
+shape = SubResource("CapsuleShape2D_ifbr5")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 position = Vector2(0, -13)

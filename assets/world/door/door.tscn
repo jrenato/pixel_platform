@@ -27,4 +27,14 @@ region_rect = Rect2(180, 126, 18, 18)
 position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_i3n5r")
 
+[node name="EnterLabel" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -43.0
+offset_right = 8.0
+offset_bottom = -20.0
+text = "⬆️"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
