@@ -19,7 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body is Player or target_level_path.is_empty():
 		return
 
-	body.current_door = self
+	body.door = self
 	enter_label.visible = true
 
 
@@ -27,5 +27,5 @@ func _on_body_exited(body: Node2D) -> void:
 	if not body is Player:
 		return
 
-	body.current_door = null
+	body.door = null
 	enter_label.visible = false

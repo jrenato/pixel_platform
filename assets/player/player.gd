@@ -17,7 +17,7 @@ var coyote_jump : bool = false
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
 
-var current_door : Door = null 
+var door : Door = null 
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -37,8 +37,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("cycle_skin"):
 		cycle_skin()
 
-	if Input.is_action_pressed("move_up") and current_door != null:
-		current_door.enter_door()
+	if Input.is_action_pressed("move_up") and door != null:
+		door.enter_door()
 
 	states.input(event)
 
