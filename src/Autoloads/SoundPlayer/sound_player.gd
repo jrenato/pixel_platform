@@ -1,0 +1,31 @@
+extends Node
+
+# SFX
+const HURT : AudioStream = preload("res://assets/Audio/Sounds/hurt.wav")
+const JUMP : AudioStream = preload("res://assets/Audio/Sounds/jump2.wav")
+const BOOM : AudioStream = preload("res://assets/Audio/Sounds/boom.wav")
+const LOSE : AudioStream = preload("res://assets/Audio/Sounds/lose.wav")
+const RESPAWN : AudioStream = preload("res://assets/Audio/Sounds/respawn.wav")
+const SCENETRANSITION : AudioStream = preload("res://assets/Audio/Sounds/scene_transition.wav")
+const CHECKPOINT : AudioStream = preload("res://assets/Audio/Sounds/checkpoint.wav")
+
+# MUSIC
+const ADVENTURE : AudioStream = preload("res://assets/Audio/Musics/Adventures in Adventureland.mp3")
+const DUNGEON : AudioStream= preload("res://assets/Audio/Musics/8bit Dungeon Level.mp3")
+
+@onready var audio_players : Node = $AudioPlayers
+@onready var song_audio_player: AudioStreamPlayer = $SongAudioStreamPlayer
+
+
+func play_sound(sound : AudioStream) -> void:
+	for audio_stream_player in audio_players.get_children():
+		if not audio_stream_player.playing:
+			audio_stream_player.stream = sound
+			audio_stream_player.play()
+			break
+
+
+func play_song(song : AudioStream) -> void:
+	if song_audio_player.stream != song:
+		song_audio_player.stream = song
+		song_audio_player.play()

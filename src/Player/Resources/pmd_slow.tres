@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/Player/Resources/player_movement_data.gd" id="1_g8060"]
+
+[resource]
+script = ExtResource("1_g8060")
+friction = 400
+walk_speed = 90
+run_speed = 135
+climb_speed = 90
+dash_speed = 180
+dash_time = 0.4
+jump_force = 200
+jump_move_speed = 90
+fall_move_speed = 90
+max_jump_count = 1
