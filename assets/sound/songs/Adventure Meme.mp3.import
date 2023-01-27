@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yjf4irh2v43b"
+path="res://.godot/imported/Adventure Meme.mp3-501d5ff578083354ce0a63b0ec708d5c.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/songs/Adventure Meme.mp3"
+dest_files=["res://.godot/imported/Adventure Meme.mp3-501d5ff578083354ce0a63b0ec708d5c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

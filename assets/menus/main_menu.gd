@@ -8,6 +8,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	SoundPlayer.play_song(SoundPlayer.INTRO)
 	main_menu.visible = true
 	settings_menu.visible = false
 
@@ -18,21 +19,28 @@ func _create_or_load_save() -> void:
 	if GameManager.save_exists():
 		GameManager.load_savegame()
 	else:
-		# Change default values to GameManager, if required
+		# Change default values to GameManager here, if required
 		GameManager.write_savegame()
 
+	# Updates #UI after loading settings
 	check_box_fullscreen.button_pressed = GameManager.settings.fullscreen
 	h_slider_music.value = GameManager.settings.music_volume
 	h_slider_sound.value = GameManager.settings.sound_volume
 
 
 func _save_game() -> void:
-	#_save.global_position = _player.global_position
 	GameManager.write_savegame()
 
 
 func _on_button_play_pressed():
-	get_tree().change_scene_to_file("res://assets/world/levels/level01.tscn")
+	main_menu.visible = false
+	settings_menu.visible = false
+	SceneTransition.change_scene("res://assets/world/levels/level01.tscn")
+	#get_tree().change_scene_to_file("res://assets/world/levels/level01.tscn")
+
+
+func _on_button_continue_pressed() -> void:
+	pass # Replace with function body.
 
 
 func _on_button_settings_pressed() -> void:
@@ -50,6 +58,7 @@ func _on_button_quit_pressed() -> void:
 
 
 func _on_button_settings_back_pressed() -> void:
+	_save_game()
 	main_menu.visible = true
 	settings_menu.visible = false
 
@@ -61,9 +70,8 @@ func _on_check_box_fullscreen_toggled(button_pressed: bool) -> void:
 
 func _on_h_slider_music_value_changed(value):
 	GameManager.settings.music_volume = value
-	GameManager.write_savegame()
 
 
 func _on_h_slider_sound_value_changed(value):
+	SoundPlayer.play_sound(SoundPlayer.BLIP)
 	GameManager.settings.sound_volume = value
-	GameManager.write_savegame()

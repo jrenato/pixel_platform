@@ -5,11 +5,13 @@ const HURT : AudioStream = preload("res://assets/sound/sounds/hurt.wav")
 const JUMP : AudioStream = preload("res://assets/sound/sounds/jump2.wav")
 const BOOM : AudioStream = preload("res://assets/sound/sounds/boom.wav")
 const LOSE : AudioStream = preload("res://assets/sound/sounds/lose.wav")
+const BLIP : AudioStream = preload("res://assets/sound/sounds/blip.wav")
 const RESPAWN : AudioStream = preload("res://assets/sound/sounds/respawn.wav")
 const SCENETRANSITION : AudioStream = preload("res://assets/sound/sounds/scene_transition.wav")
 const CHECKPOINT : AudioStream = preload("res://assets/sound/sounds/checkpoint.wav")
 
 # MUSIC
+const INTRO : AudioStream= preload("res://assets/sound/songs/Adventure Meme.mp3")
 const ADVENTURE : AudioStream = preload("res://assets/sound/songs/Adventures in Adventureland.mp3")
 const DUNGEON : AudioStream= preload("res://assets/sound/songs/8bit Dungeon Level.mp3")
 

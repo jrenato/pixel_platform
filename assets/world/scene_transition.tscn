@@ -3,22 +3,6 @@
 [ext_resource type="Script" path="res://assets/world/scene_transition.gd" id="1_gbe7q"]
 [ext_resource type="Texture2D" uid="uid://dfuu8bhx1yltj" path="res://assets/images/transition_screen.png" id="2_7lv3o"]
 
-[sub_resource type="Animation" id="Animation_tumre"]
-resource_name = "dissolve"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dissolve_rect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_e0nxx"]
 resource_name = "RESET"
 length = 0.01
@@ -79,6 +63,22 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -441)]
 }
 
+[sub_resource type="Animation" id="Animation_tumre"]
+resource_name = "dissolve"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dissolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hgdvv"]
 _data = {
 "RESET": SubResource("Animation_e0nxx"),
@@ -88,6 +88,7 @@ _data = {
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_gbe7q")
 
 [node name="dissolve_rect" type="ColorRect" parent="."]

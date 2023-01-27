@@ -6,6 +6,10 @@ var version : int = 1
 var settings : GameSettings = GameSettings.new()
 
 
+func _ready() -> void:
+	settings.init()
+
+
 func save_exists() -> bool:
 	return FileAccess.file_exists(SAVE_GAME_PATH)
 
