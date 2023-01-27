@@ -28,9 +28,7 @@ var sound_bus_id : int
 
 func init() -> void:
 	music_bus_id = AudioServer.get_bus_index("Music")
-	print("Music bus ID: ", music_bus_id)
 	sound_bus_id = AudioServer.get_bus_index("Sound")
-	print("Sound bus ID: ", sound_bus_id)
 
 
 func update_fullscreen() -> void:

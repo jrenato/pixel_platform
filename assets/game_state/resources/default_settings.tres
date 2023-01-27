@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="GameSettings" load_steps=2 format=3 uid="uid://dqvnur4aft5k8"]
-
-[ext_resource type="Script" path="res://assets/game_state/resources/game_settings.gd" id="1_yjsi7"]
-
-[resource]
-script = ExtResource("1_yjsi7")
-fullscreen = false
-music_volume = 0.0
-sound_volume = 0.0

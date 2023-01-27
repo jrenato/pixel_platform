@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dhn7q4orov48p"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dhn7q4orov48p"]
 
 [ext_resource type="FontFile" uid="uid://dubgbn7kfl5ep" path="res://assets/fonts/8bitOperatorPlus8-Regular.ttf" id="1_4fw6l"]
 
@@ -44,6 +44,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80hct"]
+bg_color = Color(0, 0.101961, 0.121569, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvhgx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -294,7 +297,7 @@ HScrollBar/styles/grabber_pressed = null
 HScrollBar/styles/scroll = null
 HScrollBar/styles/scroll_focus = null
 HSeparator/constants/separation = 0
-HSeparator/styles/separator = null
+HSeparator/styles/separator = SubResource("StyleBoxFlat_80hct")
 HSlider/constants/grabber_offset = 0
 HSlider/icons/grabber = null
 HSlider/icons/grabber_disabled = null

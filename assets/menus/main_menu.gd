@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @onready var main_menu = $Main
 @onready var settings_menu = $Settings
+
+@onready var button_continue: Button = $Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonContinue
+
 @onready var check_box_fullscreen: CheckBox = $Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainerFullscreen/CheckBoxFullscreen
 @onready var h_slider_music: HSlider = $Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainerMusic/HSliderMusic
 @onready var h_slider_sound: HSlider = $Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainerSound/HSliderSound
@@ -17,30 +20,36 @@ func _ready() -> void:
 
 func _create_or_load_save() -> void:
 	if GameManager.save_exists():
-		GameManager.load_savegame()
+		GameManager.load_data()
 	else:
 		# Change default values to GameManager here, if required
-		GameManager.write_savegame()
+		GameManager.write_data()
 
 	# Updates #UI after loading settings
+	## Button continue
+	print("Current Level: ", GameManager.game_data.current_level)
+	button_continue.disabled = GameManager.game_data.current_level.is_empty()
+	## Settings UI
 	check_box_fullscreen.button_pressed = GameManager.settings.fullscreen
 	h_slider_music.value = GameManager.settings.music_volume
 	h_slider_sound.value = GameManager.settings.sound_volume
 
 
 func _save_game() -> void:
-	GameManager.write_savegame()
+	GameManager.write_data()
 
 
 func _on_button_play_pressed():
-	main_menu.visible = false
-	settings_menu.visible = false
-	SceneTransition.change_scene("res://assets/world/levels/level01.tscn")
-	#get_tree().change_scene_to_file("res://assets/world/levels/level01.tscn")
+	# Starts a new game, so it must set current level to level1
+	GameManager.game_data.current_level = GameData.level1
+	# Not required, since it will save on Level.ready() because of player position
+	#GameManager.write_data()
+	SceneTransition.change_scene(GameData.level1)
 
 
 func _on_button_continue_pressed() -> void:
-	pass # Replace with function body.
+	GameManager.game_data.update_player_position = true
+	SceneTransition.change_scene(GameManager.game_data.current_level)
 
 
 func _on_button_settings_pressed() -> void:
@@ -65,7 +74,6 @@ func _on_button_settings_back_pressed() -> void:
 
 func _on_check_box_fullscreen_toggled(button_pressed: bool) -> void:
 	GameManager.settings.fullscreen = button_pressed
-	GameManager.write_savegame()
 
 
 func _on_h_slider_music_value_changed(value):
@@ -73,5 +81,6 @@ func _on_h_slider_music_value_changed(value):
 
 
 func _on_h_slider_sound_value_changed(value):
+	# Blip, so player can check the sound volume
 	SoundPlayer.play_sound(SoundPlayer.BLIP)
 	GameManager.settings.sound_volume = value

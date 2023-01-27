@@ -11,6 +11,8 @@ func _ready() -> void:
 
 
 func enter_door() -> void:
+	GameManager.game_data.current_level = target_level_path
+	GameManager.write_data()
 	SoundPlayer.play_sound(SoundPlayer.SCENETRANSITION)
 	SceneTransition.change_scene(target_level_path, "clouds")
 
