@@ -1,46 +1,34 @@
 extends CanvasLayer
 
-var _save : GameManager = GameManager.new()
-
 @onready var main_menu = $Main
 @onready var settings_menu = $Settings
-
-var music_bus_id : int
-var sound_bus_id : int
+@onready var check_box_fullscreen: CheckBox = $Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainerFullscreen/CheckBoxFullscreen
+@onready var h_slider_music: HSlider = $Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainerMusic/HSliderMusic
+@onready var h_slider_sound: HSlider = $Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainerSound/HSliderSound
 
 
 func _ready() -> void:
 	main_menu.visible = true
 	settings_menu.visible = false
-	music_bus_id = AudioServer.get_bus_index("Music")
-	sound_bus_id = AudioServer.get_bus_index("Sound")
 
 	_create_or_load_save()
 
 
 func _create_or_load_save() -> void:
-	if _save.save_exists():
-		_save.load_savegame()
+	if GameManager.save_exists():
+		GameManager.load_savegame()
 	else:
-		#_save.inventory.add_item("healing_gem", 3)
-		#_save.inventory.add_item("sword", 1)
+		# Change default values to GameManager, if required
+		GameManager.write_savegame()
 
-		#_save.map_name = "map_1"
-		#_save.global_position = _player.global_position
-
-		_save.write_savegame()
-
-	# After creating or loading a save resource, we need to dispatch its data
-	# to the various nodes that need it.
-	#_player.global_position = _save.global_position
-	#_ui_inventory.inventory = _save.inventory
-	#_player.stats = _save.character
-	#_ui_info_display.character = _save.character
+	check_box_fullscreen.button_pressed = GameManager.settings.fullscreen
+	h_slider_music.value = GameManager.settings.music_volume
+	h_slider_sound.value = GameManager.settings.sound_volume
 
 
 func _save_game() -> void:
 	#_save.global_position = _player.global_position
-	_save.write_savegame()
+	GameManager.write_savegame()
 
 
 func _on_button_play_pressed():
@@ -53,7 +41,8 @@ func _on_button_settings_pressed() -> void:
 
 
 func _on_button_about_pressed() -> void:
-	pass # Replace with function body.
+	#TODO: Add credits scene transition
+	pass
 
 
 func _on_button_quit_pressed() -> void:
@@ -65,18 +54,16 @@ func _on_button_settings_back_pressed() -> void:
 	settings_menu.visible = false
 
 
-func _on_check_box_fullscreen_toggled(button_pressed):
-	if button_pressed:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+func _on_check_box_fullscreen_toggled(button_pressed: bool) -> void:
+	GameManager.settings.fullscreen = button_pressed
+	GameManager.write_savegame()
 
 
 func _on_h_slider_music_value_changed(value):
-	AudioServer.set_bus_mute(music_bus_id, value == -35)
-	AudioServer.set_bus_volume_db(music_bus_id, value)
+	GameManager.settings.music_volume = value
+	GameManager.write_savegame()
 
 
 func _on_h_slider_sound_value_changed(value):
-	AudioServer.set_bus_mute(sound_bus_id, value == -35)
-	AudioServer.set_bus_volume_db(sound_bus_id, value)
+	GameManager.settings.sound_volume = value
+	GameManager.write_savegame()

@@ -1,15 +1,9 @@
-class_name GameManager
-extends RefCounted
+extends Node
 
-const SAVE_GAME_PATH := "user://gamedata.json"
+const SAVE_GAME_PATH : String = "user://gamedata.json"
+var version : int = 1
 
-var version := 1
-
-#var character: Resource = Character.new()
-#var inventory: Resource = Inventory.new()
-
-var map_name := ""
-var global_position := Vector2.ZERO
+var settings : GameSettings = GameSettings.new()
 
 
 func save_exists() -> bool:
@@ -23,7 +17,11 @@ func write_savegame() -> void:
 		return
 
 	var data := {
-		"test": 0,
+		"settings": {
+			"fullscreen": settings.fullscreen,
+			"music_volume": settings.music_volume,
+			"sound_volume": settings.sound_volume,
+		},
 #		"global_position":
 #		{
 #			"x": global_position.x,
@@ -61,9 +59,11 @@ func load_savegame() -> void:
 		printerr("Error loading options")
 		return
 
-	var data: Dictionary = json.get_data()
-	
-	print(data.test)
+	var data : Dictionary = json.get_data()
+
+	settings.fullscreen = data.settings.fullscreen
+	settings.music_volume = data.settings.music_volume
+	settings.sound_volume = data.settings.sound_volume
 
 #	global_position = Vector2(data.global_position.x, data.global_position.y)
 #	map_name = data.map_name
