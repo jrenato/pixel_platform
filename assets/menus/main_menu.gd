@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var _save : SaveGameAsJSON = SaveGameAsJSON.new()
+var _save : GameManager = GameManager.new()
 
 @onready var main_menu = $Main
 @onready var settings_menu = $Settings

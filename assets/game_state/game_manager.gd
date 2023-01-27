@@ -1,7 +1,7 @@
-class_name SaveGameAsJSON
+class_name GameManager
 extends RefCounted
 
-const SAVE_GAME_PATH := "user://options.json"
+const SAVE_GAME_PATH := "user://gamedata.json"
 
 var version := 1
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm3jd6re46n1a"]
+[gd_scene load_steps=2 format=3 uid="uid://c2tlpblidc2xt"]
 
 [ext_resource type="Script" path="res://assets/menus/main_menu.gd" id="1_7ef50"]
-[ext_resource type="Theme" uid="uid://dhn7q4orov48p" path="res://assets/menus/pixel_theme.tres" id="2_07ai1"]
 
 [node name="MainMenu" type="Node"]
 
@@ -28,7 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_07ai1")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Main"]
 layout_mode = 1
@@ -89,7 +87,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_07ai1")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Settings"]
 layout_mode = 1

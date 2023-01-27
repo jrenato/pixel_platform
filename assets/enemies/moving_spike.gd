@@ -28,7 +28,7 @@ enum ANIMATION_TYPE { LOOP, BOUNCE }
 
 func _ready() -> void:
 	set_animation_type()
-	animation_player.playback_speed = speed / curve.get_baked_length() 
+	animation_player.speed_scale = speed / curve.get_baked_length()
 
 
 func set_animation_type() -> void:
