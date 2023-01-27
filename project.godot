@@ -11,16 +11,17 @@ config_version=5
 [application]
 
 config/name="Pixel Platform"
-run/main_scene="res://src/Interface/main_menu.tscn"
+run/main_scene="res://assets/menus/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
-SoundPlayer="*res://src/Autoloads/SoundPlayer/sound_player.tscn"
-Events="*res://src/Autoloads/Events/events.gd"
-SceneTransition="*res://src/Autoloads/SceneTransition/scene_transition.tscn"
+SoundPlayer="*res://assets/sound/sound_player.tscn"
+Events="*res://assets/world/events.gd"
+Transitions="res://assets/world/transitions.tscn"
+SceneTransition="*res://assets/world/scene_transition.tscn"
 
 [display]
 

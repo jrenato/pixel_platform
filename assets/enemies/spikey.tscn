@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://57oc37ynrmeq"]
+
+[ext_resource type="Script" path="res://assets/enemies/spikey.gd" id="1_uvubj"]
+[ext_resource type="Texture2D" uid="uid://df6t71d65760p" path="res://assets/images/characters_packed.png" id="1_xpnoh"]
+[ext_resource type="PackedScene" uid="uid://d1vjchtcc8vfi" path="res://assets/components/hitbox.tscn" id="3_dnosg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivmfd"]
+atlas = ExtResource("1_xpnoh")
+region = Rect2(144, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21n71"]
+atlas = ExtResource("1_xpnoh")
+region = Rect2(168, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8v0nx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivmfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21n71")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kilhc"]
+size = Vector2(15, 18)
+
+[node name="Spikey" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_uvubj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+frames = SubResource("SpriteFrames_8v0nx")
+animation = &"walk"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -9)
+shape = SubResource("RectangleShape2D_kilhc")
+
+[node name="EdgeCheckRight" type="RayCast2D" parent="."]
+position = Vector2(7, -1)
+target_position = Vector2(0, 2)
+
+[node name="EdgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-8, -1)
+target_position = Vector2(0, 2)
+
+[node name="Hitbox" parent="." instance=ExtResource("3_dnosg")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-6, -2, -6, -9, -4, -12, -1, -18, 0, -18, 3, -12, 5, -9, 5, -2)
