@@ -1,5 +1,8 @@
 extends Control
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
 var is_paused : bool = false :
 	set(value):
 		is_paused = value
@@ -18,6 +21,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func update_paused_state():
+	if is_paused:
+		animation_player.play("Pause")
+	else:
+		animation_player.play("Unpause")
+
 	get_tree().paused = is_paused
 	visible = is_paused
 
