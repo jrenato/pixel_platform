@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://assets/player/states/jump.gd" id="9_e225q"]
 [ext_resource type="Script" path="res://assets/player/states/climb.gd" id="11_m0dk0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sv34e"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ve2bp"]
 radius = 5.0
 height = 17.0
 
@@ -29,13 +29,13 @@ skins = [ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"),
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
-frames = ExtResource("2_17vh0")
-animation = &"fall"
+sprite_frames = ExtResource("2_17vh0")
+animation = &"idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_sv34e")
+shape = SubResource("CapsuleShape2D_ve2bp")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 position = Vector2(0, -13)
