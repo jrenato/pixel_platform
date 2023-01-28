@@ -35,6 +35,7 @@ size = Vector2(1809.5, 162.5)
 position = Vector2(90, 324)
 
 [node name="Camera2D" parent="." index="1"]
+position = Vector2(0, 180)
 limit_top = -360
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
