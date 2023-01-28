@@ -8,6 +8,9 @@ var player: Player
 
 
 func enter() -> void:
+	# TODO: Keep an eye on this issue
+	# https://github.com/godotengine/godot/pull/66219
+	player.animations.frame = 1
 	player.animations.play(animation_name)
 
 
