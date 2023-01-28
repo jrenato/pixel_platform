@@ -13,6 +13,8 @@ const player_scene = preload("res://assets/player/player.tscn")
 
 
 func _ready() -> void:
+	# Disables mouse
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# Set default color for background
 	RenderingServer.set_default_clear_color(Color.LIGHT_BLUE)
 

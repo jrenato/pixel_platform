@@ -23,12 +23,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func update_paused_state():
 	if is_paused:
 		animation_player.play("Pause")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		animation_player.play("Unpause")
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	get_tree().paused = is_paused
 	visible = is_paused
-
 
 func _on_button_resume_pressed() -> void:
 	is_paused = false

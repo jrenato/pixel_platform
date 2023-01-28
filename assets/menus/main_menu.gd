@@ -11,6 +11,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	SoundPlayer.play_song(SoundPlayer.INTRO)
 	main_menu.visible = true
 	settings_menu.visible = false
@@ -40,9 +41,8 @@ func _save_game() -> void:
 
 func _on_button_play_pressed():
 	# Starts a new game, so it must set current level to level1
+	# game_data.current_level will be saved on level._ready()
 	GameManager.game_data.current_level = GameData.level1
-	# Not required, since it will save on Level.ready() because of player position
-	#GameManager.write_data()
 	SceneTransition.change_scene(GameData.level1)
 
 
