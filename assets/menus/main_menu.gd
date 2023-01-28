@@ -27,7 +27,6 @@ func _create_or_load_save() -> void:
 
 	# Updates #UI after loading settings
 	## Button continue
-	print("Current Level: ", GameManager.game_data.current_level)
 	button_continue.disabled = GameManager.game_data.current_level.is_empty()
 	## Settings UI
 	check_box_fullscreen.button_pressed = GameManager.settings.fullscreen
