@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://do5t0ho81gupb"]
+[gd_scene load_steps=4 format=3 uid="uid://do5t0ho81gupb"]
 
 [ext_resource type="Script" path="res://assets/world/level.gd" id="1_4o1d0"]
 [ext_resource type="PackedScene" uid="uid://bon174udiedte" path="res://assets/player/player.tscn" id="1_u013p"]
+[ext_resource type="PackedScene" uid="uid://br176rfaqmf02" path="res://assets/menus/pause_menu.tscn" id="3_c13ob"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_4o1d0")
@@ -18,3 +19,7 @@ position_smoothing_enabled = true
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 1.5
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("3_c13ob")]
