@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d181blpjbc6m8"]
+
+[ext_resource type="Texture2D" uid="uid://bc2x5t0hcnfid" path="res://assets/GUI/atlases/heartempty_atlas_texture.tres" id="2_2woir"]
+[ext_resource type="Script" path="res://assets/GUI/components/heart_container.gd" id="2_lwtn3"]
+
+[node name="HeartContainer" type="Control"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_lwtn3")
+
+[node name="HeartTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+offset_right = 22.0
+offset_bottom = 22.0
+texture = ExtResource("2_2woir")
+expand_mode = 1

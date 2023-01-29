@@ -25,9 +25,9 @@ func _ready() -> void:
 	Events.connect("player_died", _on_player_died)
 	Events.connect("update_checkpoint", _on_update_checkpoint)
 
-	if GameManager.game_data.update_player_position:
+	if GameManager.game_data.update_player_data:
 		# Positions player from saved location
-		GameManager.game_data.update_player_position = false
+		GameManager.game_data.update_player_data = false
 		player.position = GameManager.game_data.player_position
 	else:
 		# Updates player start position in game data
@@ -49,12 +49,18 @@ func _play_song() -> void:
 func _on_player_died() -> void:
 	respawn_timer.start()
 	await respawn_timer.timeout
+	respawn_player()
 
+
+func respawn_player() -> void:
 	SoundPlayer.play_sound(SoundPlayer.RESPAWN)
 	player = player_scene.instantiate()
 	add_child(player)
 	player.position = GameManager.game_data.player_position
 	player.connect_camera(camera)
+	GameManager.game_data.player_health = GameManager.game_data.player_max_health
+	Events.emit_signal("update_ui")
+
 
 func _on_update_checkpoint(checkpoint_position) -> void:
 	SoundPlayer.play_sound(SoundPlayer.CHECKPOINT)

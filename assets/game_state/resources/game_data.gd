@@ -9,4 +9,10 @@ const level3 : String = "res://assets/world/levels/level03.tscn"
 var current_level : String = ""
 var player_position : Vector2 = Vector2.ZERO
 
-var update_player_position : bool = false
+var player_health : float = 3.0
+var player_max_health : float = 3.0
+
+var player_coins : int = 0
+var player_diamonds : int = 0
+
+var update_player_data : bool = false

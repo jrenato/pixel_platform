@@ -48,7 +48,7 @@ func _on_button_play_pressed():
 
 
 func _on_button_continue_pressed() -> void:
-	GameManager.game_data.update_player_position = true
+	GameManager.game_data.update_player_data = true
 	SceneTransition.change_scene(GameManager.game_data.current_level)
 
 

@@ -20,13 +20,7 @@ var coyote_jump : bool = false
 
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var hurt_animation_player: AnimationPlayer = $HurtAnimationPlayer
-
-@export var max_health : float = 3
-@export var health : float = 3
 @export var hurt_duration : int = 1
-
-@export var coins : float = 0
-@export var diamonds : float = 0
 
 var nearest_door : Door = null
 
@@ -83,16 +77,22 @@ func take_damage(damage : float) -> void:
 
 	hurt_timer.start()
 	hurt_animation_player.play("hurt")
-	health -= damage
-	print("Health: ", health)
-	if health <= 0.0:
+	SoundPlayer.play_sound(SoundPlayer.HURT)
+
+	GameManager.game_data.player_health -= damage
+	Events.emit_signal("update_ui")
+	
+	if GameManager.game_data.player_health <= 0.0:
 		die()
 
 
 func die() -> void:
+	GameManager.game_data.player_health = 0
+	Events.emit_signal("update_ui")
+	Events.emit_signal("player_died")
+
 	SoundPlayer.play_sound(SoundPlayer.LOSE)
 	queue_free()
-	Events.emit_signal("player_died")
 
 
 func is_on_ladder() -> bool:

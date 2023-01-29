@@ -31,7 +31,13 @@ func write_data() -> void:
 		{
 			"current_level": game_data.current_level,
 			"player_x": game_data.player_position.x,
-			"player_y": game_data.player_position.y
+			"player_y": game_data.player_position.y,
+
+			"player_health": game_data.player_health,
+			"player_max_health": game_data.player_max_health,
+
+			"player_coins": game_data.player_coins,
+			"player_diamonds": game_data.player_diamonds,
 		},
 	}
 	
@@ -57,6 +63,12 @@ func load_data() -> void:
 
 	game_data.current_level = data.game_data.current_level
 	game_data.player_position = Vector2(data.game_data.player_x, data.game_data.player_y)
+
+	game_data.player_health = data.game_data.player_health
+	game_data.player_max_health = data.game_data.player_max_health
+
+	game_data.player_coins = data.game_data.player_coins
+	game_data.player_diamonds = data.game_data.player_diamonds
 
 	settings.fullscreen = data.settings.fullscreen
 	settings.music_volume = data.settings.music_volume
