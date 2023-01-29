@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjki37fp5c22d"]
+[gd_scene load_steps=3 format=3 uid="uid://bj7xh00qq5w1g"]
 
-[ext_resource type="Texture2D" uid="uid://c3y7co6hc5olw" path="res://assets/GUI/heart_atlas_texture.tres" id="1_kynrt"]
 [ext_resource type="Theme" uid="uid://bh4rg488rkx68" path="res://assets/GUI/gui_theme.tres" id="1_vcca7"]
+[ext_resource type="Texture2D" uid="uid://c3y7co6hc5olw" path="res://assets/GUI/atlases/heart_atlas_texture.tres" id="2_wpx62"]
 
 [node name="HeartsContainer" type="Control"]
 layout_mode = 3
@@ -34,29 +34,29 @@ alignment = 1
 [node name="Heart1" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("1_kynrt")
+texture = ExtResource("2_wpx62")
 expand_mode = 1
 
 [node name="Heart2" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("1_kynrt")
+texture = ExtResource("2_wpx62")
 expand_mode = 1
 
 [node name="Heart3" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("1_kynrt")
+texture = ExtResource("2_wpx62")
 expand_mode = 1
 
 [node name="Heart4" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("1_kynrt")
+texture = ExtResource("2_wpx62")
 expand_mode = 1
 
 [node name="Heart5" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("1_kynrt")
+texture = ExtResource("2_wpx62")
 expand_mode = 1

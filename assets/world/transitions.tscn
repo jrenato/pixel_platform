@@ -1,6 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb62sn6q5npnp"]
+[gd_scene load_steps=6 format=3 uid="uid://dqofs7fv8pmem"]
 
-[ext_resource type="Script" path="res://assets/world/transitions.gd" id="1_4rpbr"]
+[sub_resource type="GDScript" id="GDScript_4ghdu"]
+script/source = "extends CanvasLayer
+
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
+
+
+func play_enter_level():
+	animation_player.play(\"EnterLevel\")
+
+func play_exit_level():
+	animation_player.play(\"ExitLevel\")
+"
 
 [sub_resource type="Animation" id="Animation_ttkb8"]
 resource_name = "EnterLevel"
@@ -80,7 +91,7 @@ _data = {
 
 [node name="Transitions" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_4rpbr")
+script = SubResource("GDScript_4ghdu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

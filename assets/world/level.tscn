@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://0g7sgp07y8s"]
+[gd_scene load_steps=9 format=3 uid="uid://37lytfkxlr4"]
 
 [ext_resource type="Script" path="res://assets/world/level.gd" id="1_4o1d0"]
 [ext_resource type="PackedScene" uid="uid://bon174udiedte" path="res://assets/player/player.tscn" id="1_u013p"]
-[ext_resource type="PackedScene" uid="uid://bwc34a82p6glk" path="res://assets/GUI/pause_menu.tscn" id="3_c13ob"]
-[ext_resource type="Texture2D" uid="uid://c3y7co6hc5olw" path="res://assets/GUI/heart_atlas_texture.tres" id="4_2rqlg"]
+[ext_resource type="PackedScene" uid="uid://b1cmb254mhgo2" path="res://assets/GUI/menus/pause_menu.tscn" id="3_c13ob"]
+[ext_resource type="Texture2D" uid="uid://c3y7co6hc5olw" path="res://assets/GUI/atlases/heart_atlas_texture.tres" id="4_1usok"]
 [ext_resource type="Theme" uid="uid://bh4rg488rkx68" path="res://assets/GUI/gui_theme.tres" id="4_aegta"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_llued"]
@@ -74,31 +74,31 @@ alignment = 1
 [node name="Heart1" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("4_2rqlg")
+texture = ExtResource("4_1usok")
 expand_mode = 1
 
 [node name="Heart2" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("4_2rqlg")
+texture = ExtResource("4_1usok")
 expand_mode = 1
 
 [node name="Heart3" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("4_2rqlg")
+texture = ExtResource("4_1usok")
 expand_mode = 1
 
 [node name="Heart4" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("4_2rqlg")
+texture = ExtResource("4_1usok")
 expand_mode = 1
 
 [node name="Heart5" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
-texture = ExtResource("4_2rqlg")
+texture = ExtResource("4_1usok")
 expand_mode = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="GUI/PlayerGUI"]

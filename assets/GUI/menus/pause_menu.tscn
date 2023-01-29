@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwc34a82p6glk"]
+[gd_scene load_steps=10 format=3 uid="uid://b1cmb254mhgo2"]
 
 [ext_resource type="Theme" uid="uid://dhn7q4orov48p" path="res://assets/GUI/pixel_theme.tres" id="1_fc2p3"]
-[ext_resource type="Script" path="res://assets/world/pause_menu.gd" id="2_pico2"]
+[ext_resource type="Script" path="res://assets/GUI/menus/pause_menu.gd" id="2_bo3me"]
 [ext_resource type="Shader" path="res://assets/GUI/blur.gdshader" id="3_axwts"]
-[ext_resource type="PackedScene" uid="uid://c2bo3hoaaswgh" path="res://assets/GUI/settings_menu.tscn" id="4_jio0k"]
+[ext_resource type="PackedScene" path="res://assets/GUI/menus/settings_menu.tscn" id="4_t833n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e0hhc"]
 shader = ExtResource("3_axwts")
@@ -145,7 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fc2p3")
-script = ExtResource("2_pico2")
+script = ExtResource("2_bo3me")
 
 [node name="Background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_e0hhc")
@@ -225,12 +225,13 @@ libraries = {
 "": SubResource("AnimationLibrary_fa1a2")
 }
 
-[node name="Settings" parent="." instance=ExtResource("4_jio0k")]
-process_mode = 3
+[node name="Settings" parent="." instance=ExtResource("4_t833n")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
