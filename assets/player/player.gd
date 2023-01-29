@@ -72,12 +72,11 @@ func _process(delta: float) -> void:
 
 
 func take_damage(damage : float) -> void:
-	if not hurt_timer.is_stopped():
-		return
-
 	hurt_timer.start()
 	hurt_animation_player.play("hurt")
 	SoundPlayer.play_sound(SoundPlayer.HURT)
+
+	set_collision_layer_value(2, false)
 
 	GameManager.game_data.player_health -= damage
 	Events.emit_signal("update_ui")
@@ -115,3 +114,4 @@ func _on_coyote_jump_timer_timeout() -> void:
 
 func _on_hurt_timer_timeout() -> void:
 	hurt_animation_player.stop()
+	set_collision_layer_value(2, true)
