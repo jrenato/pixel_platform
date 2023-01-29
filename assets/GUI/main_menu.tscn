@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://deutovv1dvvdy"]
+[gd_scene load_steps=5 format=3 uid="uid://deutovv1dvvdy"]
 
 [ext_resource type="Script" path="res://assets/GUI/main_menu.gd" id="1_7ef50"]
 [ext_resource type="Script" path="res://assets/GUI/main_menu_manager.gd" id="1_amf4a"]
 [ext_resource type="PackedScene" uid="uid://c2bo3hoaaswgh" path="res://assets/GUI/settings_menu.tscn" id="2_2o8jo"]
+[ext_resource type="Theme" uid="uid://dhn7q4orov48p" path="res://assets/GUI/pixel_theme.tres" id="2_5yner"]
 
 [node name="MainMenu" type="Node"]
 
@@ -28,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_5yner")
 script = ExtResource("1_7ef50")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Main"]
