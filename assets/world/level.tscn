@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://0mstvfqpqoto"]
+[gd_scene load_steps=9 format=3 uid="uid://0g7sgp07y8s"]
 
 [ext_resource type="Script" path="res://assets/world/level.gd" id="1_4o1d0"]
 [ext_resource type="PackedScene" uid="uid://bon174udiedte" path="res://assets/player/player.tscn" id="1_u013p"]
 [ext_resource type="PackedScene" uid="uid://bwc34a82p6glk" path="res://assets/GUI/pause_menu.tscn" id="3_c13ob"]
+[ext_resource type="Texture2D" uid="uid://c3y7co6hc5olw" path="res://assets/GUI/heart_atlas_texture.tres" id="4_2rqlg"]
+[ext_resource type="Theme" uid="uid://bh4rg488rkx68" path="res://assets/GUI/gui_theme.tres" id="4_aegta"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_llued"]
+load_path = "res://.godot/imported/tiles_packed.png-815cb882c2cc9143d2fdd7baab7ade06.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bloso"]
+atlas = SubResource("CompressedTexture2D_llued")
+region = Rect2(198, 126, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd37u"]
+atlas = SubResource("CompressedTexture2D_llued")
+region = Rect2(126, 54, 18, 18)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_4o1d0")
@@ -22,5 +35,134 @@ wait_time = 1.5
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="GUI" instance=ExtResource("3_c13ob")]
+[node name="PlayerGUI" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_aegta")
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/PlayerGUI"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HeartsContainer" type="PanelContainer" parent="GUI/PlayerGUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("4_2rqlg")
+expand_mode = 1
+
+[node name="Heart2" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("4_2rqlg")
+expand_mode = 1
+
+[node name="Heart3" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("4_2rqlg")
+expand_mode = 1
+
+[node name="Heart4" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("4_2rqlg")
+expand_mode = 1
+
+[node name="Heart5" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer/HeartsContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("4_2rqlg")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/PlayerGUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = ExtResource("4_aegta")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TreasureContainer" type="PanelContainer" parent="GUI/PlayerGUI/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = SubResource("AtlasTexture_bloso")
+expand_mode = 1
+
+[node name="LabelX" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_aegta")
+text = "x"
+
+[node name="LabelCoins" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_aegta")
+text = "000"
+
+[node name="VSeparator" type="VSeparator" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("4_aegta")
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = SubResource("AtlasTexture_qd37u")
+expand_mode = 1
+
+[node name="LabelX2" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_aegta")
+text = "x"
+
+[node name="LabelDiamonds" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_aegta")
+text = "00"
+
+[node name="PauseGUI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseGUI" instance=ExtResource("3_c13ob")]
 visible = false
