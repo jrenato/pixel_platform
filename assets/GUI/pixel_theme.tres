@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dhn7q4orov48p"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://dhn7q4orov48p"]
 
 [ext_resource type="FontFile" uid="uid://dubgbn7kfl5ep" path="res://assets/fonts/8bitOperatorPlus8-Regular.ttf" id="1_4fw6l"]
 
@@ -6,7 +6,7 @@
 base_font = ExtResource("1_4fw6l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vom7r"]
-bg_color = Color(0.00392157, 0.407843, 0.482353, 1)
+bg_color = Color(0.27451, 0.580392, 0.658824, 1)
 border_color = Color(0.294118, 1, 1, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -47,6 +47,21 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80hct"]
 bg_color = Color(0, 0.101961, 0.121569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyg8m"]
+bg_color = Color(0.109804, 0.286275, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxds1"]
+bg_color = Color(0.207843, 0.54902, 0.596078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rcw7"]
+bg_color = Color(0.180392, 0.52549, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvhgx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -303,9 +318,9 @@ HSlider/icons/grabber = null
 HSlider/icons/grabber_disabled = null
 HSlider/icons/grabber_highlight = null
 HSlider/icons/tick = null
-HSlider/styles/grabber_area = null
-HSlider/styles/grabber_area_highlight = null
-HSlider/styles/slider = null
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_uyg8m")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_oxds1")
+HSlider/styles/slider = SubResource("StyleBoxFlat_8rcw7")
 HSplitContainer/constants/autohide = 0
 HSplitContainer/constants/minimum_grab_thickness = 0
 HSplitContainer/constants/separation = 0

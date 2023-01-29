@@ -31,6 +31,7 @@ func update_paused_state():
 	get_tree().paused = is_paused
 	visible = is_paused
 
+
 func _on_button_resume_pressed() -> void:
 	is_paused = false
 

@@ -71,6 +71,7 @@ text = "New Game"
 [node name="ButtonContinue" type="Button" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 disabled = true
 text = "Continue"
 
@@ -86,6 +87,8 @@ text = "Settings
 [node name="ButtonAbout" type="Button" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
+disabled = true
 text = "About"
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
