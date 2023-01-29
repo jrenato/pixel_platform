@@ -44,6 +44,7 @@ func _on_button_play_pressed():
 	# Starts a new game, so it must set current level to level1
 	# game_data.current_level will be saved on level._ready()
 	GameManager.game_data.current_level = GameData.level1
+	GameManager.game_data.player_health = GameManager.game_data.player_max_health
 	SceneTransition.change_scene(GameData.level1)
 
 
