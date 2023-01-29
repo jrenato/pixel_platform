@@ -22,7 +22,10 @@ func _create_or_load_save() -> void:
 
 	# Updates #UI after loading settings
 	## Button continue
-	button_continue.disabled = GameManager.game_data.current_level.is_empty()
+	if not GameManager.game_data.current_level.is_empty():
+		button_continue.disabled = false
+		button_continue.focus_mode = Control.FOCUS_ALL
+
 	settings_menu.update_ui()
 
 
