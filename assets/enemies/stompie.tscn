@@ -59,10 +59,11 @@ script = ExtResource("1_v6356")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
-frames = SubResource("SpriteFrames_dy5uo")
+sprite_frames = SubResource("SpriteFrames_dy5uo")
 animation = &"Rising"
 
 [node name="Hitbox" parent="." instance=ExtResource("2_rb373")]
+damage = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, -9)

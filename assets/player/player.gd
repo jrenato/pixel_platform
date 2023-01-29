@@ -14,10 +14,21 @@ var coyote_jump : bool = false
 @onready var states : StateManager = $state_manager
 @onready var remote_transform : RemoteTransform2D = $RemoteTransform2D
 @onready var ladder_check : RayCast2D = $LadderCheck
+
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
 
-var nearest_door : Door = null 
+@onready var hurt_timer: Timer = $HurtTimer
+@onready var hurt_animation_player: AnimationPlayer = $HurtAnimationPlayer
+
+@export var max_health : float = 3
+@export var health : float = 3
+@export var hurt_duration : int = 1
+
+@export var coins : float = 0
+@export var diamonds : float = 0
+
+var nearest_door : Door = null
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -27,6 +38,7 @@ func _ready() -> void:
 	# that way they can move and react accordingly
 	states.init(self)
 	animations.frames = skins[0]
+	hurt_timer.wait_time = hurt_duration
 
 
 func connect_camera(camera: Camera2D):
@@ -65,8 +77,16 @@ func _process(delta: float) -> void:
 	states.process(delta)
 
 
-func take_damage() -> void:
-	die()
+func take_damage(damage : float) -> void:
+	if not hurt_timer.is_stopped():
+		return
+
+	hurt_timer.start()
+	hurt_animation_player.play("hurt")
+	health -= damage
+	print("Health: ", health)
+	if health <= 0.0:
+		die()
 
 
 func die() -> void:
@@ -91,3 +111,7 @@ func _on_jump_buffer_timer_timeout() -> void:
 
 func _on_coyote_jump_timer_timeout() -> void:
 	coyote_jump = false
+
+
+func _on_hurt_timer_timeout() -> void:
+	hurt_animation_player.stop()
