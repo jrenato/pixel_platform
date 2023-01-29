@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwc34a82p6glk"]
+[gd_scene load_steps=10 format=3 uid="uid://bwc34a82p6glk"]
 
 [ext_resource type="Theme" uid="uid://dhn7q4orov48p" path="res://assets/GUI/pixel_theme.tres" id="1_fc2p3"]
 [ext_resource type="Script" path="res://assets/world/pause_menu.gd" id="2_pico2"]
 [ext_resource type="Shader" path="res://assets/GUI/blur.gdshader" id="3_axwts"]
+[ext_resource type="PackedScene" uid="uid://c2bo3hoaaswgh" path="res://assets/GUI/settings_menu.tscn" id="4_jio0k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e0hhc"]
 shader = ExtResource("3_axwts")
@@ -194,11 +195,23 @@ size_flags_vertical = 3
 theme = ExtResource("1_fc2p3")
 text = "Resume"
 
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="ButtonMainMenu" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_fc2p3")
 text = "Main Menu"
+
+[node name="ButtonSettings" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_fc2p3")
+text = "Settings"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="ButtonQuit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -212,6 +225,16 @@ libraries = {
 "": SubResource("AnimationLibrary_fa1a2")
 }
 
+[node name="Settings" parent="." instance=ExtResource("4_jio0k")]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonResume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

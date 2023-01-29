@@ -23,4 +23,5 @@ bus = &"Sound"
 bus = &"Sound"
 
 [node name="SongAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 bus = &"Music"

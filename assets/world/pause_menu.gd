@@ -2,6 +2,9 @@ extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var settings_menu: Control = $Settings
+@onready var pause_menu: CenterContainer = $CenterContainer
+
 
 var is_paused : bool = false :
 	set(value):
@@ -13,6 +16,10 @@ var is_paused : bool = false :
 
 func _ready() -> void:
 	visible = false
+	pause_menu.visible = true
+	settings_menu.visible = false
+	settings_menu.parent_menu = pause_menu
+	settings_menu.update_ui()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -43,3 +50,9 @@ func _on_button_main_menu_pressed() -> void:
 
 func _on_button_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_button_settings_pressed() -> void:
+	if settings_menu:
+		settings_menu.visible = true
+		pause_menu.visible = false
