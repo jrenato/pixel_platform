@@ -35,7 +35,8 @@ func _ready() -> void:
 
 	GameManager.write_data()
 
-	update_collectibles()
+	# Remove what is already collected, activate what's activated etc
+	update_level_items()
 
 	# Starts or resumes level music
 	_play_song()
@@ -72,7 +73,7 @@ func _on_update_checkpoint(checkpoint_position) -> void:
 	GameManager.write_data()
 
 
-func update_collectibles() -> void:
+func update_level_items() -> void:
 	for collectible in get_tree().get_nodes_in_group("collectibles"):
 		var collected : bool = GameManager.get_collectible_state(collectible.name)
 		if collected:
