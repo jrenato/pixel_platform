@@ -180,5 +180,5 @@ position = Vector2(36, 423)
 position = Vector2(832.25, 54.25)
 shape = SubResource("RectangleShape2D_g8wp0")
 
-[node name="Collectible" parent="." index="13" instance=ExtResource("15_rirua")]
-position = Vector2(279, 315)
+[node name="Diamond" parent="." index="13" instance=ExtResource("15_rirua")]
+position = Vector2(234, 306)

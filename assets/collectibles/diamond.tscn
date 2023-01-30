@@ -22,7 +22,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab4la"]
 size = Vector2(14, 13)
 
-[node name="Collectible" instance=ExtResource("1_p2raw")]
+[node name="Diamond" instance=ExtResource("1_p2raw")]
 script = ExtResource("2_grtm0")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
