@@ -1,7 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://d181blpjbc6m8"]
+[gd_scene load_steps=7 format=3 uid="uid://d181blpjbc6m8"]
 
 [ext_resource type="Texture2D" uid="uid://bc2x5t0hcnfid" path="res://assets/GUI/atlases/heartempty_atlas_texture.tres" id="2_2woir"]
 [ext_resource type="Script" path="res://assets/GUI/components/heart_container.gd" id="2_lwtn3"]
+
+[sub_resource type="Animation" id="Animation_xdlgq"]
+resource_name = "increase"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartTextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8p1ks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartTextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cxpfu"]
+resource_name = "decrease"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartTextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 0.7), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xavfa"]
+_data = {
+"RESET": SubResource("Animation_8p1ks"),
+"decrease": SubResource("Animation_cxpfu"),
+"increase": SubResource("Animation_xdlgq")
+}
 
 [node name="HeartContainer" type="Control"]
 custom_minimum_size = Vector2(22, 22)
@@ -16,5 +70,11 @@ custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 offset_right = 22.0
 offset_bottom = 22.0
+pivot_offset = Vector2(11, 11)
 texture = ExtResource("2_2woir")
 expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xavfa")
+}

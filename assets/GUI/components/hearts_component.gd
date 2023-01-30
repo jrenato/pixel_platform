@@ -27,14 +27,17 @@ func update_container_values() -> void:
 	var temp_health = GameManager.game_data.player_health
 	
 	for heart in hearts:
+		var new_heart_value : float = 0.0
+
 		if temp_health >= 1.0:
 			temp_health -= 1.0
-			heart.value = 1.0
+			new_heart_value = 1.0
 		elif temp_health >= 0.5:
 			temp_health -= 0.5
-			heart.value = 0.5
-		else:
-			heart.value = 0.0
+			new_heart_value = 0.5
+
+		if heart.value != new_heart_value:
+			heart.value = new_heart_value
 
 
 func _on_update_hearts_ui() -> void:
