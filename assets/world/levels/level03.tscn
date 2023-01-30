@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3j5dnc0cja2b"]
+[gd_scene load_steps=6 format=3 uid="uid://b3j5dnc0cja2b"]
 
 [ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_vu2sj"]
 [ext_resource type="PackedScene" uid="uid://b1bxxq7k7vj06" path="res://assets/world/tilemaps/grass_tilemap.tscn" id="2_p5h7v"]
 [ext_resource type="PackedScene" uid="uid://d0a75ddfqdm6" path="res://assets/world/door/door.tscn" id="3_xm7sb"]
+[ext_resource type="PackedScene" uid="uid://dhdlrjmmstojw" path="res://assets/collectibles/coin.tscn" id="4_1i1im"]
+[ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="5_0kyom"]
 
 [node name="Level" instance=ExtResource("1_vu2sj")]
 song = 1
@@ -16,3 +18,27 @@ layer_0/tile_data = PackedInt32Array(589824, 65537, 6, 589825, 262145, 1, 589826
 [node name="Door" parent="." index="4" instance=ExtResource("3_xm7sb")]
 position = Vector2(333, 288)
 target_level_path = "res://assets/world/levels/level01.tscn"
+
+[node name="Coin" parent="." index="7" instance=ExtResource("4_1i1im")]
+position = Vector2(387, 270)
+
+[node name="Coin2" parent="." index="8" instance=ExtResource("4_1i1im")]
+position = Vector2(414, 270)
+
+[node name="Coin3" parent="." index="9" instance=ExtResource("4_1i1im")]
+position = Vector2(441, 270)
+
+[node name="Coin4" parent="." index="10" instance=ExtResource("4_1i1im")]
+position = Vector2(441, 252)
+
+[node name="Coin5" parent="." index="11" instance=ExtResource("4_1i1im")]
+position = Vector2(414, 252)
+
+[node name="Coin6" parent="." index="12" instance=ExtResource("4_1i1im")]
+position = Vector2(387, 252)
+
+[node name="Coin7" parent="." index="13" instance=ExtResource("4_1i1im")]
+position = Vector2(387, 252)
+
+[node name="Diamond" parent="." index="14" instance=ExtResource("5_0kyom")]
+position = Vector2(495, 234)

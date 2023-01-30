@@ -1,5 +1,5 @@
 class_name GameData
-extends Node
+extends Resource
 
 const main_menu : String = "res://assets/GUI/menus/main_menu.tscn"
 const level1 : String = "res://assets/world/levels/level01.tscn"

@@ -5,10 +5,42 @@ var version : int = 1
 
 var settings : GameSettings = GameSettings.new()
 var game_data : GameData = GameData.new()
+var levels : Dictionary = {}
 
 
 func _ready() -> void:
 	settings.init()
+
+
+func get_current_level() -> String:
+	return game_data.current_level
+
+
+func get_level_data(level_name : String) -> Dictionary:
+	if not levels.has(level_name):
+		levels[level_name] = {
+			"collectibles": {}
+		}
+	return levels[level_name]
+
+
+func set_collectible_state(item_name : String, collected : bool) -> void:
+	# True: collected
+	# False: not collected
+	if not get_current_level().is_empty():
+		get_level_data(get_current_level())["collectibles"][item_name] = collected
+
+
+func get_collectible_state(item_name : String) -> bool:
+	# True: collected
+	# False: not collected
+	if not get_current_level().is_empty():
+		var level_data : Dictionary = get_level_data(get_current_level())
+		if level_data["collectibles"].has(item_name):
+			return level_data["collectibles"][item_name]
+	# If level or collectible not found, return false
+	# Otherwise, object will be destroyed as soon as level_data is created
+	return false
 
 
 func save_exists() -> bool:
@@ -39,6 +71,7 @@ func write_data() -> void:
 			"player_coins": game_data.player_coins,
 			"player_diamonds": game_data.player_diamonds,
 		},
+		"levels": levels,
 	}
 	
 	var json_string := JSON.stringify(data, "\t")
@@ -69,6 +102,8 @@ func load_data() -> void:
 
 	game_data.player_coins = data.game_data.player_coins
 	game_data.player_diamonds = data.game_data.player_diamonds
+
+	levels = data.levels
 
 	settings.fullscreen = data.settings.fullscreen
 	settings.music_volume = data.settings.music_volume

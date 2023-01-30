@@ -32,7 +32,10 @@ func _ready() -> void:
 	else:
 		# Updates player start position in game data
 		GameManager.game_data.player_position = player.position
-		GameManager.write_data()
+
+	GameManager.write_data()
+
+	update_collectibles()
 
 	# Starts or resumes level music
 	_play_song()
@@ -67,3 +70,10 @@ func _on_update_checkpoint(checkpoint_position) -> void:
 	SoundPlayer.play_sound(SoundPlayer.CHECKPOINT)
 	GameManager.game_data.player_position = checkpoint_position
 	GameManager.write_data()
+
+
+func update_collectibles() -> void:
+	for collectible in get_tree().get_nodes_in_group("collectibles"):
+		var collected : bool = GameManager.get_collectible_state(collectible.name)
+		if collected:
+			collectible.queue_free()

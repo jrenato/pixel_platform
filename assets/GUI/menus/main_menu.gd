@@ -47,6 +47,7 @@ func _on_button_play_pressed():
 	GameManager.game_data.player_health = GameManager.game_data.player_max_health
 	GameManager.game_data.player_coins = 0
 	GameManager.game_data.player_diamonds = 0
+	GameManager.levels = {}
 	SceneTransition.change_scene(GameData.level1)
 
 

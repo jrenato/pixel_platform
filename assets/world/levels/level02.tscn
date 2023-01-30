@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cydt4bkdcfvu6"]
+[gd_scene load_steps=7 format=3 uid="uid://cydt4bkdcfvu6"]
 
 [ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_jm71n"]
 [ext_resource type="PackedScene" uid="uid://b1bxxq7k7vj06" path="res://assets/world/tilemaps/grass_tilemap.tscn" id="2_7yymh"]
 [ext_resource type="PackedScene" uid="uid://57oc37ynrmeq" path="res://assets/enemies/spikey.tscn" id="3_4o70o"]
 [ext_resource type="PackedScene" uid="uid://d0a75ddfqdm6" path="res://assets/world/door/door.tscn" id="4_pyj0x"]
+[ext_resource type="PackedScene" uid="uid://dhdlrjmmstojw" path="res://assets/collectibles/coin.tscn" id="5_7uxkw"]
+[ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="6_a3cbw"]
 
 [node name="Level" instance=ExtResource("1_jm71n")]
 
@@ -20,3 +22,15 @@ position = Vector2(225, 315)
 [node name="Door" parent="." index="5" instance=ExtResource("4_pyj0x")]
 position = Vector2(360, 333)
 target_level_path = "res://assets/world/levels/level03.tscn"
+
+[node name="Coin" parent="." index="8" instance=ExtResource("5_7uxkw")]
+position = Vector2(189, 288)
+
+[node name="Coin2" parent="." index="9" instance=ExtResource("5_7uxkw")]
+position = Vector2(225, 288)
+
+[node name="Coin3" parent="." index="10" instance=ExtResource("5_7uxkw")]
+position = Vector2(261, 288)
+
+[node name="Diamond" parent="." index="11" instance=ExtResource("6_a3cbw")]
+position = Vector2(423, 315)

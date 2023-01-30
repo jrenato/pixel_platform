@@ -10,7 +10,8 @@ func can_collect(_character : Player) -> bool:
 
 func on_collect(_character : Player) -> void:
 	animation_player.play("collect")
-	
+	GameManager.set_collectible_state(name, true)
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if can_collect(body):
