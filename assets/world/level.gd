@@ -78,3 +78,8 @@ func update_level_items() -> void:
 		var collected : bool = GameManager.get_collectible_state(collectible.name)
 		if collected:
 			collectible.queue_free()
+
+	for activable in get_tree().get_nodes_in_group("activables"):
+		var activated : bool = GameManager.get_collectible_state(activable.name)
+		if activated:
+			activable.activate()

@@ -40,7 +40,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66oiq"]
 size = Vector2(18, 18)
 
-[node name="Checkpoint" type="Area2D"]
+[node name="Checkpoint" type="Area2D" groups=["activables"]]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_msg4d")
