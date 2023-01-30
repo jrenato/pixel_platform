@@ -42,12 +42,12 @@ size = Vector2(18, 18)
 
 [node name="Checkpoint" type="Area2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 4
 script = ExtResource("1_msg4d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
-frames = SubResource("SpriteFrames_e3k4v")
+sprite_frames = SubResource("SpriteFrames_e3k4v")
 animation = &"unchecked"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
