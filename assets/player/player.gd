@@ -88,6 +88,7 @@ func take_damage(damage : float) -> void:
 func die() -> void:
 	GameManager.game_data.player_health = 0
 	Events.emit_signal("update_hearts_ui")
+
 	Events.emit_signal("player_died")
 
 	SoundPlayer.play_sound(SoundPlayer.LOSE)
