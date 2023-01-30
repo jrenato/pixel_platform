@@ -19,7 +19,7 @@ func get_current_level() -> String:
 func get_level_data(level_name : String) -> Dictionary:
 	if not levels.has(level_name):
 		levels[level_name] = {
-			"collectibles": {}
+			"items": {}
 		}
 	return levels[level_name]
 
@@ -28,7 +28,7 @@ func set_collectible_state(item_name : String, collected : bool) -> void:
 	# True: collected
 	# False: not collected
 	if not get_current_level().is_empty():
-		get_level_data(get_current_level())["collectibles"][item_name] = collected
+		get_level_data(get_current_level())["items"][item_name] = collected
 
 
 func get_collectible_state(item_name : String) -> bool:
@@ -36,8 +36,8 @@ func get_collectible_state(item_name : String) -> bool:
 	# False: not collected
 	if not get_current_level().is_empty():
 		var level_data : Dictionary = get_level_data(get_current_level())
-		if level_data["collectibles"].has(item_name):
-			return level_data["collectibles"][item_name]
+		if level_data["items"].has(item_name):
+			return level_data["items"][item_name]
 	# If level or collectible not found, return false
 	# Otherwise, object will be destroyed as soon as level_data is created
 	return false
