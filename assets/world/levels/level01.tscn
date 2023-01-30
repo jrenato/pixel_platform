@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cne0afe5weu2h"]
+[gd_scene load_steps=20 format=3 uid="uid://cne0afe5weu2h"]
 
 [ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_nr8d1"]
 [ext_resource type="PackedScene" uid="uid://b1bxxq7k7vj06" path="res://assets/world/tilemaps/grass_tilemap.tscn" id="2_mu0s5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d4fn0m0ecxbit" path="res://assets/images/background/trees.png" id="13_yels8"]
 [ext_resource type="PackedScene" uid="uid://dhdlrjmmstojw" path="res://assets/collectibles/coin.tscn" id="14_cmwg5"]
 [ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="15_rirua"]
+[ext_resource type="PackedScene" uid="uid://byrpofh7qx3k5" path="res://assets/collectibles/heart.tscn" id="16_fei0u"]
 
 [sub_resource type="Curve2D" id="Curve2D_j4lph"]
 _data = {
@@ -182,3 +183,6 @@ shape = SubResource("RectangleShape2D_g8wp0")
 
 [node name="Diamond" parent="." index="13" instance=ExtResource("15_rirua")]
 position = Vector2(234, 306)
+
+[node name="Heart" parent="." index="14" instance=ExtResource("16_fei0u")]
+position = Vector2(612, 234)
