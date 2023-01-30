@@ -1,11 +1,16 @@
 extends Node
 
 # SFX
+const BLIP : AudioStream = preload("res://assets/sound/sounds/blip.wav")
+
 const HURT : AudioStream = preload("res://assets/sound/sounds/hurt.wav")
 const JUMP : AudioStream = preload("res://assets/sound/sounds/jump2.wav")
 const BOOM : AudioStream = preload("res://assets/sound/sounds/boom.wav")
+
+const COIN : AudioStream = preload("res://assets/sound/sounds/coin.wav")
+const DIAMOND : AudioStream = preload("res://assets/sound/sounds/diamond.wav")
+
 const LOSE : AudioStream = preload("res://assets/sound/sounds/lose.wav")
-const BLIP : AudioStream = preload("res://assets/sound/sounds/blip.wav")
 const RESPAWN : AudioStream = preload("res://assets/sound/sounds/respawn.wav")
 const SCENETRANSITION : AudioStream = preload("res://assets/sound/sounds/scene_transition.wav")
 const CHECKPOINT : AudioStream = preload("res://assets/sound/sounds/checkpoint.wav")

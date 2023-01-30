@@ -1,21 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://37lytfkxlr4"]
+[gd_scene load_steps=7 format=3 uid="uid://37lytfkxlr4"]
 
 [ext_resource type="Script" path="res://assets/world/level.gd" id="1_4o1d0"]
 [ext_resource type="PackedScene" uid="uid://bon174udiedte" path="res://assets/player/player.tscn" id="1_u013p"]
 [ext_resource type="PackedScene" uid="uid://b1cmb254mhgo2" path="res://assets/GUI/menus/pause_menu.tscn" id="3_c13ob"]
 [ext_resource type="Theme" uid="uid://bh4rg488rkx68" path="res://assets/GUI/gui_theme.tres" id="4_aegta"]
 [ext_resource type="PackedScene" uid="uid://y34tgm4qx6p0" path="res://assets/GUI/components/hearts_component.tscn" id="4_sxa0t"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_llued"]
-load_path = "res://.godot/imported/tiles_packed.png-815cb882c2cc9143d2fdd7baab7ade06.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bloso"]
-atlas = SubResource("CompressedTexture2D_llued")
-region = Rect2(198, 126, 18, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qd37u"]
-atlas = SubResource("CompressedTexture2D_llued")
-region = Rect2(126, 54, 18, 18)
+[ext_resource type="PackedScene" uid="uid://do0d8colje66q" path="res://assets/GUI/components/treasure_component.tscn" id="5_640r7"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_4o1d0")
@@ -71,52 +61,8 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TreasureContainer" type="PanelContainer" parent="GUI/PlayerGUI/MarginContainer2"]
+[node name="TreasureComponent" parent="GUI/PlayerGUI/MarginContainer2" instance=ExtResource("5_640r7")]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer"]
-layout_mode = 2
-theme_override_constants/margin_right = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-texture = SubResource("AtlasTexture_bloso")
-expand_mode = 1
-
-[node name="LabelX" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_aegta")
-text = "x"
-
-[node name="LabelCoins" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_aegta")
-text = "000"
-
-[node name="VSeparator" type="VSeparator" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-theme = ExtResource("4_aegta")
-
-[node name="TextureRect2" type="TextureRect" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-texture = SubResource("AtlasTexture_qd37u")
-expand_mode = 1
-
-[node name="LabelX2" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_aegta")
-text = "x"
-
-[node name="LabelDiamonds" type="Label" parent="GUI/PlayerGUI/MarginContainer2/TreasureContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_aegta")
-text = "00"
 
 [node name="PauseGUI" type="CanvasLayer" parent="."]
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://do0d8colje66q"]
+
+[ext_resource type="Theme" uid="uid://bh4rg488rkx68" path="res://assets/GUI/gui_theme.tres" id="1_141x7"]
+[ext_resource type="Script" path="res://assets/GUI/components/treasure_component.gd" id="1_cwa1d"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_llued"]
+load_path = "res://.godot/imported/tiles_packed.png-815cb882c2cc9143d2fdd7baab7ade06.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bloso"]
+atlas = SubResource("CompressedTexture2D_llued")
+region = Rect2(198, 126, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd37u"]
+atlas = SubResource("CompressedTexture2D_llued")
+region = Rect2(126, 54, 18, 18)
+
+[node name="TreasureContainer" type="PanelContainer"]
+script = ExtResource("1_cwa1d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CointTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = SubResource("AtlasTexture_bloso")
+expand_mode = 1
+
+[node name="CoinLabelX" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_141x7")
+text = "x"
+
+[node name="CoinsAmountLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_141x7")
+text = "000"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("1_141x7")
+
+[node name="DiamondTextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = SubResource("AtlasTexture_qd37u")
+expand_mode = 1
+
+[node name="DiamondLabelX" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_141x7")
+text = "x"
+
+[node name="DiamondsAmountLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_141x7")
+text = "00"

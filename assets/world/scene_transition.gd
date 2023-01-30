@@ -13,12 +13,12 @@ func change_scene(target : String, type: String = 'dissolve') -> void:
 func transition_dissolve(target: String) -> void:
 	animation_player.play("dissolve")
 	await animation_player.animation_finished
-	animation_player.play_backwards("dissolve")
 	get_tree().change_scene_to_file(target)
+	animation_player.play_backwards("dissolve")
 
 
 func transition_clouds(target: String) -> void:
 	animation_player.play("clouds_in")
 	await animation_player.animation_finished
-	animation_player.play("clouds_out")
 	get_tree().change_scene_to_file(target)
+	animation_player.play("clouds_out")
