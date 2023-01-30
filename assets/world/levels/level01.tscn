@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cne0afe5weu2h"]
+[gd_scene load_steps=19 format=3 uid="uid://cne0afe5weu2h"]
 
 [ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_nr8d1"]
 [ext_resource type="PackedScene" uid="uid://b1bxxq7k7vj06" path="res://assets/world/tilemaps/grass_tilemap.tscn" id="2_mu0s5"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bfvwjl4co0n7x" path="res://assets/images/background/mountains.png" id="12_55mwy"]
 [ext_resource type="Texture2D" uid="uid://d4fn0m0ecxbit" path="res://assets/images/background/trees.png" id="13_yels8"]
 [ext_resource type="PackedScene" uid="uid://dhdlrjmmstojw" path="res://assets/collectibles/coin.tscn" id="14_cmwg5"]
+[ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="15_rirua"]
 
 [sub_resource type="Curve2D" id="Curve2D_j4lph"]
 _data = {
@@ -178,3 +179,6 @@ position = Vector2(36, 423)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_area" index="0"]
 position = Vector2(832.25, 54.25)
 shape = SubResource("RectangleShape2D_g8wp0")
+
+[node name="Collectible" parent="." index="13" instance=ExtResource("15_rirua")]
+position = Vector2(279, 315)
