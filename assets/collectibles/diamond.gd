@@ -10,7 +10,7 @@ func can_collect(character : Player) -> bool:
 
 func on_collect(character : Player) -> void:
 	GameManager.game_data.player_diamonds += 1
-	SoundPlayer.play_song(SoundPlayer.DIAMOND)
+	SoundPlayer.play_sound(SoundPlayer.DIAMOND)
 	Events.emit_signal("update_diamonds_ui")
 	super(character)
 

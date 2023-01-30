@@ -19,7 +19,7 @@ func on_collect(character : Player) -> void:
 
 	GameManager.game_data.player_health = new_health
 	
-	SoundPlayer.play_song(SoundPlayer.HEAL)
+	SoundPlayer.play_sound(SoundPlayer.HEAL)
 	Events.emit_signal("update_hearts_ui")
 	super(character)
 

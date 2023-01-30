@@ -10,7 +10,7 @@ func can_collect(character : Player) -> bool:
 
 func on_collect(character : Player) -> void:
 	GameManager.game_data.player_coins += 1
-	SoundPlayer.play_song(SoundPlayer.COIN)
+	SoundPlayer.play_sound(SoundPlayer.COIN)
 	Events.emit_signal("update_coins_ui")
 	super(character)
 
