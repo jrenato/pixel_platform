@@ -59,7 +59,6 @@ func respawn_player() -> void:
 	player.position = GameManager.game_data.player_position
 	player.connect_camera(camera)
 	GameManager.game_data.player_health = GameManager.game_data.player_max_health
-	Events.emit_signal("update_ui")
 
 
 func _on_update_checkpoint(checkpoint_position) -> void:

@@ -79,7 +79,7 @@ func take_damage(damage : float) -> void:
 	set_collision_layer_value(2, false)
 
 	GameManager.game_data.player_health -= damage
-	Events.emit_signal("update_ui")
+	Events.emit_signal("update_hearts_ui")
 	
 	if GameManager.game_data.player_health <= 0.0:
 		die()
@@ -87,7 +87,7 @@ func take_damage(damage : float) -> void:
 
 func die() -> void:
 	GameManager.game_data.player_health = 0
-	Events.emit_signal("update_ui")
+	Events.emit_signal("update_hearts_ui")
 	Events.emit_signal("player_died")
 
 	SoundPlayer.play_sound(SoundPlayer.LOSE)
@@ -103,8 +103,6 @@ func is_on_ladder() -> bool:
 
 
 func _on_jump_buffer_timer_timeout() -> void:
-	# TODO: Maybe the jump_buffer_time logic should belong to fall_state?
-	# Create a Timer dynamically and buffer_jump on fall.exit() ?
 	buffered_jump = false
 
 

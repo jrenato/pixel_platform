@@ -7,7 +7,7 @@ var hearts : Array[HeartContainer] = []
 
 
 func _ready() -> void:
-	Events.connect("update_ui", _on_update_ui)
+	Events.connect("update_hearts_ui", _on_update_hearts_ui)
 	rebuild_containers()
 	update_container_values()
 
@@ -37,5 +37,5 @@ func update_container_values() -> void:
 			heart.value = 0.0
 
 
-func _on_update_ui() -> void:
+func _on_update_hearts_ui() -> void:
 	update_container_values()
