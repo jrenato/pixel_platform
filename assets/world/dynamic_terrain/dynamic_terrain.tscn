@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2bbalb0t6kbh"]
+
+[ext_resource type="Script" path="res://assets/world/dynamic_terrain/dynamic_terrain.gd" id="1_8eq7m"]
+[ext_resource type="Texture2D" uid="uid://c6l6c8a5ceuhm" path="res://assets/images/grass.png" id="2_3psud"]
+[ext_resource type="Texture2D" uid="uid://cm64uqk3y3x85" path="res://assets/images/dirt.png" id="2_tncfr"]
+
+[sub_resource type="Curve2D" id="Curve2D_evdv8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -81, 207, -90, 2, 90, -2, 18, 36, -11, -35, 11, 35, 126, 180, -34, -35, 34, 35, 189, 297, -56, 21, 56, -21, 405, 333, -77, 3, 77, -3, 558, 234, -58, 6, 58, -6, 747, 306, -36, 17, 36, -17, 882, 243, -32, 5, 32, -5, 981, 225, 0, 0, 0, 0, 1044, 117, -40, 7, 40, -7, 1107, 18, 0, 0, 0, 0, 1143, 144, 74, -40, -74, 40, 1107, 531, 116, 32, -116, -32, 63, 522, 0, 0, 0, 0, -81, 207)
+}
+point_count = 15
+
+[node name="DynamicTerrain" type="StaticBody2D"]
+script = ExtResource("1_8eq7m")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, -18)
+curve = SubResource("Curve2D_evdv8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+texture = ExtResource("2_tncfr")
+polygon = PackedVector2Array(189, 90, 243, 90, 243, 153, 189, 153)
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+texture_repeat = 2
+width = 30.0
+texture = ExtResource("2_3psud")
+texture_mode = 1
