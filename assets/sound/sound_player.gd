@@ -4,7 +4,7 @@ extends Node
 const BLIP : AudioStream = preload("res://assets/sound/sounds/blip.wav")
 
 const HURT : AudioStream = preload("res://assets/sound/sounds/hurt.wav")
-const HEAL : AudioStream = preload("res://assets/sound/sounds/upgrade.wav")
+const HEAL : AudioStream = preload("res://assets/sound/sounds/heal.wav")
 const JUMP : AudioStream = preload("res://assets/sound/sounds/jump2.wav")
 const BOOM : AudioStream = preload("res://assets/sound/sounds/boom.wav")
 
