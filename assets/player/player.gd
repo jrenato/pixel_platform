@@ -10,16 +10,17 @@ var jump_count : int = 0
 var buffered_jump : bool = false
 var coyote_jump : bool = false
 
-@onready var animations : AnimatedSprite2D = $Animations
-@onready var states : StateManager = $state_manager
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var remote_transform : RemoteTransform2D = $RemoteTransform2D
+
+@onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
 
 @onready var hurt_timer: Timer = $HurtTimer
-@onready var hurt_animation_player: AnimationPlayer = $HurtAnimationPlayer
 @export var hurt_duration : int = 1
 
 var nearest_door : Door = null
@@ -31,7 +32,7 @@ func _ready() -> void:
 	# Initialize the state machine, passing a reference of the player to the states,
 	# that way they can move and react accordingly
 	states.init(self)
-	animations.frames = skins[0]
+	animated_sprite.frames = skins[0]
 	hurt_timer.wait_time = hurt_duration
 
 
@@ -57,7 +58,7 @@ func cycle_skin() -> void:
 		# Move to the next skin
 		current_skin += 1
 
-	animations.frames = skins[current_skin]
+	animated_sprite.frames = skins[current_skin]
 
 
 func _physics_process(delta: float) -> void:
@@ -73,7 +74,7 @@ func _process(delta: float) -> void:
 
 func take_damage(damage : float) -> void:
 	hurt_timer.start()
-	hurt_animation_player.play("hurt")
+	animation_player.play("hurt")
 	SoundPlayer.play_sound(SoundPlayer.HURT)
 
 	set_collision_layer_value(2, false)
@@ -112,5 +113,5 @@ func _on_coyote_jump_timer_timeout() -> void:
 
 
 func _on_hurt_timer_timeout() -> void:
-	hurt_animation_player.stop()
+	animation_player.stop()
 	set_collision_layer_value(2, true)

@@ -18,9 +18,9 @@ func physics_process(_delta : float) -> BaseState:
 	var move = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	if move.length() == 0:
-		player.animations.stop()
+		player.animated_sprite.stop()
 	else:
-		player.animations.play()
+		player.animated_sprite.play()
 
 	player.velocity = move * player.move_data.climb_speed
 	player.move_and_slide()
