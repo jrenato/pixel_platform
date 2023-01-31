@@ -12,7 +12,7 @@ func enter() -> void:
 
 	current_dash_time = player.move_data.dash_time
 
-	if player.animations.flip_h:
+	if player.animated_sprite.flip_h:
 		dash_direction = 1.0
 	else:
 		dash_direction = -1.0

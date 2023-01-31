@@ -51,7 +51,7 @@ func physics_process(delta : float) -> BaseState:
 	var move = get_movement_input()
 
 	if move != 0:
-		player.animations.flip_h = move > 0
+		player.animated_sprite.flip_h = move > 0
 
 	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.move_data.friction * delta)
 	player.velocity.y += player.gravity * delta
