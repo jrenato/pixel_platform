@@ -6,7 +6,6 @@
 
 [node name="DynamicTerrain" type="StaticBody2D"]
 script = ExtResource("1_8eq7m")
-update = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
