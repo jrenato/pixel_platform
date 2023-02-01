@@ -14,7 +14,7 @@ size = Vector2(1125, 135)
 [node name="Level" instance=ExtResource("1_apssd")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(225, 297)
+position = Vector2(225, 319)
 
 [node name="DynamicTerrain" parent="." index="5" instance=ExtResource("2_k6yax")]
 
