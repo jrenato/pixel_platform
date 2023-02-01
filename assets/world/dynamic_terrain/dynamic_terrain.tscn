@@ -6,15 +6,19 @@
 
 [node name="DynamicTerrain" type="StaticBody2D"]
 script = ExtResource("1_8eq7m")
+update = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(309, 92, 379, 92, 379, 164, 301, 160)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 texture = ExtResource("2_tncfr")
 polygon = PackedVector2Array(189, 90, 243, 90, 243, 153, 189, 153)
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 texture_repeat = 2
 points = PackedVector2Array(157, -107, 361, -86, 566, -83, 708, -119)
 width = 30.0

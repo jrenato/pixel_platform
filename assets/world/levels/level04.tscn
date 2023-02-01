@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://tj7govbabdwp"]
+[gd_scene load_steps=14 format=3 uid="uid://tj7govbabdwp"]
 
 [ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_apssd"]
 [ext_resource type="PackedScene" uid="uid://c2bbalb0t6kbh" path="res://assets/world/dynamic_terrain/dynamic_terrain.tscn" id="2_k6yax"]
@@ -7,48 +7,97 @@
 [ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="5_d50p2"]
 [ext_resource type="PackedScene" uid="uid://57oc37ynrmeq" path="res://assets/enemies/spikey.tscn" id="6_3h4c4"]
 [ext_resource type="PackedScene" uid="uid://c21dwxdfsftno" path="res://assets/enemies/stompie.tscn" id="7_q5liw"]
+[ext_resource type="PackedScene" uid="uid://btfne1i0f2o60" path="res://assets/enemies/moving_spike.tscn" id="8_111og"]
+
+[sub_resource type="Curve2D" id="Curve2D_tq104"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 81, -179, -17.2435, -26.7572, 17.2435, 26.7572, 129, -140, -21.6835, -29.1326, 21.6835, 29.1326, 175, 99, -40.7399, -0.07656, 40.7399, 0.07656, 269, 130, -35.7551, -0.243422, 35.7551, 0.243422, 393, 81, -47.2822, 0.353355, 47.2822, -0.353355, 537, 81, -24.3787, 6.54064, 24.3787, -6.54064, 627, 43, -29.1356, -8.91905, 29.1356, 8.91905, 709, 43, -8.91905, -16.6489, 8.91905, 16.6489, 791, 35, 16.2757, -23.0105, -16.2757, 23.0105, 727, 125, 17.8381, -16.6489, -17.8381, 16.6489, 699, 217, 71.4178, -43.8406, -71.4178, 43.8406, 611, 289, 21.2132, 37.4767, -21.2132, -37.4767, 7, 272, 0, 0, 0, 0, 3, 16, 0, 0, 0, 0, 15, -90, 0, 0, 0, 0, 12, -130, 0, 0, 0, 0, 17, -172, 0, 0, 0, 0, 81, -179)
+}
+point_count = 18
+
+[sub_resource type="Curve2D" id="Curve2D_k56m0"]
+_data = {
+"points": PackedVector2Array(19.7611, 9.88053, -19.7611, -9.88053, -53, 36, -8.9797, 8.41847, 8.9797, -8.41847, -75, 1, 1.67229, -21.4657, -1.67229, 21.4657, 27, 4, 14.2315, -4.14644, -14.2315, 4.14644, 2, 44, 0, 0, 0, 0, -53, 36)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_h3rb6"]
+_data = {
+"points": PackedVector2Array(11.2246, 0, -11.2246, 0, -53, 36, -8.9797, 8.41847, 8.9797, -8.41847, -75, -2, -25.8166, 7.29601, 25.8166, -7.29601, 22, -8, -25.8166, -14.592, 25.8166, 14.592, 89, -87, 28.6228, -53.8782, -28.6228, 53.8782, 120, 0, 0, 0, 0, 0, -53, 36)
+}
+point_count = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cglj4"]
-size = Vector2(1125, 135)
+size = Vector2(1528.5, 135)
+
+[sub_resource type="Curve2D" id="Curve2D_6dl0o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 36, -1, 0, 0, 0, 0, 98, 0, 0, 0, 0, 0, 117, 6, 0, 0, 0, 0, 118, 32, 0, 0, 0, 0, 107, 57, 0, 0, 0, 0, 76, 68, 0, 0, 0, 0, 24, 57, 0, 0, 0, 0, 6, 40, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 16, 4, 0, 0, 0, 0, 36, -1)
+}
+point_count = 11
 
 [node name="Level" instance=ExtResource("1_apssd")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(225, 319)
+position = Vector2(204, 338)
 
 [node name="DynamicTerrain" parent="." index="5" instance=ExtResource("2_k6yax")]
+position = Vector2(-41, 207)
+update = true
 
-[node name="death_area" parent="." index="6" instance=ExtResource("3_qew0w")]
+[node name="Path2D" type="Path2D" parent="DynamicTerrain" index="3"]
+curve = SubResource("Curve2D_tq104")
+
+[node name="DynamicTerrain2" parent="." index="6" instance=ExtResource("2_k6yax")]
+position = Vector2(877, 227)
+update = true
+
+[node name="Path2D" type="Path2D" parent="DynamicTerrain2" index="3"]
+curve = SubResource("Curve2D_k56m0")
+
+[node name="DynamicTerrain3" parent="." index="7" instance=ExtResource("2_k6yax")]
+position = Vector2(1014, 251)
+update = true
+
+[node name="Path2D" type="Path2D" parent="DynamicTerrain3" index="3"]
+curve = SubResource("Curve2D_h3rb6")
+
+[node name="death_area" parent="." index="8" instance=ExtResource("3_qew0w")]
 position = Vector2(72, 297)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_area" index="0"]
-position = Vector2(243, 135)
+position = Vector2(444.75, 135)
 shape = SubResource("RectangleShape2D_cglj4")
 
-[node name="Door" parent="." index="7" instance=ExtResource("4_vog7r")]
-position = Vector2(950, 227)
+[node name="Door" parent="." index="9" instance=ExtResource("4_vog7r")]
+position = Vector2(995, 247)
 target_level_path = "res://assets/world/levels/level01.tscn"
 
-[node name="Diamond" parent="." index="8" instance=ExtResource("5_d50p2")]
-position = Vector2(711, 261)
+[node name="Diamond" parent="." index="10" instance=ExtResource("5_d50p2")]
+position = Vector2(864, 184)
 
-[node name="Diamond2" parent="." index="9" instance=ExtResource("5_d50p2")]
-position = Vector2(729, 261)
+[node name="Diamond2" parent="." index="11" instance=ExtResource("5_d50p2")]
+position = Vector2(888, 208)
 
-[node name="Diamond3" parent="." index="10" instance=ExtResource("5_d50p2")]
-position = Vector2(747, 261)
+[node name="Diamond3" parent="." index="12" instance=ExtResource("5_d50p2")]
+position = Vector2(840, 184)
 
-[node name="Diamond5" parent="." index="11" instance=ExtResource("5_d50p2")]
-position = Vector2(765, 261)
+[node name="Diamond5" parent="." index="13" instance=ExtResource("5_d50p2")]
+position = Vector2(816, 208)
 
-[node name="Diamond6" parent="." index="12" instance=ExtResource("5_d50p2")]
-position = Vector2(783, 261)
+[node name="Diamond6" parent="." index="14" instance=ExtResource("5_d50p2")]
+position = Vector2(840, 208)
 
-[node name="Diamond4" parent="." index="13" instance=ExtResource("5_d50p2")]
-position = Vector2(747, 279)
+[node name="Diamond4" parent="." index="15" instance=ExtResource("5_d50p2")]
+position = Vector2(864, 208)
 
-[node name="Spikey" parent="." index="14" instance=ExtResource("6_3h4c4")]
-position = Vector2(567, 234)
+[node name="Spikey" parent="." index="16" instance=ExtResource("6_3h4c4")]
+position = Vector2(432, 288)
 
-[node name="Stompie" parent="." index="15" instance=ExtResource("7_q5liw")]
-position = Vector2(360, 243)
+[node name="Stompie" parent="." index="17" instance=ExtResource("7_q5liw")]
+position = Vector2(620, 171)
+
+[node name="MovingSpike" parent="." index="18" instance=ExtResource("8_111og")]
+position = Vector2(791, 212)
+curve = SubResource("Curve2D_6dl0o")
+speed = 300
