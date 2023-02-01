@@ -38,6 +38,7 @@ func _ready() -> void:
 
 func connect_camera(camera: Camera2D):
 	remote_transform.remote_path = camera.get_path()
+	camera.make_current()
 
 
 func _unhandled_input(event: InputEvent) -> void:

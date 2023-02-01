@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bon174udiedte"]
+[gd_scene load_steps=19 format=3 uid="uid://bon174udiedte"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
 [ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
-[ext_resource type="Resource" uid="uid://d1y3pww8i3a1a" path="res://assets/player/resources/pmd_slow.tres" id="2_52spy"]
 [ext_resource type="PackedScene" uid="uid://dlyjjygyhdxmc" path="res://assets/player/states/state_manager.tscn" id="3_i74eb"]
 [ext_resource type="SpriteFrames" uid="uid://6ien8w2u202o" path="res://assets/player/skins/PlayerBlueSkin.tres" id="4_jcsf6"]
 [ext_resource type="Script" path="res://assets/player/states/idle.gd" id="4_rmbbq"]
@@ -62,8 +61,7 @@ _data = {
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_e6etg")
-move_data = ExtResource("2_52spy")
-skins = [ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"), ExtResource("6_d428t"), ExtResource("7_gga2f")]
+skins = Array[SpriteFrames]([ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"), ExtResource("6_d428t"), ExtResource("7_gga2f")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
