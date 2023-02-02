@@ -25,12 +25,12 @@ func _ready() -> void:
 	Events.connect("player_died", _on_player_died)
 	Events.connect("update_checkpoint", _on_update_checkpoint)
 
-	if GameManager.game_data.update_player_data:
-		# Positions player from saved location
-		GameManager.game_data.update_player_data = false
+	if GameManager.game_data.restore_player_position:
+		# Restore player position from saved location
 		player.position = GameManager.game_data.player_position
+		GameManager.game_data.restore_player_position = false
 	else:
-		# Updates player start position in game data
+		# Just update player start position in game data
 		GameManager.game_data.player_position = player.position
 
 	GameManager.write_data()

@@ -22,7 +22,7 @@ func _create_or_load_save() -> void:
 
 	# Updates #UI after loading settings
 	## Button continue
-	if not GameManager.game_data.current_level.is_empty():
+	if not GameManager.current_level.is_empty():
 		button_continue.disabled = false
 		button_continue.focus_mode = Control.FOCUS_ALL
 
@@ -42,18 +42,15 @@ func open_settings_menu() -> void:
 
 func _on_button_play_pressed():
 	# Starts a new game, so it must set current level to level1
-	# game_data.current_level will be saved on level._ready()
-	GameManager.game_data.current_level = GameData.level1
-	GameManager.game_data.player_health = GameManager.game_data.player_max_health
-	GameManager.game_data.player_coins = 0
-	GameManager.game_data.player_diamonds = 0
-	GameManager.levels = {}
+	# current_level will be saved on level._ready()
+
+	GameManager.new_game()
 	SceneTransition.change_scene(GameData.level1)
 
 
 func _on_button_continue_pressed() -> void:
-	GameManager.game_data.update_player_data = true
-	SceneTransition.change_scene(GameManager.game_data.current_level)
+	GameManager.game_data.restore_player_position = true
+	SceneTransition.change_scene(GameManager.current_level)
 
 
 func _on_button_settings_pressed() -> void:

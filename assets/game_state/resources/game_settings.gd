@@ -46,3 +46,16 @@ func update_music_bus() -> void:
 func update_sound_bus() -> void:
 	AudioServer.set_bus_mute(sound_bus_id, sound_volume == -35)
 	AudioServer.set_bus_volume_db(sound_bus_id, sound_volume)
+
+
+func to_dict() -> Dictionary:
+	return {
+		"fullscreen": fullscreen,
+		"music_volume": music_volume,
+		"sound_volume": sound_volume,
+	}
+
+func from_dict(data : Dictionary) -> void:
+	fullscreen = data.fullscreen
+	music_volume = data.music_volume
+	sound_volume = data.sound_volume
