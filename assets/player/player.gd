@@ -24,6 +24,7 @@ var coyote_jump : bool = false
 @export var hurt_duration : int = 1
 
 var nearest_door : Door = null
+var nearest_activator : Activator = null
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -47,6 +48,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if Input.is_action_pressed("move_up") and nearest_door != null:
 		nearest_door.enter_door()
+
+	if Input.is_action_pressed("activate") and nearest_activator != null:
+		nearest_activator.trigger()
 
 	states.input(event)
 

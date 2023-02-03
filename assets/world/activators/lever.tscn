@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq6qslvtkgae3"]
+
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_dvmtw"]
+[ext_resource type="Script" path="res://assets/world/activators/lever.gd" id="1_x5ttb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pkh8"]
+atlas = ExtResource("1_dvmtw")
+region = Rect2(72, 54, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbqyh"]
+atlas = ExtResource("1_dvmtw")
+region = Rect2(90, 54, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbqf2"]
+atlas = ExtResource("1_dvmtw")
+region = Rect2(108, 54, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_31liu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pkh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbqyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbqf2")
+}],
+"loop": false,
+"name": &"trigger",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ooot"]
+size = Vector2(18, 18)
+
+[node name="Lever" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_x5ttb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_31liu")
+animation = &"trigger"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_6ooot")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
