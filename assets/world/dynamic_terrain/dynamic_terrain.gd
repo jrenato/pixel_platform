@@ -6,13 +6,12 @@ extends StaticBody2D
 @onready var polygon_2d: Polygon2D = $Polygon2D
 @onready var line_2d: Line2D = $Line2D
 
-@export var update : bool = false :
-	set(value):
-		update = value
-		if Engine.is_editor_hint():
-			update_path_polygons()
-	get:
-		return update
+@export var update : bool = false #:
+#	set(value):
+#		update = value
+#		set_process(value)
+#	get:
+#		return update
 
 var path_2d : Path2D = null
 var path_count : int = 0
@@ -30,11 +29,20 @@ func _process(_delta: float) -> void:
 		update_path_polygons()
 
 
+func get_curve():
+	if path_2d and path_count == 1:
+		var curve : Curve2D = path_2d.curve
+		if curve:
+			return curve
+	
+	return null
+
+
 func update_path_polygons() -> void:
 	if path_2d and path_count == 1:
 		toggle_visibility(true)
 
-		var curve : Curve2D = path_2d.curve
+		var curve : Curve2D = get_curve()
 		if curve:
 			var polygon : PackedVector2Array = curve.get_baked_points()
 			collision_polygon_2d.polygon = polygon
