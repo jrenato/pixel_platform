@@ -15,11 +15,11 @@
 [ext_resource type="Script" path="res://assets/player/states/jump.gd" id="9_e225q"]
 [ext_resource type="Script" path="res://assets/player/states/climb.gd" id="11_m0dk0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1akl"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrky2"]
 radius = 5.0
 height = 17.0
 
-[sub_resource type="Animation" id="Animation_7qnam"]
+[sub_resource type="Animation" id="Animation_1362t"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,7 +34,7 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_cu1rt"]
+[sub_resource type="Animation" id="Animation_ihqcf"]
 resource_name = "hurt"
 length = 0.2
 loop_mode = 1
@@ -51,10 +51,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.152941)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uegvr"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2d65m"]
 _data = {
-"RESET": SubResource("Animation_7qnam"),
-"hurt": SubResource("Animation_cu1rt")
+"RESET": SubResource("Animation_1362t"),
+"hurt": SubResource("Animation_ihqcf")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -71,7 +71,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_e1akl")
+shape = SubResource("CapsuleShape2D_nrky2")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 position = Vector2(0, -13)
@@ -85,7 +85,7 @@ collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_uegvr")
+"": SubResource("AnimationLibrary_2d65m")
 }
 
 [node name="HurtTimer" type="Timer" parent="."]

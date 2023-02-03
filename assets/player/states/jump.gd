@@ -16,6 +16,7 @@ extends BaseState
 
 var jump_input_released : bool = false
 
+
 func enter() -> void:
 	super.enter()
 	SoundPlayer.play_sound(SoundPlayer.JUMP)

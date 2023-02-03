@@ -22,7 +22,10 @@ var current_move_speed : int = 0
 
 func input(_event : InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("jump"):
-		return jump_state
+		if Input.is_action_pressed("move_down"):
+			player.position.y += 1
+		else:
+			return jump_state
 
 	if Input.is_action_just_pressed("dash"):
 		return dash_state
