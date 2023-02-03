@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://0a6u2rprikrh"]
+[gd_scene load_steps=3 format=3 uid="uid://0a6u2rprikrh"]
 
 [ext_resource type="Script" path="res://assets/world/activables/activable.gd" id="1_i0gc0"]
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="2_6gafh"]
 
 [node name="MovingWall" type="Node2D"]
 script = ExtResource("1_i0gc0")
 
-[node name="blocks" type="Node2D" parent="."]
+[node name="BlockGroup" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BlockGroup"]
+position = Vector2(0, -9)
+texture = ExtResource("2_6gafh")
+region_enabled = true
+region_rect = Rect2(126, 36, 18, 18)

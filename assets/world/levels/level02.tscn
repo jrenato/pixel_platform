@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmw3nvj4g2lol"]
+[gd_scene load_steps=15 format=3 uid="uid://cmw3nvj4g2lol"]
 
 [ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_jm71n"]
 [ext_resource type="Texture2D" uid="uid://b72kxxox3npus" path="res://assets/images/background/sky.png" id="2_8j7gk"]
@@ -13,11 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cu22k28gqrwna" path="res://assets/world/blocks/one_way_platform.tscn" id="11_nw22u"]
 [ext_resource type="PackedScene" uid="uid://bq6qslvtkgae3" path="res://assets/world/activators/lever.tscn" id="12_exhg8"]
 [ext_resource type="PackedScene" uid="uid://c2a46nnj6p3gb" path="res://assets/world/activators/pressure_button.tscn" id="13_32nht"]
+[ext_resource type="PackedScene" uid="uid://0a6u2rprikrh" path="res://assets/world/activables/moving_wall.tscn" id="14_m4x6h"]
 
 [node name="Level" instance=ExtResource("1_jm71n")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(117, 333)
+position = Vector2(99, 333)
 
 [node name="Camera2D" parent="." index="1"]
 limit_right = 1269
@@ -157,7 +158,10 @@ position = Vector2(900, 558)
 position = Vector2(765, 621)
 
 [node name="Lever2" parent="." index="16" instance=ExtResource("12_exhg8")]
-position = Vector2(153, 333)
+position = Vector2(144, 333)
 
 [node name="PressureButton" parent="." index="17" instance=ExtResource("13_32nht")]
-position = Vector2(81, 333)
+position = Vector2(63, 333)
+
+[node name="MovingWall" parent="." index="18" instance=ExtResource("14_m4x6h")]
+position = Vector2(171, 333)
