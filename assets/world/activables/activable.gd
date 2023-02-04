@@ -1,33 +1,46 @@
 class_name Activable
 extends Node2D
 
-@onready var block_group: Node2D = $BlockGroup
 
-var block_scene : Resource = preload("res://assets/world/blocks/block.tscn")
+var activated : bool = false
 
-@export var size : int = 1
+@export var activations : int = 0 :
+	set(value):
+		activations = value
+		update_activation()
+	get:
+		return activations
 
 
 func _ready() -> void:
-	remove_all_blocks()
-	add_blocks()
+	pass
 
 
-func add_blocks() -> void:
-	for i in size:
-		var block = block_scene.instantiate()
-		block_group.add_child(block)
+func _process(_delta: float) -> void:
+	pass
 
 
-func remove_all_blocks() -> void:
-	var block_children : Array[Node] = block_group.get_children()
-	for block_child in block_children:
-		block_group.remove_child(block_child)
+func add_activation() -> void:
+	activations += 1
+
+
+func remove_activation() -> void:
+	activations -= 1
+
+
+func update_activation() -> void:
+	assert(activations >= 0)
+
+	if activations > 0 and not activated:
+		activate()
+
+	if activations == 0 and activated:
+		deactivate()
 
 
 func activate() -> void:
-	pass
+	activated = true
 
 
 func deactivate() -> void:
-	pass
+	activated = false

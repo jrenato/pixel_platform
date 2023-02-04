@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmw3nvj4g2lol"]
+[gd_scene load_steps=16 format=3 uid="uid://bkh4tncbt0aoo"]
 
 [ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_jm71n"]
 [ext_resource type="Texture2D" uid="uid://b72kxxox3npus" path="res://assets/images/background/sky.png" id="2_8j7gk"]
@@ -13,12 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://cu22k28gqrwna" path="res://assets/world/blocks/one_way_platform.tscn" id="11_nw22u"]
 [ext_resource type="PackedScene" uid="uid://bq6qslvtkgae3" path="res://assets/world/activators/lever.tscn" id="12_exhg8"]
 [ext_resource type="PackedScene" uid="uid://c2a46nnj6p3gb" path="res://assets/world/activators/pressure_button.tscn" id="13_32nht"]
-[ext_resource type="PackedScene" uid="uid://0a6u2rprikrh" path="res://assets/world/activables/moving_wall.tscn" id="14_m4x6h"]
+[ext_resource type="PackedScene" uid="uid://0a6u2rprikrh" path="res://assets/world/activables/moving_blocks.tscn" id="14_xd3ir"]
+
+[sub_resource type="Curve2D" id="Curve2D_ddlrd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -54)
+}
+point_count = 2
 
 [node name="Level" instance=ExtResource("1_jm71n")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(99, 333)
+position = Vector2(108, 333)
 
 [node name="Camera2D" parent="." index="1"]
 limit_right = 1269
@@ -81,13 +87,13 @@ position = Vector2(810, 315)
 target_level_path = "res://assets/world/levels/level03.tscn"
 
 [node name="Coin" parent="." index="10" instance=ExtResource("5_7uxkw")]
-position = Vector2(189, 288)
+position = Vector2(477, 315)
 
 [node name="Coin2" parent="." index="11" instance=ExtResource("5_7uxkw")]
-position = Vector2(225, 288)
+position = Vector2(504, 315)
 
 [node name="Coin3" parent="." index="12" instance=ExtResource("5_7uxkw")]
-position = Vector2(261, 288)
+position = Vector2(531, 315)
 
 [node name="Diamond" parent="." index="13" instance=ExtResource("6_a3cbw")]
 position = Vector2(666, 297)
@@ -157,11 +163,17 @@ position = Vector2(900, 558)
 [node name="Lever" parent="." index="15" instance=ExtResource("12_exhg8")]
 position = Vector2(765, 621)
 
-[node name="Lever2" parent="." index="16" instance=ExtResource("12_exhg8")]
+[node name="Lever2" parent="." index="16" node_paths=PackedStringArray("activable") instance=ExtResource("12_exhg8")]
 position = Vector2(144, 333)
+activable = NodePath("../MovingBlocks")
+activables = Array[Resource("res://assets/world/activables/activable.gd")]([null])
 
-[node name="PressureButton" parent="." index="17" instance=ExtResource("13_32nht")]
-position = Vector2(63, 333)
+[node name="PressureButton" parent="." index="17" node_paths=PackedStringArray("activable") instance=ExtResource("13_32nht")]
+position = Vector2(72, 333)
+activable = NodePath("../MovingBlocks")
 
-[node name="MovingWall" parent="." index="18" instance=ExtResource("14_m4x6h")]
-position = Vector2(171, 333)
+[node name="MovingBlocks" parent="." index="18" instance=ExtResource("14_xd3ir")]
+position = Vector2(189, 315)
+curve = SubResource("Curve2D_ddlrd")
+size = 3
+activations = 0
