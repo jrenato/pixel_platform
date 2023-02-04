@@ -35,7 +35,8 @@ enum ANIMATION_TYPE { LOOP, BOUNCE }
 func _ready() -> void:
 	set_animation_type()
 	if animation_player:
-		animation_player.speed_scale = speed / curve.get_baked_length()
+		if not Engine.is_editor_hint():
+			animation_player.speed_scale = speed / curve.get_baked_length()
 	sync_curve_to_terrain()
 
 
