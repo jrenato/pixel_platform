@@ -1,32 +1,33 @@
 extends Activator
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@export var activated : bool = false
+
 
 func _on_body_entered(body: Node2D) -> void:
+	super(body)
 	if body is Player:
 		body.nearest_activator = self
 		super(body)
 
 
 func _on_body_exited(body: Node2D) -> void:
+	super(body)
 	if body is Player:
 		body.nearest_activator = null
 		super(body)
 
 
 func trigger() -> void:
-	if not activated:
-		activate()
-	else:
-		deactivate()
+	super()
 
 
 func activate() -> void:
-	activated = true
+	super()
 	animated_sprite.play("trigger")
+	SoundPlayer.play_sound(SoundPlayer.HANDLE)
 
 
 func deactivate() -> void:
-	activated = false
+	super()
 	animated_sprite.play_backwards("trigger")
+	SoundPlayer.play_sound(SoundPlayer.HANDLE)

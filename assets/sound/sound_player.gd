@@ -2,6 +2,9 @@ extends Node
 
 # SFX
 const BLIP : AudioStream = preload("res://assets/sound/sounds/blip.wav")
+const BUMP : AudioStream = preload("res://assets/sound/sounds/bump.wav")
+const CLICK : AudioStream = preload("res://assets/sound/sounds/click.wav")
+const HANDLE : AudioStream = preload("res://assets/sound/sounds/handle.wav")
 
 const HURT : AudioStream = preload("res://assets/sound/sounds/hurt.wav")
 const HEAL : AudioStream = preload("res://assets/sound/sounds/heal.wav")
