@@ -2,9 +2,10 @@
 @tool
 extends Activable
 
+const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
+
 @onready var blocks: PathFollow2D = $Blocks
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
 
 
 @export var block_distance : int = 18 :

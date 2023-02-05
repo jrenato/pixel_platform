@@ -38,9 +38,9 @@ _data = {
 "move": SubResource("Animation_2hngu")
 }
 
-[node name="MovingWall" type="Path2D"]
+[node name="MovingBlocks" type="Path2D"]
+z_index = -1
 script = ExtResource("1_yfwj4")
-activations = null
 
 [node name="Blocks" type="PathFollow2D" parent="."]
 rotates = false

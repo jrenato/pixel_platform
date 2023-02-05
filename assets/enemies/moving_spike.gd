@@ -17,7 +17,7 @@ enum ANIMATION_TYPE { LOOP, BOUNCE }
 		# Set value if running inside editor (tool)
 		if Engine.is_editor_hint():
 			await ready
-			animation_player.speed_scale = speed / curve.get_baked_length() 
+			animation_player.speed_scale = speed / curve.get_baked_length()
 	get:
 		return speed
 
