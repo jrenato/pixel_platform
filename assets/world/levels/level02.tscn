@@ -48,7 +48,7 @@ point_count = 2
 [node name="Level" instance=ExtResource("1_jm71n")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(1098, 621)
+position = Vector2(1044, 729)
 
 [node name="Camera2D" parent="." index="1"]
 limit_right = 1269

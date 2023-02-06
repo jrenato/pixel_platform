@@ -16,6 +16,7 @@ var coyote_jump : bool = false
 
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
+@onready var grab_check: RayCast2D = $GrabCheck
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
@@ -37,9 +38,15 @@ func _ready() -> void:
 	hurt_timer.wait_time = hurt_duration
 
 
-func connect_camera(camera: Camera2D):
-	remote_transform.remote_path = camera.get_path()
-	camera.make_current()
+func _physics_process(delta: float) -> void:
+	states.physics_process(delta)
+
+
+func _process(delta: float) -> void:
+	if jump_count > 0 and is_on_floor():
+		jump_count = 0
+
+	states.process(delta)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -55,6 +62,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	states.input(event)
 
 
+func connect_camera(camera: Camera2D):
+	remote_transform.remote_path = camera.get_path()
+	camera.make_current()
+
+
+func flip_player_h(flipped : bool) -> void:
+	animated_sprite.flip_h = flipped
+	if flipped:
+		grab_check.target_position = Vector2(10, 0)
+	else:
+		grab_check.target_position = Vector2(-10, 0)
+
+
 func cycle_skin() -> void:
 	if current_skin == skins.size() - 1:
 		# Go back to the first one
@@ -64,17 +84,6 @@ func cycle_skin() -> void:
 		current_skin += 1
 
 	animated_sprite.frames = skins[current_skin]
-
-
-func _physics_process(delta: float) -> void:
-	states.physics_process(delta)
-
-
-func _process(delta: float) -> void:
-	if jump_count > 0 and is_on_floor():
-		jump_count = 0
-
-	states.process(delta)
 
 
 func take_damage(damage : float) -> void:
