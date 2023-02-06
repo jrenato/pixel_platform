@@ -2,14 +2,11 @@ extends Node2D
 
 const player_scene = preload("res://assets/player/player.tscn")
 
-#var spawn_position : Vector2 = Vector2.ZERO
-
 @onready var player : Player = $Player
 @onready var camera : Camera2D = $Camera2D
 @onready var respawn_timer : Timer = $RespawnTimer
 
-# TODO: This enum should be stored as a string
-@export_enum("Adventure", "Dungeon") var song : int = 0
+@export_enum("Adventure", "Dungeon") var song : String = "Adventure"
 
 
 func _ready() -> void:
@@ -44,9 +41,9 @@ func _ready() -> void:
 
 func _play_song() -> void:
 	match song:
-		0:
+		"Adventure":
 			SoundPlayer.play_song(SoundPlayer.ADVENTURE)
-		1:
+		"Dungeon":
 			SoundPlayer.play_song(SoundPlayer.DUNGEON)
 
 
