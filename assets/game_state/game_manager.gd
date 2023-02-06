@@ -12,7 +12,7 @@ var current_level : String = "" :
 		game_data.current_level = value
 		current_level = value
 	get:
-		return current_level
+		return game_data.current_level
 
 
 func _ready() -> void:
