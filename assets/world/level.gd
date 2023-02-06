@@ -30,7 +30,7 @@ func _ready() -> void:
 		# Just update player start position in game data
 		GameManager.game_data.player_position = player.position
 
-	GameManager.write_data()
+	GameManager.save_data()
 
 	# Remove what is already collected, activate what's activated etc
 	update_level_items()
@@ -67,7 +67,7 @@ func respawn_player() -> void:
 func _on_update_checkpoint(checkpoint_position) -> void:
 	SoundPlayer.play_sound(SoundPlayer.CHECKPOINT)
 	GameManager.game_data.player_position = checkpoint_position
-	GameManager.write_data()
+	GameManager.save_data()
 
 
 func update_level_items() -> void:

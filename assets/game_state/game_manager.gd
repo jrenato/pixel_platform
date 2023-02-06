@@ -19,10 +19,6 @@ func _ready() -> void:
 	settings.init()
 
 
-func save_exists() -> bool:
-	return FileAccess.file_exists(SAVE_GAME_PATH)
-
-
 func new_game() -> void:
 	game_data.current_level = GameData.level1
 	game_data.player_health = GameManager.game_data.player_max_health
@@ -31,7 +27,11 @@ func new_game() -> void:
 	level_data.levels = {}
 
 
-func write_data() -> void:
+func save_exists() -> bool:
+	return FileAccess.file_exists(SAVE_GAME_PATH)
+
+
+func save_data() -> void:
 	var _file : FileAccess = FileAccess.open(SAVE_GAME_PATH, FileAccess.WRITE)
 	if FileAccess.get_open_error() != OK:
 		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [SAVE_GAME_PATH, FileAccess.get_open_error()])

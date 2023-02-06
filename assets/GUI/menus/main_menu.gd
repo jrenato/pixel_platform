@@ -18,7 +18,7 @@ func _create_or_load_save() -> void:
 		GameManager.load_data()
 	else:
 		# Change default values to GameManager here, if required
-		GameManager.write_data()
+		GameManager.save_data()
 
 	# Updates #UI after loading settings
 	## Button continue
