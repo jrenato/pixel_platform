@@ -17,6 +17,15 @@ var current_level : String = "" :
 
 func _ready() -> void:
 	settings.init()
+	_create_or_load_save()
+
+
+func _create_or_load_save() -> void:
+	if save_exists():
+		load_data()
+	else:
+		# Change default values to GameManager here, if required
+		save_data()
 
 
 func new_game() -> void:
