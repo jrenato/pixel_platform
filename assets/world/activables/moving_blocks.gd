@@ -1,5 +1,5 @@
-#TODO: Find out why preload conflicts with tool modes
-@tool
+# TODO: Find out why preload conflicts with tool modes
+# @tool
 extends Activable
 
 const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
@@ -10,9 +10,9 @@ const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
 
 @export var block_distance : int = 18 :
 	set(value):
+		block_distance = value
 		if not Engine.is_editor_hint():
 			await ready
-		block_distance = value
 		update_blocks()
 	get:
 		return block_distance
@@ -21,9 +21,9 @@ const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
 var direction_vector : Vector2 = Vector2.UP
 @export_enum("Up", "Down", "Left", "Right") var direction: String = "Up" :
 	set(value):
+		direction = value
 		if not Engine.is_editor_hint():
 			await ready
-		direction = value
 		update_direction()
 		update_blocks()
 	get:
@@ -32,9 +32,9 @@ var direction_vector : Vector2 = Vector2.UP
 
 @export var size : int = 1 :
 	set(value):
+		size = value
 		if not Engine.is_editor_hint():
 			await ready
-		size = value
 		update_blocks()
 	get:
 		return size

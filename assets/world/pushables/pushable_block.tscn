@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dup4gw4bgf5xt"]
+
+[ext_resource type="Script" path="res://assets/world/pushables/pushable_block.gd" id="1_8oxbm"]
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_xb5fs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv21e"]
+size = Vector2(18, 18)
+
+[node name="PushableBlock" type="CharacterBody2D" groups=["Pushables"]]
+script = ExtResource("1_8oxbm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("1_xb5fs")
+region_enabled = true
+region_rect = Rect2(108, 18, 18, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_iv21e")

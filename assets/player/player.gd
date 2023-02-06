@@ -26,9 +26,18 @@ var coyote_jump : bool = false
 
 var nearest_door : Door = null
 var nearest_activator : Activator = null
+var nearest_pushable : CharacterBody2D = null :
+	set(value):
+		nearest_pushable = value
+		if nearest_pushable:
+			print("Near ", nearest_pushable)
+		else:
+			print("No pushables nearby")
+
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
+
 
 func _ready() -> void:
 	# Initialize the state machine, passing a reference of the player to the states,
@@ -40,6 +49,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	states.physics_process(delta)
+	get_nearest_pushable()
+	
 
 
 func _process(delta: float) -> void:
@@ -116,6 +127,20 @@ func is_on_ladder() -> bool:
 	if not collider is Ladder: return false
 
 	return true
+
+
+func get_nearest_pushable() -> void:
+	if not grab_check.is_colliding() and nearest_pushable:
+		nearest_pushable = null
+		return
+
+	var collider = ladder_check.get_collider()
+	if collider and collider.is_in_group("Pushables") and nearest_pushable != collider:
+		nearest_pushable = collider
+		return
+
+	if nearest_pushable:
+		nearest_pushable = null
 
 
 func _on_jump_buffer_timer_timeout() -> void:
