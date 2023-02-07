@@ -4,6 +4,7 @@ class_name PlayerMovementData
 @export var friction : int = 400
 
 @export var walk_speed : int = 120
+@export var walk_pushing_speed : int = 40
 @export var run_speed : int = 180
 @export var climb_speed : int = 120
 @export var dash_speed : int = 240

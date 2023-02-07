@@ -79,6 +79,12 @@ func flip_player_h(flipped : bool) -> void:
 		grab_check.target_position = Vector2(-10, 0)
 
 
+func get_player_direction() -> int:
+	if animated_sprite.flip_h:
+		return 1
+	return -1
+
+
 func cycle_skin() -> void:
 	if current_skin == skins.size() - 1:
 		# Go back to the first one
@@ -123,6 +129,7 @@ func is_on_ladder() -> bool:
 
 
 func get_nearest_pushable() -> void:
+	# TODO: There's probably a better way to do this
 	if not grab_check.is_colliding():
 		if nearest_pushable:
 			nearest_pushable = null
@@ -131,6 +138,7 @@ func get_nearest_pushable() -> void:
 	var collider = grab_check.get_collider()
 	if collider and collider.is_in_group("Pushables") and nearest_pushable != collider:
 		nearest_pushable = collider
+		nearest_pushable.velocity.x = get_player_direction() * 20
 		return
 
 	if nearest_pushable:
