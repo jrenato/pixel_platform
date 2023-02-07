@@ -138,7 +138,7 @@ func get_nearest_pushable() -> void:
 	var collider = grab_check.get_collider()
 	if collider and collider.is_in_group("Pushables") and nearest_pushable != collider:
 		nearest_pushable = collider
-		nearest_pushable.velocity.x = get_player_direction() * 20
+		nearest_pushable.velocity.x = get_player_direction() * 50
 		return
 
 	if nearest_pushable:
