@@ -26,14 +26,7 @@ var coyote_jump : bool = false
 
 var nearest_door : Door = null
 var nearest_activator : Activator = null
-var nearest_pushable : CharacterBody2D = null :
-	set(value):
-		nearest_pushable = value
-		if nearest_pushable:
-			print("Near ", nearest_pushable)
-		else:
-			print("No pushables nearby")
-
+var nearest_pushable : CharacterBody2D = null
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -130,11 +123,12 @@ func is_on_ladder() -> bool:
 
 
 func get_nearest_pushable() -> void:
-	if not grab_check.is_colliding() and nearest_pushable:
-		nearest_pushable = null
+	if not grab_check.is_colliding():
+		if nearest_pushable:
+			nearest_pushable = null
 		return
 
-	var collider = ladder_check.get_collider()
+	var collider = grab_check.get_collider()
 	if collider and collider.is_in_group("Pushables") and nearest_pushable != collider:
 		nearest_pushable = collider
 		return

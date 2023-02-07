@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="5_0kyom"]
 
 [node name="Level" instance=ExtResource("1_vu2sj")]
-song = 1
 
 [node name="Player" parent="." index="0"]
 position = Vector2(198, 270)
