@@ -6,6 +6,7 @@ extends BaseState
 @export var dash_node : NodePath
 @export var idle_node : NodePath
 @export var walk_node : NodePath
+@export var push_node : NodePath
 @export var run_node : NodePath
 @export var climb_node : NodePath
 
@@ -14,6 +15,7 @@ extends BaseState
 @onready var idle_state : BaseState = get_node(idle_node)
 @onready var dash_state : BaseState = get_node(dash_node)
 @onready var walk_state : BaseState = get_node(walk_node)
+@onready var push_state : BaseState = get_node(push_node)
 @onready var run_state : BaseState = get_node(run_node)
 @onready var climb_state : BaseState = get_node(climb_node)
 
@@ -51,18 +53,20 @@ func physics_process(delta : float) -> BaseState:
 
 		return fall_state
 
+	if player.nearest_pushable:
+		return push_state
+
 	var move = get_movement_input()
 
 	if move != 0:
 		player.flip_player_h(move > 0)
-
+	else:
+		return idle_state
+		
 	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.move_data.friction * delta)
 	player.velocity.y += player.gravity * delta
 
 	player.move_and_slide()
-
-	if move == 0:
-		return idle_state
 
 	return null
 

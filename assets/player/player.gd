@@ -43,7 +43,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	states.physics_process(delta)
 	get_nearest_pushable()
-	
 
 
 func _process(delta: float) -> void:
@@ -136,9 +135,9 @@ func get_nearest_pushable() -> void:
 		return
 
 	var collider = grab_check.get_collider()
-	if collider and collider.is_in_group("Pushables") and nearest_pushable != collider:
-		nearest_pushable = collider
-		nearest_pushable.velocity.x = get_player_direction() * 50
+	if collider and collider.is_in_group("Pushables"):
+		if nearest_pushable != collider:
+			nearest_pushable = collider
 		return
 
 	if nearest_pushable:
