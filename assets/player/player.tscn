@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bon174udiedte"]
+[gd_scene load_steps=19 format=3 uid="uid://bon174udiedte"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
 [ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://assets/player/states/fall.gd" id="8_urqgr"]
 [ext_resource type="Script" path="res://assets/player/states/jump.gd" id="9_e225q"]
 [ext_resource type="Script" path="res://assets/player/states/climb.gd" id="11_m0dk0"]
-[ext_resource type="Script" path="res://assets/player/states/push.gd" id="11_mhrcd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wps4t"]
 radius = 5.0
@@ -62,8 +61,6 @@ _data = {
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_e6etg")
-move_data = null
-hurt_duration = null
 skins = Array[SpriteFrames]([ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"), ExtResource("6_d428t"), ExtResource("7_gga2f")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -126,7 +123,6 @@ fall_node = NodePath("../fall")
 dash_node = NodePath("../dash")
 idle_node = NodePath("../idle")
 walk_node = NodePath(".")
-push_node = NodePath("../push")
 run_node = NodePath("../run")
 climb_node = NodePath("../climb")
 animation_name = "walk"
@@ -138,22 +134,9 @@ fall_node = NodePath("../fall")
 dash_node = NodePath("../dash")
 idle_node = NodePath("../idle")
 walk_node = NodePath("../walk")
-push_node = NodePath("../push")
 run_node = NodePath(".")
 climb_node = NodePath("../climb")
 animation_name = "run"
-
-[node name="push" type="Node" parent="state_manager"]
-script = ExtResource("11_mhrcd")
-jump_node = NodePath("../jump")
-fall_node = NodePath("../fall")
-dash_node = NodePath("../dash")
-idle_node = NodePath("../idle")
-walk_node = NodePath("../walk")
-push_node = NodePath(".")
-run_node = NodePath("../run")
-climb_node = NodePath("../climb")
-animation_name = "walk"
 
 [node name="dash" type="Node" parent="state_manager"]
 script = ExtResource("7_ckpis")
@@ -162,7 +145,6 @@ fall_node = NodePath("../fall")
 dash_node = NodePath(".")
 idle_node = NodePath("../idle")
 walk_node = NodePath("../walk")
-push_node = NodePath("../push")
 run_node = NodePath("../run")
 climb_node = NodePath("../climb")
 animation_name = "dash"

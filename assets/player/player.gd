@@ -10,6 +10,7 @@ var jump_count : int = 0
 var buffered_jump : bool = false
 var coyote_jump : bool = false
 
+@onready var state_manager: Node = $state_manager
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var remote_transform : RemoteTransform2D = $RemoteTransform2D

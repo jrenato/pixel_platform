@@ -16,8 +16,7 @@ extends BaseState
 
 
 func enter() -> void:
-	super.enter()
-	#player.velocity.x = 0
+	super()
 
 
 func input(_event : InputEvent) -> BaseState:
