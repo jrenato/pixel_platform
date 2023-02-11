@@ -1,20 +1,22 @@
 class_name MoveState
 extends BaseState
 
-@export var jump_node : NodePath
-@export var fall_node : NodePath
-@export var dash_node : NodePath
 @export var idle_node : NodePath
 @export var walk_node : NodePath
 @export var run_node : NodePath
+@export var dash_node : NodePath
+@export var push_node : NodePath
+@export var jump_node : NodePath
+@export var fall_node : NodePath
 @export var climb_node : NodePath
 
-@onready var jump_state : BaseState = get_node(jump_node)
-@onready var fall_state : BaseState = get_node(fall_node)
 @onready var idle_state : BaseState = get_node(idle_node)
-@onready var dash_state : BaseState = get_node(dash_node)
 @onready var walk_state : BaseState = get_node(walk_node)
 @onready var run_state : BaseState = get_node(run_node)
+@onready var dash_state : BaseState = get_node(dash_node)
+@onready var push_state : BaseState = get_node(push_node)
+@onready var jump_state : BaseState = get_node(jump_node)
+@onready var fall_state : BaseState = get_node(fall_node)
 @onready var climb_state : BaseState = get_node(climb_node)
 
 var current_move_speed : int = 0
@@ -56,11 +58,10 @@ func physics_process(delta : float) -> BaseState:
 	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.move_data.friction * delta)
 	player.velocity.y += player.gravity * delta
 
-	if player.nearest_pushable:
-		# Push it at the same speed as the player
-		player.nearest_pushable.velocity.x = player.velocity.x
-
 	player.move_and_slide()
+
+	if player.nearest_pushable:
+		return push_state
 
 	if move != 0:
 		player.flip_player_h(move > 0)
