@@ -55,25 +55,23 @@ func physics_process(delta : float) -> BaseState:
 
 	var move = get_movement_input()
 
-	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.move_data.friction * delta)
-	player.velocity.y += player.gravity * delta
-
-	player.move_and_slide()
-
-	if player.nearest_pushable:
-		return push_state
-
 	if move != 0:
 		player.flip_player_h(move > 0)
 	else:
 		return idle_state
 
+	if player.is_near_pushable():
+		return push_state
+
+	player.velocity.x = move_toward(player.velocity.x, move * current_move_speed, player.move_data.friction * delta)
+	player.velocity.y += player.gravity * delta
+
+	player.move_and_slide()
+
 	return null
 
 
 func get_movement_input() -> float:
-	#TODO: Why get_axis doesn't work
-#	return Input.get_axis("move_left", "move_right")
 	if Input.is_action_pressed("move_left"):
 		return -1.0
 	elif Input.is_action_pressed("move_right"):

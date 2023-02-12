@@ -17,7 +17,7 @@ var coyote_jump : bool = false
 
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
-@onready var grab_check: RayCast2D = $GrabCheck
+@onready var push_check: RayCast2D = $PushCheck
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
@@ -43,7 +43,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	states.physics_process(delta)
-	get_nearest_pushable()
 
 
 func _process(delta: float) -> void:
@@ -74,9 +73,9 @@ func connect_camera(camera: Camera2D):
 func flip_player_h(flipped : bool) -> void:
 	animated_sprite.flip_h = flipped
 	if flipped:
-		grab_check.target_position = Vector2(10, 0)
+		push_check.target_position = Vector2(7, 0)
 	else:
-		grab_check.target_position = Vector2(-10, 0)
+		push_check.target_position = Vector2(-7, 0)
 
 
 func get_player_direction() -> int:
@@ -128,21 +127,21 @@ func is_on_ladder() -> bool:
 	return true
 
 
-func get_nearest_pushable() -> void:
+func is_near_pushable() -> bool:
 	# TODO: There's probably a better way to do this
-	if not grab_check.is_colliding():
-		if nearest_pushable:
-			nearest_pushable = null
-		return
+	nearest_pushable = null
 
-	var collider = grab_check.get_collider()
-	if collider and collider.is_in_group("Pushables"):
-		if nearest_pushable != collider:
-			nearest_pushable = collider
-		return
+	if not push_check.is_colliding():
+		return false
 
-	if nearest_pushable:
-		nearest_pushable = null
+	var collider = push_check.get_collider()
+	if not collider or not collider.is_in_group("Pushables"):
+		return false
+
+	# TODO: This returns true even when it shouldn't
+	# It might be a v4 bug. Keep an eye on it
+	nearest_pushable = collider
+	return true
 
 
 func _on_jump_buffer_timer_timeout() -> void:

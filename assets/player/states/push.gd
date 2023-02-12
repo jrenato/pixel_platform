@@ -11,11 +11,13 @@ extends BaseState
 @onready var fall_state : BaseState = get_node(fall_node)
 
 var current_move_speed : int = 0
+var current_direction : int = 0
 
 
 func enter() -> void:
 	super()
 	current_move_speed = player.move_data.pushpull_speed
+	current_direction = get_movement_input()
 
 
 func input(event: InputEvent) -> BaseState:
@@ -36,18 +38,22 @@ func physics_process(delta : float) -> BaseState:
 
 	if move != 0:
 		player.flip_player_h(move > 0)
+		if move != current_direction:
+			return walk_state
 	else:
 		return idle_state
 
 	player.velocity.x = move * current_move_speed
 	player.velocity.y += player.gravity * delta
 
-	if player.nearest_pushable:
-		# Push it at the same speed as the player
+	if player.is_near_pushable():
 		player.nearest_pushable.velocity.x = player.velocity.x
+	else:
+		# TODO: This helps is_near_pushable() returning false positives.
+		# Keep an eye on it.
+		return walk_state
 
 	player.move_and_slide()
-
 
 	return null
 
