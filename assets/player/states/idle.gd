@@ -1,18 +1,20 @@
 extends BaseState
 
-@export var jump_node : NodePath
-@export var fall_node : NodePath
 @export var walk_node : NodePath
-@export var climb_node : NodePath
 @export var run_node : NodePath
 @export var dash_node : NodePath
+@export var push_node : NodePath
+@export var jump_node : NodePath
+@export var fall_node : NodePath
+@export var climb_node : NodePath
 
-@onready var jump_state : BaseState = get_node(jump_node)
-@onready var fall_state : BaseState = get_node(fall_node)
 @onready var walk_state : BaseState = get_node(walk_node)
-@onready var climb_state : BaseState = get_node(climb_node)
 @onready var run_state : BaseState = get_node(run_node)
 @onready var dash_state : BaseState = get_node(dash_node)
+@onready var push_state : BaseState = get_node(push_node)
+@onready var jump_state : BaseState = get_node(jump_node)
+@onready var fall_state : BaseState = get_node(fall_node)
+@onready var climb_state : BaseState = get_node(climb_node)
 
 
 func enter() -> void:
@@ -21,6 +23,8 @@ func enter() -> void:
 
 func input(_event : InputEvent) -> BaseState:
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		if player.is_pulling:
+			return push_state
 		if Input.is_action_pressed("run"):
 			return run_state
 		return walk_state

@@ -86,7 +86,7 @@ collide_with_bodies = false
 
 [node name="PushCheck" type="RayCast2D" parent="."]
 position = Vector2(0, -9)
-target_position = Vector2(7, 0)
+target_position = Vector2(10, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -109,12 +109,13 @@ starting_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="state_manager"]
 script = ExtResource("4_rmbbq")
-jump_node = NodePath("../jump")
-fall_node = NodePath("../fall")
 walk_node = NodePath("../walk")
-climb_node = NodePath("../climb")
 run_node = NodePath("../run")
 dash_node = NodePath("../dash")
+push_node = NodePath("../push")
+jump_node = NodePath("../jump")
+fall_node = NodePath("../fall")
+climb_node = NodePath("../climb")
 animation_name = "idle"
 
 [node name="walk" type="Node" parent="state_manager"]

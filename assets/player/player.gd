@@ -28,6 +28,7 @@ var coyote_jump : bool = false
 var nearest_door : Door = null
 var nearest_activator : Activator = null
 var nearest_pushable : CharacterBody2D = null
+var is_pulling : bool = false
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -43,6 +44,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	states.physics_process(delta)
+	is_near_pushable()
 
 
 func _process(delta: float) -> void:
@@ -59,8 +61,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("move_up") and nearest_door != null:
 		nearest_door.enter_door()
 
-	if Input.is_action_pressed("activate") and nearest_activator != null:
+	if Input.is_action_pressed("interact") and nearest_activator != null:
 		nearest_activator.trigger()
+
+	if Input.is_action_pressed("interact") and is_near_pushable():
+		is_pulling = true
+	else:
+		is_pulling = false
 
 	states.input(event)
 
@@ -73,9 +80,9 @@ func connect_camera(camera: Camera2D):
 func flip_player_h(flipped : bool) -> void:
 	animated_sprite.flip_h = flipped
 	if flipped:
-		push_check.target_position = Vector2(7, 0)
+		push_check.target_position = Vector2(10, 0)
 	else:
-		push_check.target_position = Vector2(-7, 0)
+		push_check.target_position = Vector2(-10, 0)
 
 
 func get_player_direction() -> int:
@@ -129,6 +136,8 @@ func is_on_ladder() -> bool:
 
 func is_near_pushable() -> bool:
 	# TODO: There's probably a better way to do this
+	if nearest_pushable:
+		nearest_pushable.player_pushing = null
 	nearest_pushable = null
 
 	if not push_check.is_colliding():
@@ -138,9 +147,10 @@ func is_near_pushable() -> bool:
 	if not collider or not collider.is_in_group("Pushables"):
 		return false
 
-	# TODO: This returns true even when it shouldn't
-	# It might be a v4 bug. Keep an eye on it
+	# TODO: This method returns true even when it shouldn't
+	# This might be a v4 bug. Keep an eye on it.
 	nearest_pushable = collider
+	nearest_pushable.player_pushing = self
 	return true
 
 
