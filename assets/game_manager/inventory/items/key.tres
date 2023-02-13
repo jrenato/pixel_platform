@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://d8yxi4iboxo5"]
+
+[ext_resource type="Script" path="res://assets/game_manager/inventory/item.gd" id="1_lk3ks"]
+[ext_resource type="PackedScene" uid="uid://cbm0ddcbkg1a2" path="res://assets/collectibles/key.tscn" id="1_wpwyw"]
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="2_apvrr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi7eb"]
+atlas = ExtResource("2_apvrr")
+region = Rect2(126, 18, 18, 18)
+
+[resource]
+script = ExtResource("1_lk3ks")
+id = "key"
+name = "Key"
+texture = SubResource("AtlasTexture_wi7eb")
+scene = ExtResource("1_wpwyw")

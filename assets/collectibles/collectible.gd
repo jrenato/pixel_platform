@@ -3,6 +3,8 @@ extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@export var inventory_id : String = ""
+
 
 func can_collect(_character : Player) -> bool:
 	return true

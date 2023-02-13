@@ -7,6 +7,8 @@ var settings : GameSettings = GameSettings.new()
 var game_data : GameData = GameData.new()
 var level_data : LevelData = LevelData.new()
 
+var item_library : ItemLibrary = preload("res://assets/game_manager/inventory/item_library.tres")
+
 var current_level : String = "" :
 	set(value):
 		game_data.current_level = value

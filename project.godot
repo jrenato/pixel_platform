@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 SoundPlayer="*res://assets/sound/sound_player.tscn"
 Events="*res://assets/world/events.gd"
 SceneTransition="*res://assets/world/scene_transition.tscn"
-GameManager="*res://assets/game_state/game_manager.gd"
+GameManager="*res://assets/game_manager/game_manager.gd"
 
 [display]
 

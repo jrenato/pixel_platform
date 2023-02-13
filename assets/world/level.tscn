@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://37lytfkxlr4"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://assets/world/level.gd" id="1_4o1d0"]
 [ext_resource type="PackedScene" uid="uid://bon174udiedte" path="res://assets/player/player.tscn" id="1_u013p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://bh4rg488rkx68" path="res://assets/GUI/gui_theme.tres" id="4_aegta"]
 [ext_resource type="PackedScene" uid="uid://y34tgm4qx6p0" path="res://assets/GUI/components/hearts_component.tscn" id="4_sxa0t"]
 [ext_resource type="PackedScene" uid="uid://do0d8colje66q" path="res://assets/GUI/components/treasure_component.tscn" id="5_640r7"]
+[ext_resource type="PackedScene" uid="uid://cgx4cice86dh3" path="res://assets/GUI/components/inventory_component.tscn" id="6_ove0s"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_4o1d0")
@@ -38,6 +39,7 @@ theme = ExtResource("4_aegta")
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("4_aegta")
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -61,6 +63,24 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="TreasureComponent" parent="GUI/PlayerGUI/MarginContainer2" instance=ExtResource("5_640r7")]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="GUI/PlayerGUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_aegta")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InventoryComponent" parent="GUI/PlayerGUI/MarginContainer3" instance=ExtResource("6_ove0s")]
 layout_mode = 2
 
 [node name="PauseGUI" type="CanvasLayer" parent="."]
