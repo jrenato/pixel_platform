@@ -61,7 +61,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("move_up") and nearest_door != null:
 		nearest_door.enter_door()
 
-	if Input.is_action_pressed("interact") and nearest_activator != null:
+	if Input.is_action_just_pressed("interact") and nearest_activator != null:
 		nearest_activator.trigger()
 
 	if Input.is_action_pressed("interact") and is_near_pushable():

@@ -10,13 +10,13 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	super(body)
-	if body is Player:
+	if body is Player or body.is_in_group("Pushables"):
 		activate()
 
 
 func _on_body_exited(body: Node2D) -> void:
 	super(body)
-	if body is Player:
+	if body is Player or body.is_in_group("Pushables"):
 		deactivate()
 
 
