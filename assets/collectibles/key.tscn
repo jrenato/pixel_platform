@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbm0ddcbkg1a2"]
+
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_4m2i3"]
+[ext_resource type="Script" path="res://assets/collectibles/key.gd" id="1_dd5o1"]
+[ext_resource type="PackedScene" uid="uid://cum7m03yv5wbi" path="res://assets/collectibles/collectible.tscn" id="1_p25gm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i7c4"]
+atlas = ExtResource("1_4m2i3")
+region = Rect2(126, 18, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3o5qb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i7c4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltiep"]
+size = Vector2(18, 18)
+
+[node name="Key" instance=ExtResource("1_p25gm")]
+script = ExtResource("1_dd5o1")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_3o5qb")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_ltiep")
