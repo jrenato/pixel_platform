@@ -1,5 +1,5 @@
-class_name LevelData
 extends Resource
+class_name LevelData
 
 var levels : Dictionary = {}
 

@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbm0ddcbkg1a2"]
+[gd_scene load_steps=7 format=3 uid="uid://b4a71ik2jk02t"]
 
-[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_4m2i3"]
-[ext_resource type="Script" path="res://assets/collectibles/key.gd" id="1_dd5o1"]
-[ext_resource type="PackedScene" uid="uid://cum7m03yv5wbi" path="res://assets/collectibles/collectible.tscn" id="1_p25gm"]
+[ext_resource type="PackedScene" uid="uid://cum7m03yv5wbi" path="res://assets/collectibles/collectible.tscn" id="1_sxmo5"]
+[ext_resource type="Script" path="res://assets/collectibles/key_yellow.gd" id="2_qkj34"]
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="3_s6lci"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5i7c4"]
-atlas = ExtResource("1_4m2i3")
+atlas = ExtResource("3_s6lci")
 region = Rect2(126, 18, 18, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3o5qb"]
@@ -22,8 +22,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltiep"]
 size = Vector2(18, 18)
 
-[node name="Key" instance=ExtResource("1_p25gm")]
-script = ExtResource("1_dd5o1")
+[node name="Key" instance=ExtResource("1_sxmo5")]
+script = ExtResource("2_qkj34")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_3o5qb")

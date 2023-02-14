@@ -1,5 +1,5 @@
-class_name GameSettings
 extends Resource
+class_name GameSettings
 
 @export var fullscreen : bool = false :
 	set(value):

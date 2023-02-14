@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkh4tncbt0aoo"]
+[gd_scene load_steps=22 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/world/level.tscn" id="1_jm71n"]
 [ext_resource type="Texture2D" uid="uid://b72kxxox3npus" path="res://assets/images/background/sky.png" id="2_8j7gk"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c2a46nnj6p3gb" path="res://assets/world/activators/pressure_button.tscn" id="14_t4nme"]
 [ext_resource type="PackedScene" uid="uid://0a6u2rprikrh" path="res://assets/world/activables/moving_blocks.tscn" id="14_xd3ir"]
 [ext_resource type="PackedScene" uid="uid://dup4gw4bgf5xt" path="res://assets/world/pushables/pushable_block.tscn" id="15_w0b14"]
-[ext_resource type="PackedScene" uid="uid://cbm0ddcbkg1a2" path="res://assets/collectibles/key.tscn" id="16_abg60"]
+[ext_resource type="PackedScene" uid="uid://b4a71ik2jk02t" path="res://assets/collectibles/key_yellow.tscn" id="16_abg60"]
 
 [sub_resource type="Curve2D" id="Curve2D_ddlrd"]
 _data = {
