@@ -1,5 +1,5 @@
-class_name Diamong
 extends BaseCollectible
+class_name Diamond
 
 
 func can_collect(character : Player) -> bool:

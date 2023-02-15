@@ -1,5 +1,5 @@
-class_name BaseCollectible
 extends Area2D
+class_name BaseCollectible
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var item_id : String = ""
