@@ -3,11 +3,11 @@ extends Node
 const SAVE_GAME_PATH : String = "user://gamedata.json"
 var version : float = 0.1
 
-var settings : GameSettings = GameSettings.new()
 var game_data : GameData = GameData.new()
+var settings : GameSettings = GameSettings.new()
 var level_data : LevelData = LevelData.new()
+var inventory_manager : InventoryManager = InventoryManager.new()
 
-var item_library : ItemLibrary = preload("res://assets/game_manager/inventory/item_library.tres")
 
 var current_level : String = "" :
 	set(value):
@@ -19,6 +19,7 @@ var current_level : String = "" :
 
 func _ready() -> void:
 	settings.init()
+	inventory_manager.init()
 	_create_or_load_save()
 
 

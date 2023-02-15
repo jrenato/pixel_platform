@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bhqgjdr360crp"]
+
+[ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="1_u12vf"]
+[ext_resource type="Script" path="res://assets/game_manager/inventory/item.gd" id="2_2ctkv"]
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="3_1pagw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi7eb"]
+atlas = ExtResource("3_1pagw")
+region = Rect2(126, 54, 18, 18)
+
+[resource]
+script = ExtResource("2_2ctkv")
+id = "diamond"
+name = "Diamond"
+texture = SubResource("AtlasTexture_wi7eb")
+scene = ExtResource("1_u12vf")

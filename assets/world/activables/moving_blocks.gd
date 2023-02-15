@@ -1,5 +1,5 @@
 # TODO: Find out why preload conflicts with tool modes
-# @tool
+@tool
 extends Activable
 
 const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
@@ -49,6 +49,7 @@ func add_blocks() -> void:
 	for index in size:
 		var block : Block = BLOCK_SCENE.instantiate()
 		blocks.add_child(block)
+		#blocks.call_deferred("add_child", block)
 		position_block(block, index)
 
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://brxjgodlgy2ko"]
 
-[ext_resource type="PackedScene" uid="uid://37lytfkxlr4" path="res://assets/world/level.tscn" id="1_nr8d1"]
+[ext_resource type="PackedScene" path="res://assets/world/level.tscn" id="1_nr8d1"]
 [ext_resource type="PackedScene" uid="uid://c8aogabktl2f6" path="res://assets/world/checkpoint/checkpoint.tscn" id="3_rtg5g"]
 [ext_resource type="PackedScene" uid="uid://c21dwxdfsftno" path="res://assets/enemies/stompie.tscn" id="4_r4324"]
 [ext_resource type="TileSet" uid="uid://dl0i1ilaa18vl" path="res://assets/world/tilesets/grass_tileset.tres" id="5_7ddaa"]

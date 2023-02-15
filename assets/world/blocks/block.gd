@@ -1,5 +1,5 @@
-class_name Block
 extends StaticBody2D
+class_name Block
 
 @onready var sprite : Sprite2D = $Sprite2D
 

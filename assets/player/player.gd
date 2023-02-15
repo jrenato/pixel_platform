@@ -69,6 +69,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		is_pulling = false
 
+	if Input.is_action_pressed("swap_item"):
+		GameManager.inventory_manager.swap_items()
+		Events.emit_signal("update_inventory_ui")
+
 	states.input(event)
 
 
