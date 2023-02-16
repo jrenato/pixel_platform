@@ -50,7 +50,7 @@ point_count = 2
 [node name="Level" instance=ExtResource("1_jm71n")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(513, 729)
+position = Vector2(1125, 621)
 
 [node name="Camera2D" parent="." index="1"]
 limit_right = 1269
@@ -205,31 +205,42 @@ activable1 = NodePath("../MovingBlocks2")
 position = Vector2(189, 315)
 curve = SubResource("Curve2D_ddlrd")
 size = 5
+speed = 100
 
 [node name="MovingBlocks2" parent="." index="19" instance=ExtResource("14_xd3ir")]
 position = Vector2(711, 513)
 curve = SubResource("Curve2D_7jhaq")
-direction = "Down"
 size = 5
+speed = 100
+direction = "Down"
 
 [node name="MovingBlocks3" parent="." index="20" instance=ExtResource("14_xd3ir")]
 position = Vector2(936, 639)
 curve = SubResource("Curve2D_c8v7o")
 size = 2
+speed = 100
 
 [node name="MovingBlocks4" parent="." index="21" instance=ExtResource("14_xd3ir")]
 position = Vector2(954, 621)
 curve = SubResource("Curve2D_8vmyh")
 size = 2
+speed = 100
 
 [node name="MovingBlocks5" parent="." index="22" instance=ExtResource("14_xd3ir")]
 position = Vector2(675, 441)
 curve = SubResource("Curve2D_q1ntx")
-direction = "Down"
 size = 5
+speed = 100
+direction = "Down"
 
-[node name="PushableBlock" parent="." index="23" instance=ExtResource("15_w0b14")]
+[node name="MovingBlocks6" parent="." index="23" instance=ExtResource("14_xd3ir")]
+position = Vector2(189, 513)
+curve = SubResource("Curve2D_ddlrd")
+size = 5
+speed = 100
+
+[node name="PushableBlock" parent="." index="24" instance=ExtResource("15_w0b14")]
 position = Vector2(792, 513)
 
-[node name="YellowKey" parent="." index="24" instance=ExtResource("16_abg60")]
+[node name="YellowKey" parent="." index="25" instance=ExtResource("16_abg60")]
 position = Vector2(702, 513)

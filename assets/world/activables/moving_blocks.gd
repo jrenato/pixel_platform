@@ -1,9 +1,9 @@
-# TODO: Find out why preload conflicts with tool modes
 @tool
 extends Activable
 
 const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
 
+@onready var moving_blocks: Path2D = $"."
 @onready var blocks: PathFollow2D = $Blocks
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -18,6 +18,25 @@ const BLOCK_SCENE := preload("res://assets/world/blocks/block.tscn")
 		return block_distance
 
 
+@export var size : int = 1 :
+	set(value):
+		size = value
+		if not Engine.is_editor_hint():
+			await ready
+		update_blocks()
+	get:
+		return size
+
+
+@export var speed : int = 100 :
+	set(value):
+		speed = value
+		if Engine.is_editor_hint():
+			animation_player.speed_scale = speed / moving_blocks.curve.get_baked_length()
+	get:
+		return speed
+
+
 var direction_vector : Vector2 = Vector2.UP
 @export_enum("Up", "Down", "Left", "Right") var direction: String = "Up" :
 	set(value):
@@ -30,17 +49,8 @@ var direction_vector : Vector2 = Vector2.UP
 		return direction
 
 
-@export var size : int = 1 :
-	set(value):
-		size = value
-		if not Engine.is_editor_hint():
-			await ready
-		update_blocks()
-	get:
-		return size
-
-
 func _ready() -> void:
+	animation_player.speed_scale = speed / moving_blocks.curve.get_baked_length()
 	update_direction()
 	update_blocks()
 
