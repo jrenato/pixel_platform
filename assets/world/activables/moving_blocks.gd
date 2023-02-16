@@ -109,4 +109,5 @@ func activate() -> void:
 func deactivate() -> void:
 	super()
 	if not animation_player.is_playing() or animation_player.get_playing_speed() > 0:
+		SoundPlayer.play_sound(SoundPlayer.STONE_SLIDE)
 		animation_player.play_backwards("move")
