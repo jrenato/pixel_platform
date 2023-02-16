@@ -24,7 +24,6 @@ animations = [{
 
 [node name="Diamond" instance=ExtResource("1_p2raw")]
 script = ExtResource("2_grtm0")
-item_id = "diamond"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -8.5)
