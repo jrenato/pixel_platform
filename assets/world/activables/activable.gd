@@ -4,6 +4,8 @@ extends Node2D
 
 var activated : bool = false
 
+@export var one_way_activation : bool = false
+
 @export var activations : int = 0 :
 	set(value):
 		activations = value
@@ -25,7 +27,9 @@ func add_activation() -> void:
 
 
 func remove_activation() -> void:
-	activations -= 1
+	if not one_way_activation or activations > 1:
+		# If one_way_activation, never drop to zero activations
+		activations -= 1
 
 
 func update_activation() -> void:
