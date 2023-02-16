@@ -30,8 +30,12 @@ const DUNGEON : AudioStream = preload("res://assets/sound/songs/8bit Dungeon Lev
 @onready var song_audio_player : AudioStreamPlayer = $SongAudioStreamPlayer
 
 
-# TODO: prevent double audio (it increases volume)
 func play_sound(sound : AudioStream) -> void:
+	for audio_stream_player in audio_players.get_children():
+		# Prevent playing the same sound at the same time (it increases volume)
+		if audio_stream_player.playing and audio_stream_player.stream == sound:
+			return
+
 	for audio_stream_player in audio_players.get_children():
 		if not audio_stream_player.playing:
 			audio_stream_player.stream = sound
