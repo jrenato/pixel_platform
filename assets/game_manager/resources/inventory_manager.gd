@@ -7,6 +7,9 @@ var item_library_path : String = "res://assets/game_manager/inventory/items/"
 var inventory : Array[Item] = [null, null]
 
 
+#TODO: Refactor this class to a dynamic sized one
+# Remove all hardcoded index in inventory access
+
 func init() -> void:
 	load_library(item_library_path)
 
@@ -73,8 +76,20 @@ func remove_item(index : int) -> void:
 	inventory[index] = null
 
 
+func remove_selected_item() -> void:
+	remove_item(0)
+
+
 func get_item(index : int) -> Item:
 	return inventory[index]
+
+
+func get_item_with_id(item_id : String) -> Item:
+	for item in inventory:
+		if item and item.id == item_id:
+			return item
+
+	return null
 
 
 func get_selected_item() -> Item:

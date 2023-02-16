@@ -6,6 +6,9 @@ extends PanelContainer
 
 
 func _ready() -> void:
+#	selected_item_texture.visible = false
+#	stored_item_texture.visible = false
+
 	Events.connect("update_inventory_ui", _on_update_inventory_ui)
 	_on_update_inventory_ui()
 
@@ -19,19 +22,17 @@ func _on_update_inventory_ui() -> void:
 		return
 
 	visible = true
+	v_separator.visible = stored_item != null
 
-	if stored_item == null:
-		stored_item_texture.texture = null
-		v_separator.visible = false
-		stored_item_texture.visible = false
-	else:
-		stored_item_texture.texture = stored_item.texture
-		v_separator.visible = true
-		stored_item_texture.visible = true
+	_update_item_texture(selected_item, selected_item_texture)
+	_update_item_texture(stored_item, stored_item_texture)
 
-	if selected_item == null:
-		selected_item_texture.texture = null
-		selected_item_texture.visible = false
+
+
+func _update_item_texture(item : Item, item_texture : TextureRect) -> void:
+	if item == null:
+		item_texture.texture = null
+		item_texture.visible = false
 	else:
-		selected_item_texture.texture = selected_item.texture
-		selected_item_texture.visible = true
+		item_texture.texture = item.texture
+		item_texture.visible = true
