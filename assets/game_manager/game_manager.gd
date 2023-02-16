@@ -25,7 +25,10 @@ func _ready() -> void:
 
 func _create_or_load_save() -> void:
 	if save_exists():
-		load_data()
+		var loaded : bool = load_data()
+		if not loaded:
+			# Save default settings
+			save_data()
 	else:
 		# Change default values to GameManager here, if required
 		save_data()
@@ -60,11 +63,11 @@ func save_data() -> void:
 	_file.store_string(json_string)
 
 
-func load_data() -> void:
+func load_data() -> bool:
 	var _file : FileAccess = FileAccess.open(SAVE_GAME_PATH, FileAccess.READ)
 	if FileAccess.get_open_error() != OK:
 		printerr("Could not open the file %s. Aborting load operation. Error code: %s" % [SAVE_GAME_PATH, FileAccess.get_open_error()])
-		return
+		return false
 
 	var content := _file.get_as_text()
 
@@ -72,13 +75,17 @@ func load_data() -> void:
 	var parse_result = json.parse(content)
 	if parse_result != OK:
 		printerr("Error loading options")
-		return
+		return false
 
 	var data : Dictionary = json.get_data()
+
+	if not data.has("version") or data["version"] != version:
+		return false
 
 	settings.from_dict(data.settings)
 	game_data.from_dict(data.game_data)
 	level_data.levels = data.levels
+	return true
 
 
 func set_collectible_state(item_name : String, collected : bool) -> void:
