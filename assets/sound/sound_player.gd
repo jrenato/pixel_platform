@@ -22,14 +22,15 @@ const SCENETRANSITION : AudioStream = preload("res://assets/sound/sounds/scene_t
 const CHECKPOINT : AudioStream = preload("res://assets/sound/sounds/checkpoint.wav")
 
 # MUSIC
-const INTRO : AudioStream= preload("res://assets/sound/songs/Adventure Meme.mp3")
+const INTRO : AudioStream = preload("res://assets/sound/songs/Adventure Meme.mp3")
 const ADVENTURE : AudioStream = preload("res://assets/sound/songs/Adventures in Adventureland.mp3")
-const DUNGEON : AudioStream= preload("res://assets/sound/songs/8bit Dungeon Level.mp3")
+const DUNGEON : AudioStream = preload("res://assets/sound/songs/8bit Dungeon Level.mp3")
 
 @onready var audio_players : Node = $AudioPlayers
-@onready var song_audio_player: AudioStreamPlayer = $SongAudioStreamPlayer
+@onready var song_audio_player : AudioStreamPlayer = $SongAudioStreamPlayer
 
 
+# TODO: prevent double audio (it increases volume)
 func play_sound(sound : AudioStream) -> void:
 	for audio_stream_player in audio_players.get_children():
 		if not audio_stream_player.playing:
