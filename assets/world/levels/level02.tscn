@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7fuktl6kqyx4"]
+[gd_scene load_steps=27 format=3 uid="uid://c7fuktl6kqyx4"]
 
 [ext_resource type="PackedScene" path="res://assets/world/level.tscn" id="1_jm71n"]
 [ext_resource type="Texture2D" uid="uid://b72kxxox3npus" path="res://assets/images/background/sky.png" id="2_8j7gk"]
@@ -22,9 +22,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0vd1"]
 size = Vector2(36, 90)
 
-[sub_resource type="Curve2D" id="Curve2D_ddlrd"]
+[sub_resource type="Curve2D" id="Curve2D_yqgum"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 540, 306, 0, 0, 0, 0, 540, 252)
+"points": PackedVector2Array(0, 0, 0, 0, 540, 306, 0, 0, 0, 0, 540, 198)
 }
 point_count = 2
 
@@ -52,10 +52,22 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_x2jp2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 540, 288, 0, 0, 0, 0, 540, 198)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_qmjc5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 540, 306, 0, 0, 0, 0, 540, 216)
+}
+point_count = 2
+
 [node name="Level" instance=ExtResource("1_jm71n")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(387, 360)
+position = Vector2(99, 333)
 
 [node name="Camera2D" parent="." index="1"]
 limit_right = 1269
@@ -128,7 +140,7 @@ position = Vector2(504, 315)
 position = Vector2(531, 315)
 
 [node name="Diamond" parent="." index="13" instance=ExtResource("6_a3cbw")]
-position = Vector2(666, 297)
+position = Vector2(693, 297)
 
 [node name="Platforms" type="Node2D" parent="." index="14"]
 
@@ -215,7 +227,7 @@ shape = SubResource("RectangleShape2D_j0vd1")
 
 [node name="MovingBlocks" parent="." index="19" instance=ExtResource("14_xd3ir")]
 position = Vector2(189, 315)
-curve = SubResource("Curve2D_ddlrd")
+curve = SubResource("Curve2D_yqgum")
 size = 5
 speed = 100
 
@@ -247,14 +259,14 @@ direction = "Down"
 
 [node name="MovingBlocks6" parent="." index="24" instance=ExtResource("14_xd3ir")]
 position = Vector2(135, 531)
-curve = SubResource("Curve2D_ddlrd")
+curve = SubResource("Curve2D_x2jp2")
 size = 5
 speed = 500
 one_way_activation = true
 
 [node name="MovingBlocks7" parent="." index="25" instance=ExtResource("14_xd3ir")]
 position = Vector2(81, -9)
-curve = SubResource("Curve2D_ddlrd")
+curve = SubResource("Curve2D_qmjc5")
 size = 3
 speed = 50
 one_way_activation = true
@@ -263,9 +275,21 @@ one_way_activation = true
 position = Vector2(792, 513)
 
 [node name="YellowKey" parent="." index="27" instance=ExtResource("16_abg60")]
-position = Vector2(558, 315)
+position = Vector2(702, 513)
 
 [node name="Lock" parent="." index="28" node_paths=PackedStringArray("activable1") instance=ExtResource("18_6rvyw")]
 position = Vector2(594, 297)
 key_id = "yellow_key"
 activable1 = NodePath("../MovingBlocks7")
+
+[node name="Spikey2" parent="." index="29" instance=ExtResource("3_4o70o")]
+position = Vector2(315, 423)
+
+[node name="Spikey3" parent="." index="30" instance=ExtResource("3_4o70o")]
+position = Vector2(405, 477)
+
+[node name="Spikey4" parent="." index="31" instance=ExtResource("3_4o70o")]
+position = Vector2(315, 531)
+
+[node name="Spikey5" parent="." index="32" instance=ExtResource("3_4o70o")]
+position = Vector2(405, 585)
