@@ -15,4 +15,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	SoundPlayer.play_sound(SoundPlayer.UNLOCK)
 	activate()
