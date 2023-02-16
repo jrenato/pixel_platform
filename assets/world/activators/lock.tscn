@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1500mquoo6jt"]
+
+[ext_resource type="Script" path="res://assets/world/activators/lock.gd" id="1_wwk3d"]
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="2_jaw32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iq2t"]
+size = Vector2(36, 18)
+
+[sub_resource type="Animation" id="Animation_t345y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeySprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeySprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_vjq03"]
+resource_name = "unlock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeySprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeySprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-16, -9), Vector2(-1, -9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v3umc"]
+_data = {
+"RESET": SubResource("Animation_t345y"),
+"unlock": SubResource("Animation_vjq03")
+}
+
+[node name="Lock" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_wwk3d")
+
+[node name="LockSpriteLeft2D" type="Sprite2D" parent="."]
+position = Vector2(-4.5, -9)
+texture = ExtResource("2_jaw32")
+region_enabled = true
+region_rect = Rect2(144, 18, 9, 18)
+
+[node name="KeySprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-16, -9)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_jaw32")
+region_enabled = true
+region_rect = Rect2(126, 18, 18, 18)
+
+[node name="LockSpriteRight2D" type="Sprite2D" parent="."]
+position = Vector2(4.5, -9)
+texture = ExtResource("2_jaw32")
+region_enabled = true
+region_rect = Rect2(153, 18, 9, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_4iq2t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v3umc")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
