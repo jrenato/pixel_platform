@@ -10,7 +10,7 @@ region = Rect2(126, 18, 18, 18)
 
 [resource]
 script = ExtResource("1_lk3ks")
-id = "yellow_key"
+item_id = "yellow_key"
 name = "Yellow Key"
 texture = SubResource("AtlasTexture_wi7eb")
 scene = ExtResource("1_0euog")

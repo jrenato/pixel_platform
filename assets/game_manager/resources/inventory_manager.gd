@@ -6,7 +6,6 @@ var item_library_path : String = "res://assets/game_manager/inventory/items/"
 
 var inventory : Array[Item] = [null, null]
 
-
 #TODO: Refactor this class to a dynamic sized one
 # Remove all hardcoded index in inventory access
 
@@ -21,7 +20,9 @@ func load_library(path : String):
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not dir.current_is_dir():
-				item_library.append(load(path + file_name))
+				# TODO: Keep an eye on this issue
+				# https://github.com/godotengine/godot/issues/66014
+				item_library.append(load(path + file_name.trim_suffix('.remap')))
 			file_name = dir.get_next()
 		dir.list_dir_end()
 	else:
@@ -30,8 +31,9 @@ func load_library(path : String):
 
 func get_item_from_library(item_id : String) -> Item:
 	for item in item_library:
-		if item.id == item_id:
-			return item
+		if item:
+			if item.item_id == item_id:
+				return item
 
 	return null
 
@@ -65,7 +67,6 @@ func add_item(item : Item) -> bool:
 
 func add_item_with_id(item_id : String) -> bool:
 	var item : Item = get_item_from_library(item_id)
-
 	if item:
 		return add_item(item)
 
@@ -86,7 +87,7 @@ func get_item(index : int) -> Item:
 
 func get_item_with_id(item_id : String) -> Item:
 	for item in inventory:
-		if item and item.id == item_id:
+		if item and item.item_id == item_id:
 			return item
 
 	return null
