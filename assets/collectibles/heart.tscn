@@ -4,6 +4,9 @@
 [ext_resource type="Script" path="res://assets/collectibles/heart.gd" id="2_j0l8b"]
 [ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="2_ofav1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghs88"]
+size = Vector2(14, 12)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mq2n3"]
 atlas = ExtResource("2_ofav1")
 region = Rect2(72, 36, 18, 18)
@@ -19,17 +22,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghs88"]
-size = Vector2(14, 12)
-
 [node name="Heart" instance=ExtResource("1_0sbnr")]
 script = ExtResource("2_j0l8b")
 health = 1.0
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_u07pu")
-animation = &"idle"
-
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_ghs88")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_u07pu")
+animation = &"idle"

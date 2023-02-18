@@ -4,6 +4,9 @@
 [ext_resource type="Script" path="res://assets/collectibles/coin.gd" id="2_a0rcr"]
 [ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="2_h7uu2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnfa5"]
+size = Vector2(12, 12)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yh53"]
 atlas = ExtResource("2_h7uu2")
 region = Rect2(198, 126, 18, 18)
@@ -26,18 +29,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnfa5"]
-size = Vector2(12, 12)
-
 [node name="Coin" instance=ExtResource("1_kumi6")]
 script = ExtResource("2_a0rcr")
-
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_wqkus")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.165978
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_dnfa5")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_wqkus")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0303824
