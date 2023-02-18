@@ -35,9 +35,11 @@ script = ExtResource("1_uvubj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
-frames = SubResource("SpriteFrames_8v0nx")
+sprite_frames = SubResource("SpriteFrames_8v0nx")
 animation = &"walk"
-playing = true
+autoplay = "walk"
+frame = 1
+frame_progress = 0.1617
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -9)
