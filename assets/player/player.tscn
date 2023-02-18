@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bon174udiedte"]
+[gd_scene load_steps=21 format=3 uid="uid://bon174udiedte"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
 [ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
@@ -19,6 +19,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wps4t"]
 radius = 5.0
 height = 17.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd1sy"]
+size = Vector2(8, 3)
 
 [sub_resource type="Animation" id="Animation_richo"]
 length = 0.001
@@ -62,6 +65,7 @@ _data = {
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_e6etg")
+hurt_duration = null
 skins = Array[SpriteFrames]([ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"), ExtResource("6_d428t"), ExtResource("7_gga2f")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -87,6 +91,14 @@ collide_with_bodies = false
 [node name="PushCheck" type="RayCast2D" parent="."]
 position = Vector2(0, -9)
 target_position = Vector2(10, 0)
+
+[node name="HitBlockArea2D" type="Area2D" parent="."]
+position = Vector2(0, -18)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBlockArea2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_kd1sy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -187,6 +199,7 @@ fall_node = NodePath("../fall")
 jump_node = NodePath("../jump")
 animation_name = "walk"
 
+[connection signal="body_entered" from="HitBlockArea2D" to="." method="_on_hit_block_area_2d_body_entered"]
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]

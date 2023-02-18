@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ls6shh3f0abg"]
+
+[ext_resource type="PackedScene" uid="uid://8ftua65roldy" path="res://assets/world/blocks/hit_blocks/hit_block.tscn" id="1_jai6l"]
+[ext_resource type="PackedScene" uid="uid://dtd1dglgccr3b" path="res://assets/world/blocks/particles/brick_particles.tscn" id="2_s5s8s"]
+
+[node name="BrickBlock" instance=ExtResource("1_jai6l")]
+break_particles = ExtResource("2_s5s8s")
+breakable = true
+
+[node name="EnabledSprite2D" parent="." index="1"]
+region_rect = Rect2(108, 0, 18, 18)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://h4p6wqm1vcvs"]
+
+[ext_resource type="PackedScene" uid="uid://8ftua65roldy" path="res://assets/world/blocks/hit_blocks/hit_block.tscn" id="1_6ymp4"]
+[ext_resource type="PackedScene" uid="uid://clvsqoi8wgvn6" path="res://assets/collectibles/diamond.tscn" id="2_im1yl"]
+
+[node name="DiamondHitBlock" instance=ExtResource("1_6ymp4")]
+spawn_item = ExtResource("2_im1yl")
+
+[node name="DisabledSprite2D" parent="." index="0"]
+region_rect = Rect2(180, 18, 18, 18)
+
+[node name="EnabledSprite2D" parent="." index="1"]
+region_rect = Rect2(180, 0, 18, 18)

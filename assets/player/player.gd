@@ -18,6 +18,7 @@ var coyote_jump : bool = false
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
 @onready var push_check: RayCast2D = $PushCheck
+#@onready var hit_block_check: RayCast2D = $HitBlockCheck
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
@@ -169,3 +170,8 @@ func _on_coyote_jump_timer_timeout() -> void:
 func _on_hurt_timer_timeout() -> void:
 	animation_player.stop()
 	set_collision_layer_value(2, true)
+
+
+func _on_hit_block_area_2d_body_entered(body: Node2D) -> void:
+	if body is HitBlock and body.is_in_group("HitBlocks"):
+		body.hit()

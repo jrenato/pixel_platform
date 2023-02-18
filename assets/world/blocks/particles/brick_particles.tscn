@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtd1dglgccr3b"]
+
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_bh6dq"]
+
+[sub_resource type="Gradient" id="Gradient_1kwmi"]
+offsets = PackedFloat32Array(0, 0.778788, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_abrle"]
+gradient = SubResource("Gradient_1kwmi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cja7c"]
+emission_shape = 3
+emission_box_extents = Vector3(6, 6, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 90, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 20.0
+damping_max = 20.0
+angle_max = 180.0
+scale_min = 0.4
+scale_max = 0.8
+color_ramp = SubResource("GradientTexture1D_abrle")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gonx4"]
+atlas = ExtResource("1_bh6dq")
+region = Rect2(126, 0, 18, 18)
+
+[node name="BlockParticles" type="GPUParticles2D"]
+position = Vector2(0, -18)
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_cja7c")
+texture = SubResource("AtlasTexture_gonx4")
+one_shot = true
+explosiveness = 1.0
