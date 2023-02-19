@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://d4fn0m0ecxbit" path="res://assets/images/background/trees.png" id="8_pdnyd"]
 [ext_resource type="PackedScene" uid="uid://byrpofh7qx3k5" path="res://assets/collectibles/heart.tscn" id="9_fapgk"]
 [ext_resource type="PackedScene" uid="uid://57oc37ynrmeq" path="res://assets/enemies/spikey.tscn" id="9_xeu8g"]
-[ext_resource type="PackedScene" uid="uid://8ftua65roldy" path="res://assets/world/blocks/hit_blocks/hit_block.tscn" id="10_8e3gt"]
 [ext_resource type="PackedScene" uid="uid://dgfjyy2hnkdll" path="res://assets/world/blocks/hit_blocks/coin_block.tscn" id="10_y1krv"]
 [ext_resource type="PackedScene" uid="uid://h4p6wqm1vcvs" path="res://assets/world/blocks/hit_blocks/diamond_block.tscn" id="12_4b75b"]
 [ext_resource type="PackedScene" uid="uid://ls6shh3f0abg" path="res://assets/world/blocks/hit_blocks/brick_block.tscn" id="13_aigjk"]
+[ext_resource type="PackedScene" uid="uid://dsmb3rwpyxnxq" path="res://assets/world/blocks/hit_blocks/blank_block.tscn" id="13_v2m80"]
 
 [node name="Level" instance=ExtResource("1_vu2sj")]
 
@@ -96,14 +96,14 @@ position = Vector2(90, -216)
 [node name="Spikey" parent="Enemies" index="0" instance=ExtResource("9_xeu8g")]
 position = Vector2(225, 288)
 
-[node name="CoinBlock" parent="." index="10" instance=ExtResource("10_y1krv")]
-position = Vector2(567, 153)
+[node name="BrickBlock" parent="." index="10" instance=ExtResource("13_aigjk")]
+position = Vector2(531, 153)
 
-[node name="HitBlock" parent="." index="11" instance=ExtResource("10_8e3gt")]
+[node name="BlankBlock" parent="." index="11" instance=ExtResource("13_v2m80")]
 position = Vector2(549, 153)
 
-[node name="DiamondHitBlock" parent="." index="12" instance=ExtResource("12_4b75b")]
-position = Vector2(585, 153)
+[node name="CoinBlock" parent="." index="12" instance=ExtResource("10_y1krv")]
+position = Vector2(567, 153)
 
-[node name="BrickBlock" parent="." index="13" instance=ExtResource("13_aigjk")]
-position = Vector2(531, 153)
+[node name="DiamondBlock" parent="." index="13" instance=ExtResource("12_4b75b")]
+position = Vector2(585, 153)

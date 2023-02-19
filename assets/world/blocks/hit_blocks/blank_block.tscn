@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsmb3rwpyxnxq"]
+
+[ext_resource type="PackedScene" uid="uid://8ftua65roldy" path="res://assets/world/blocks/hit_blocks/hit_block.tscn" id="1_p2f5y"]
+
+[node name="BlankBlock" instance=ExtResource("1_p2f5y")]

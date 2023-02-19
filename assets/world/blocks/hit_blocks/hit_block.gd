@@ -35,6 +35,7 @@ func hit() -> void:
 
 func bump_block() -> void:
 		animation_player.play("hit")
+		SoundPlayer.play_sound(SoundPlayer.BLOCK_BUMP)
 
 		if spawn_item:
 			var item : Node2D = spawn_item.instantiate()
@@ -42,6 +43,7 @@ func bump_block() -> void:
 
 
 func break_block() -> void:
+	SoundPlayer.play_sound(SoundPlayer.BLOCK_BREAK)
 	if break_particles:
 		var particles : GPUParticles2D = break_particles.instantiate()
 		get_parent().add_child(particles)
