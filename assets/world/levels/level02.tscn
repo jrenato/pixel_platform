@@ -279,7 +279,6 @@ position = Vector2(702, 513)
 
 [node name="Lock" parent="." index="28" node_paths=PackedStringArray("activable1") instance=ExtResource("18_6rvyw")]
 position = Vector2(594, 297)
-key_id = "yellow_key"
 activable1 = NodePath("../MovingBlocks7")
 
 [node name="Spikey2" parent="." index="29" instance=ExtResource("3_4o70o")]
