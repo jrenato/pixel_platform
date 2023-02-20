@@ -5,12 +5,14 @@ extends BaseState
 @export var walk_node : NodePath
 @export var idle_node : NodePath
 @export var climb_node : NodePath
+@export var swim_node : NodePath
 
 @onready var jump_state : BaseState = get_node(jump_node)
 @onready var run_state : BaseState = get_node(run_node)
 @onready var walk_state : BaseState = get_node(walk_node)
 @onready var idle_state : BaseState = get_node(idle_node)
 @onready var climb_state : BaseState = get_node(climb_node)
+@onready var swim_state : BaseState = get_node(swim_node)
 
 
 func input(_event : InputEvent) -> BaseState:
@@ -55,5 +57,8 @@ func physics_process(delta : float) -> BaseState:
 			return walk_state
 		else:
 			return idle_state
+
+	if player.is_in_water:
+		return swim_state
 
 	return null

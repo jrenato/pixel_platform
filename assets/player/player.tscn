@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bon174udiedte"]
+[gd_scene load_steps=23 format=3 uid="uid://bon174udiedte"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_e6etg"]
 [ext_resource type="SpriteFrames" uid="uid://bkfle85nqouvj" path="res://assets/player/skins/PlayerGreenSkin.tres" id="2_17vh0"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://assets/player/states/jump.gd" id="9_e225q"]
 [ext_resource type="Script" path="res://assets/player/states/climb.gd" id="11_m0dk0"]
 [ext_resource type="Script" path="res://assets/player/states/push.gd" id="12_0w7th"]
+[ext_resource type="Script" path="res://assets/player/states/swim.gd" id="16_qfolo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wps4t"]
 radius = 5.0
@@ -22,6 +23,9 @@ height = 17.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd1sy"]
 size = Vector2(8, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lj6y"]
+size = Vector2(12, 5)
 
 [sub_resource type="Animation" id="Animation_richo"]
 length = 0.001
@@ -65,13 +69,12 @@ _data = {
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_e6etg")
-hurt_duration = null
 skins = Array[SpriteFrames]([ExtResource("2_17vh0"), ExtResource("4_jcsf6"), ExtResource("5_bfrsk"), ExtResource("6_d428t"), ExtResource("7_gga2f")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = ExtResource("2_17vh0")
-animation = &"idle"
+animation = &"swim"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -99,6 +102,14 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBlockArea2D"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_kd1sy")
+
+[node name="WaterDetectionArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetectionArea2D"]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_1lj6y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -181,6 +192,7 @@ run_node = NodePath("../run")
 walk_node = NodePath("../walk")
 idle_node = NodePath("../idle")
 climb_node = NodePath("../climb")
+swim_node = NodePath("../swim")
 animation_name = "fall"
 
 [node name="jump" type="Node" parent="state_manager"]
@@ -199,7 +211,14 @@ fall_node = NodePath("../fall")
 jump_node = NodePath("../jump")
 animation_name = "walk"
 
+[node name="swim" type="Node" parent="state_manager"]
+script = ExtResource("16_qfolo")
+jump_node = NodePath("../jump")
+animation_name = "swim"
+
 [connection signal="body_entered" from="HitBlockArea2D" to="." method="_on_hit_block_area_2d_body_entered"]
+[connection signal="body_entered" from="WaterDetectionArea2D" to="." method="_on_water_detector_area_2d_body_entered"]
+[connection signal="body_exited" from="WaterDetectionArea2D" to="." method="_on_water_detector_area_2d_body_exited"]
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]

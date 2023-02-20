@@ -2,7 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var default_gravity : int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var water_gravity : int = floor(default_gravity / 100)
+
+var gravity : int = default_gravity
 
 @export var move_data : PlayerMovementData = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
 
@@ -18,7 +21,7 @@ var coyote_jump : bool = false
 @onready var states : StateManager = $state_manager
 @onready var ladder_check : RayCast2D = $LadderCheck
 @onready var push_check: RayCast2D = $PushCheck
-#@onready var hit_block_check: RayCast2D = $HitBlockCheck
+@onready var water_detection: Area2D = $WaterDetectionArea2D
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_jump_timer : Timer = $CoyoteJumpTimer
@@ -29,7 +32,9 @@ var coyote_jump : bool = false
 var nearest_door : Door = null
 var nearest_activator : Activator = null
 var nearest_pushable : CharacterBody2D = null
+
 var is_pulling : bool = false
+var is_in_water : bool = false
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -175,3 +180,22 @@ func _on_hurt_timer_timeout() -> void:
 func _on_hit_block_area_2d_body_entered(body: Node2D) -> void:
 	if body is HitBlock and body.is_in_group("HitBlocks"):
 		body.hit()
+
+
+func _on_water_detector_area_2d_body_entered(body: Node2D) -> void:
+	if not is_in_water:
+		var bodies : Array[Node2D] = water_detection.get_overlapping_bodies()
+		
+		if bodies.size() > 0:
+			is_in_water = true
+			gravity = water_gravity
+			velocity.y = 0
+
+
+func _on_water_detector_area_2d_body_exited(body: Node2D) -> void:
+	if is_in_water:
+		var bodies : Array[Node2D] = water_detection.get_overlapping_bodies()
+		
+		if bodies.size() == 0:
+			is_in_water = false
+			gravity = default_gravity
