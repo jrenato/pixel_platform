@@ -34,5 +34,6 @@ func _on_h_slider_music_value_changed(value):
 
 func _on_h_slider_sound_value_changed(value):
 	# Blip, so player can check the sound volume
-	SoundPlayer.play_sound(SoundPlayer.BLIP)
+	if visible == true:
+		SoundPlayer.play_sound(SoundPlayer.BLIP)
 	GameManager.settings.sound_volume = value
