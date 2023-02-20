@@ -47,7 +47,8 @@ func break_block() -> void:
 	if break_particles:
 		var particles : GPUParticles2D = break_particles.instantiate()
 		get_parent().add_child(particles)
-		particles.position = position
+		#particles.position = position
+		particles.position = spawn_node_2d.global_position
 		particles.emitting = true
 
 	call_deferred("queue_free")

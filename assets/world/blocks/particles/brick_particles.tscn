@@ -28,10 +28,9 @@ color_ramp = SubResource("GradientTexture1D_abrle")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gonx4"]
 atlas = ExtResource("1_bh6dq")
-region = Rect2(126, 0, 18, 18)
+region = Rect2(128, 2, 14, 14)
 
 [node name="BlockParticles" type="GPUParticles2D"]
-position = Vector2(0, -18)
 emitting = false
 amount = 6
 process_material = SubResource("ParticleProcessMaterial_cja7c")
