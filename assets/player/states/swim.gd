@@ -14,6 +14,7 @@ func enter() -> void:
 
 func input(_event : InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("jump"):
+		SoundPlayer.play_sound(SoundPlayer.SWIM)
 		player.velocity.y -= current_move_speed * 2
 
 	return null
