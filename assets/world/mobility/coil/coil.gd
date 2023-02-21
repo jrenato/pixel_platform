@@ -17,3 +17,4 @@ func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
 		animated_sprite_2d.frame = 0
 		body.is_on_coil = false
+		SoundPlayer.play_sound(SoundPlayer.COIL)
