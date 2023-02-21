@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brxjgodlgy2ko"]
+[gd_scene load_steps=20 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/world/level.tscn" id="1_nr8d1"]
 [ext_resource type="PackedScene" uid="uid://c8aogabktl2f6" path="res://assets/world/checkpoint/checkpoint.tscn" id="3_rtg5g"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ciwl612dsdb7u" path="res://assets/hazards/spikes.tscn" id="5_hrrt5"]
 [ext_resource type="PackedScene" uid="uid://57oc37ynrmeq" path="res://assets/enemies/spikey.tscn" id="6_sq2uj"]
 [ext_resource type="PackedScene" uid="uid://btfne1i0f2o60" path="res://assets/enemies/moving_spike.tscn" id="7_4p5gc"]
-[ext_resource type="PackedScene" uid="uid://cu5e00y0pwtmg" path="res://assets/world/ladder/ladder.tscn" id="8_hctwi"]
+[ext_resource type="PackedScene" path="res://assets/world/mobility/ladder/ladder.tscn" id="8_hctwi"]
 [ext_resource type="PackedScene" uid="uid://d0a75ddfqdm6" path="res://assets/world/door/door.tscn" id="9_fk2bf"]
 [ext_resource type="PackedScene" uid="uid://b75y8yqtdyat" path="res://assets/components/death_area.tscn" id="10_27jqo"]
 [ext_resource type="Texture2D" uid="uid://b72kxxox3npus" path="res://assets/images/background/sky.png" id="11_wrm20"]

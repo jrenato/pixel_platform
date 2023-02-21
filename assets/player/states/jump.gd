@@ -20,7 +20,12 @@ var jump_input_released : bool = false
 func enter() -> void:
 	super.enter()
 	SoundPlayer.play_sound(SoundPlayer.JUMP)
-	player.velocity.y = -player.move_data.jump_force
+	var current_jump_force : int = -player.move_data.jump_force
+
+	if player.is_on_coil:
+		current_jump_force = -player.move_data.jump_coil_force
+
+	player.velocity.y = current_jump_force
 	player.jump_count += 1
 	player.buffered_jump = false
 

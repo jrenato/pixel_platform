@@ -35,6 +35,7 @@ var nearest_pushable : CharacterBody2D = null
 
 var is_pulling : bool = false
 var is_in_water : bool = false
+var is_on_coil : bool = false
 
 @export var skins: Array[SpriteFrames] = []
 var current_skin = 0
@@ -182,7 +183,7 @@ func _on_hit_block_area_2d_body_entered(body: Node2D) -> void:
 		body.hit()
 
 
-func _on_water_detector_area_2d_body_entered(body: Node2D) -> void:
+func _on_water_detector_area_2d_body_entered(_body: Node2D) -> void:
 	if not is_in_water:
 		var bodies : Array[Node2D] = water_detection.get_overlapping_bodies()
 		
@@ -192,7 +193,7 @@ func _on_water_detector_area_2d_body_entered(body: Node2D) -> void:
 			velocity.y = 0
 
 
-func _on_water_detector_area_2d_body_exited(body: Node2D) -> void:
+func _on_water_detector_area_2d_body_exited(_body: Node2D) -> void:
 	if is_in_water:
 		var bodies : Array[Node2D] = water_detection.get_overlapping_bodies()
 		

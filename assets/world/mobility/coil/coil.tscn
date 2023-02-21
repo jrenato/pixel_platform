@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://23s17lll0fjj"]
+
+[ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_5u2tj"]
+[ext_resource type="Script" path="res://assets/world/mobility/coil/coil.gd" id="1_v7c0y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17mmw"]
+atlas = ExtResource("1_5u2tj")
+region = Rect2(144, 90, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjrnr"]
+atlas = ExtResource("1_5u2tj")
+region = Rect2(126, 90, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bcxh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17mmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjrnr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6krvc"]
+size = Vector2(16, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjy06"]
+size = Vector2(18, 9)
+
+[node name="coil" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_v7c0y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_7bcxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_6krvc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_gjy06")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
