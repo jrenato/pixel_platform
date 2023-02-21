@@ -179,7 +179,7 @@ func _on_hurt_timer_timeout() -> void:
 
 
 func _on_hit_block_area_2d_body_entered(body: Node2D) -> void:
-	if body is HitBlock and body.is_in_group("HitBlocks"):
+	if body is HitBlock and body.is_in_group("HitBlocks") and velocity.y <= 0:
 		body.hit()
 
 
