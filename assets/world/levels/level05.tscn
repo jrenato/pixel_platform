@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfyllbc2q3ybj"]
+[gd_scene load_steps=4 format=3 uid="uid://dfyllbc2q3ybj"]
 
 [ext_resource type="PackedScene" path="res://assets/world/level.tscn" id="1_hxa54"]
 [ext_resource type="TileSet" uid="uid://di6phc8mtedpc" path="res://assets/world/tilesets/snow_tileset.tres" id="2_rh61o"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fpl63"]
+emission_shape = 3
+emission_box_extents = Vector3(80, 0, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 5.0
 
 [node name="Level" instance=ExtResource("1_hxa54")]
 
@@ -20,3 +30,7 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 6
 layer_1/tile_data = PackedInt32Array(917520, 983041, 4, 1048592, 983041, 5, 983056, 983041, 5, 1114128, 851969, 5, 1114129, 851969, 6, 1114130, 851969, 6, 1114131, 851969, 6, 1114133, 851969, 6, 1114132, 851969, 6, 1114135, 917505, 4, 1114134, 851969, 6, 1245207, 983041, 5, 1179671, 983041, 5, 1376279, 983041, 6, 1310743, 983041, 5, 786454, 393217, 6, 851979, 262145, 7, 851995, 327681, 7)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="6"]
+position = Vector2(351, 63)
+process_material = SubResource("ParticleProcessMaterial_fpl63")
