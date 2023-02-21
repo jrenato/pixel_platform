@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu5e00y0pwtmg"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_hgccs"]
-[ext_resource type="Script" path="res://assets/world/ladder/ladder.gd" id="1_xe271"]
+[ext_resource type="Script" path="res://assets/world/mobility/ladder/ladder.gd" id="1_xe271"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdv7l"]
 size = Vector2(18, 18)
