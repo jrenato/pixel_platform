@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://6ien8w2u202o"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://6ien8w2u202o"]
 
 [ext_resource type="Texture2D" uid="uid://df6t71d65760p" path="res://assets/images/characters_packed.png" id="1_180he"]
 
@@ -23,6 +23,14 @@ atlas = ExtResource("1_180he")
 region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arpgg"]
+atlas = ExtResource("1_180he")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwee5"]
+atlas = ExtResource("1_180he")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqts1"]
 atlas = ExtResource("1_180he")
 region = Rect2(48, 0, 24, 24)
 
@@ -78,6 +86,17 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwee5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqts1")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,

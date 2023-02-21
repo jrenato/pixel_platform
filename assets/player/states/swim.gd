@@ -5,7 +5,12 @@ extends BaseState
 
 @onready var jump_state : BaseState = get_node(jump_node)
 
-var current_move_speed : int = 50
+var current_move_speed : int = 0
+
+
+func enter() -> void:
+	super()
+	current_move_speed = player.move_data.swim_speed
 
 
 func input(_event : InputEvent) -> BaseState:
