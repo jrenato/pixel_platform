@@ -25,3 +25,9 @@ https://creativecommons.org/publicdomain/zero/1.0/
 Breviceps (https://freesound.org/people/Breviceps/)
 Licensed under Creative Commons: By Attribution 0 License
 https://creativecommons.org/publicdomain/zero/1.0/
+
+tim.kahn (https://freesound.org/people/tim.kahn/)
+Licensed under Creative Commons: By Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/
+
+Example: "Water Splash" © tim.kahn (Licensed under CC BY 4.0) 

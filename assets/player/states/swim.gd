@@ -2,7 +2,6 @@ class_name SwimState
 extends BaseState
 
 @export var jump_node : NodePath
-
 @onready var jump_state : BaseState = get_node(jump_node)
 
 var current_move_speed : int = 0

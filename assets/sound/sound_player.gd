@@ -15,6 +15,7 @@ const HURT : AudioStream = preload("res://assets/sound/sounds/hurt.wav")
 const HEAL : AudioStream = preload("res://assets/sound/sounds/heal.wav")
 const JUMP : AudioStream = preload("res://assets/sound/sounds/jump2.wav")
 const BOOM : AudioStream = preload("res://assets/sound/sounds/boom.wav")
+const WATER_SPLASH : AudioStream = preload("res://assets/sound/sounds/water_splash.wav")
 
 const COIN : AudioStream = preload("res://assets/sound/sounds/coin.wav")
 const DIAMOND : AudioStream = preload("res://assets/sound/sounds/diamond.wav")

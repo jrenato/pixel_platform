@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dix4qf46q6bed"]
+[gd_scene load_steps=25 format=3 uid="uid://dix4qf46q6bed"]
 
 [ext_resource type="PackedScene" path="res://assets/world/level.tscn" id="1_vu2sj"]
 [ext_resource type="TileSet" uid="uid://dl0i1ilaa18vl" path="res://assets/world/tilesets/grass_tileset.tres" id="2_oiqlp"]
@@ -40,10 +40,33 @@ shader_parameter/tint_color = Color(0.392157, 0.709804, 0.878431, 1)
 shader_parameter/tint_factor = 4.0
 shader_parameter/distortion_texture = SubResource("NoiseTexture2D_k4lp3")
 
+[sub_resource type="Gradient" id="Gradient_pp64i"]
+offsets = PackedFloat32Array(0, 0.719064, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.12549)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4kx1q"]
+gradient = SubResource("Gradient_pp64i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dtdvh"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 5, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -10, 0)
+spread = 20.0
+gravity = Vector3(0, 100, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_4kx1q")
+collision_use_scale = true
+
 [node name="Level" instance=ExtResource("1_vu2sj")]
 
 [node name="Player" parent="." index="0"]
-position = Vector2(117, 270)
+position = Vector2(855, 324)
 
 [node name="Camera2D" parent="." index="1"]
 limit_top = -300
@@ -81,7 +104,7 @@ tile_set = ExtResource("6_uex8a")
 format = 2
 layer_0/name = "Background"
 layer_0/modulate = Color(0.413245, 0.419036, 0.401689, 1)
-layer_0/tile_data = PackedInt32Array(917526, 131073, 6, 983062, 131073, 6, 1048598, 131073, 6, 1114134, 131073, 6, 1179670, 131073, 6, 983061, 131073, 6, 1048597, 131073, 6, 1114133, 131073, 6, 917527, 131073, 6, 983063, 131073, 6, 1048599, 131073, 6, 1114135, 131073, 6, 1179671, 131073, 6, 917528, 131073, 6, 983064, 131073, 6, 1048600, 131073, 6, 1114136, 131073, 6, 1179672, 131073, 6, 917529, 131073, 6, 983065, 131073, 6, 1048601, 131073, 6, 1114137, 131073, 6, 1179673, 131073, 6, 917530, 131073, 6, 983066, 131073, 6, 1048602, 131073, 6, 1114138, 131073, 6, 1179674, 131073, 6, 917531, 131073, 6, 983067, 131073, 6, 1048603, 131073, 6, 1114139, 131073, 6, 1179675, 131073, 6, 917532, 131073, 6, 983068, 131073, 6, 1048604, 131073, 6, 1114140, 131073, 6, 1179676, 131073, 6, 720919, 131073, 6, 786455, 131073, 6, 851991, 131073, 6, 720920, 131073, 6, 786456, 131073, 6, 851992, 131073, 6, 720921, 131073, 6, 786457, 131073, 6, 851993, 131073, 6, 720922, 131073, 6, 786458, 131073, 6, 851994, 131073, 6, 720923, 131073, 6, 786459, 131073, 6, 851995, 131073, 6, 720924, 131073, 6, 786460, 131073, 6, 851996, 131073, 6, 720925, 131073, 6, 786461, 131073, 6, 851997, 131073, 6, 786462, 131073, 6, 851998, 131073, 6, 917534, 131073, 6, 851999, 131073, 6, 917535, 131073, 6, 917533, 131073, 6, 720926, 131073, 6, 1245208, 131073, 6, 1245209, 131073, 6, 1245210, 131073, 6, 1245211, 131073, 6, 1245212, 131073, 6, 1245213, 131073, 6, 1245214, 131073, 6)
+layer_0/tile_data = PackedInt32Array(917526, 131073, 6, 983062, 131073, 6, 1048598, 131073, 6, 1114134, 131073, 6, 1179670, 131073, 6, 983061, 131073, 6, 1048597, 131073, 6, 1114133, 131073, 6, 917527, 131073, 6, 983063, 131073, 6, 1048599, 131073, 6, 1114135, 131073, 6, 1179671, 131073, 6, 917528, 131073, 6, 983064, 131073, 6, 1048600, 131073, 6, 1114136, 131073, 6, 1179672, 131073, 6, 917529, 131073, 6, 983065, 131073, 6, 1048601, 131073, 6, 1114137, 131073, 6, 1179673, 131073, 6, 917530, 131073, 6, 983066, 131073, 6, 1048602, 131073, 6, 1114138, 131073, 6, 1179674, 131073, 6, 917531, 131073, 6, 983067, 131073, 6, 1048603, 131073, 6, 1114139, 131073, 6, 1179675, 131073, 6, 917532, 131073, 6, 983068, 131073, 6, 1048604, 131073, 6, 1114140, 131073, 6, 1179676, 131073, 6, 720919, 131073, 6, 786455, 131073, 6, 851991, 131073, 6, 720920, 131073, 6, 786456, 131073, 6, 851992, 131073, 6, 720921, 131073, 6, 786457, 131073, 6, 851993, 131073, 6, 720922, 131073, 6, 786458, 131073, 6, 851994, 131073, 6, 720923, 131073, 6, 786459, 131073, 6, 851995, 131073, 6, 720924, 131073, 6, 786460, 131073, 6, 851996, 131073, 6, 720925, 131073, 6, 786461, 131073, 6, 851997, 131073, 6, 786462, 131073, 6, 851998, 131073, 6, 917534, 131073, 6, 851999, 131073, 6, 917535, 131073, 6, 917533, 131073, 6, 720926, 131073, 6, 1245208, 131073, 6, 1245209, 131073, 6, 1245210, 131073, 6, 1245211, 131073, 6, 1245212, 131073, 6, 1245213, 131073, 6, 1245214, 131073, 6, 917525, 131073, 6, 851990, 131073, 6)
 
 [node name="GrassTileMap" type="TileMap" parent="." index="7"]
 tile_set = ExtResource("2_oiqlp")
@@ -163,8 +186,14 @@ texture = ExtResource("16_xi0al")
 region_enabled = true
 region_rect = Rect2(234, 54, 18, 18)
 
-[node name="coil" parent="." index="14" instance=ExtResource("17_o3bh1")]
+[node name="WaterFallSplash" type="GPUParticles2D" parent="." index="14"]
+z_index = 5
+position = Vector2(1071, 342)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_dtdvh")
+
+[node name="coil" parent="." index="15" instance=ExtResource("17_o3bh1")]
 position = Vector2(1809, 216)
 
-[node name="coil2" parent="." index="15" instance=ExtResource("17_o3bh1")]
+[node name="coil2" parent="." index="16" instance=ExtResource("17_o3bh1")]
 position = Vector2(1872, 126)

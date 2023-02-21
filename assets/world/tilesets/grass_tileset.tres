@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=45 format=3 uid="uid://dl0i1ilaa18vl"]
+[gd_resource type="TileSet" load_steps=47 format=3 uid="uid://dl0i1ilaa18vl"]
 
 [ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_v5pje"]
 
@@ -42,6 +42,12 @@ polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7u3re"]
+polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fsymr"]
+polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6ntn6"]
 polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o8ymo"]
@@ -446,6 +452,7 @@ texture_region_size = Vector2i(18, 18)
 13:1/animation_frame_0/duration = 0.5
 13:1/animation_frame_1/duration = 0.5
 13:1/0 = 0
+13:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_fsymr")
 13:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:1/0/physics_layer_0/angular_velocity = 0.0
 13:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
@@ -717,6 +724,7 @@ texture_region_size = Vector2i(18, 18)
 12:3/0/physics_layer_1/angular_velocity = 0.0
 12:3/0/terrains_peering_bit/top_side = 3
 13:3/0 = 0
+13:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_6ntn6")
 13:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:3/0/physics_layer_0/angular_velocity = 0.0
 13:3/0/physics_layer_1/linear_velocity = Vector2(0, 0)

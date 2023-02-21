@@ -9,6 +9,8 @@ var gravity : int = default_gravity
 
 @export var move_data : PlayerMovementData = preload("res://assets/player/resources/pmd_slow.tres") as PlayerMovementData
 
+@onready var water_splash_scene : PackedScene = preload("res://assets/player/particles/water_splash.tscn")
+
 var jump_count : int = 0
 var buffered_jump : bool = false
 var coyote_jump : bool = false
@@ -34,7 +36,14 @@ var nearest_activator : Activator = null
 var nearest_pushable : CharacterBody2D = null
 
 var is_pulling : bool = false
-var is_in_water : bool = false
+
+var is_in_water : bool = false :
+	set(value):
+		is_in_water = value
+		cross_water_surface()
+	get:
+		return is_in_water
+
 var is_on_coil : bool = false
 
 @export var skins: Array[SpriteFrames] = []
@@ -181,6 +190,14 @@ func _on_hurt_timer_timeout() -> void:
 func _on_hit_block_area_2d_body_entered(body: Node2D) -> void:
 	if body is HitBlock and body.is_in_group("HitBlocks") and velocity.y <= 0:
 		body.hit()
+
+
+func cross_water_surface() -> void:
+	SoundPlayer.play_sound(SoundPlayer.WATER_SPLASH)
+	var water_splash : GPUParticles2D = water_splash_scene.instantiate()
+	get_parent().add_child(water_splash)
+	water_splash.position = Vector2(global_position.x, global_position.y - 10)
+	water_splash.start()
 
 
 func _on_water_detector_area_2d_body_entered(_body: Node2D) -> void:
