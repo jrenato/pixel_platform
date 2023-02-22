@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4ov7o2jeqyww"
+path="res://.godot/imported/Thinking Music.mp3-e37a930a849fa1f556dc71ffc39c21dc.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/songs/Thinking Music.mp3"
+dest_files=["res://.godot/imported/Thinking Music.mp3-e37a930a849fa1f556dc71ffc39c21dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
