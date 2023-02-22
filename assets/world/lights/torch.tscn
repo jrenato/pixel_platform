@@ -39,5 +39,5 @@ position = Vector2(0, -16)
 color = Color(0.996078, 0.701961, 0, 1)
 shadow_enabled = true
 shadow_filter = 1
-shadow_filter_smooth = 5.0
+shadow_filter_smooth = 4.0
 texture = ExtResource("2_cvjv7")

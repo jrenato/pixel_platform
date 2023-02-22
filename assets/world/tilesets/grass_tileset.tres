@@ -206,7 +206,7 @@ polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vyww5"]
 polygon = PackedVector2Array(-9, -9, 9, -9, 9, 1, -9, 1)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gudvx"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sx8xd"]
 polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_27ahf"]
@@ -661,7 +661,7 @@ texture_region_size = Vector2i(18, 18)
 8:2/0 = 0
 8:2/0/terrain_set = 0
 8:2/0/terrain = 1
-8:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_gudvx")
+8:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_sx8xd")
 8:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:2/0/physics_layer_0/angular_velocity = 0.0
 8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
