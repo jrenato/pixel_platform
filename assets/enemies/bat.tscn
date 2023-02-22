@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0lpi7evnvhvr"]
+
+[ext_resource type="Texture2D" uid="uid://df6t71d65760p" path="res://assets/images/characters_packed.png" id="1_ctah6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2w18"]
+atlas = ExtResource("1_ctah6")
+region = Rect2(144, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhs5n"]
+atlas = ExtResource("1_ctah6")
+region = Rect2(168, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06cpc"]
+atlas = ExtResource("1_ctah6")
+region = Rect2(192, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4vdr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2w18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhs5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06cpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhs5n")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="Path2D" type="Path2D"]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(90, 0)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_w4vdr")
+animation = &"fly"
+autoplay = "fly"
+frame = 2
+frame_progress = 0.655002
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
