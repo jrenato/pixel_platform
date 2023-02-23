@@ -3,6 +3,9 @@
 [ext_resource type="Script" path="res://assets/world/blocks/hit_blocks/hit_block.gd" id="1_0vgj8"]
 [ext_resource type="Texture2D" uid="uid://b1wavil2t0gf5" path="res://assets/images/tiles_packed.png" id="1_ia0qe"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h8h48"]
+polygon = PackedVector2Array(-9, -18, 9, -18, 9, 0, -9, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22dbf"]
 size = Vector2(18, 18)
 
@@ -91,12 +94,12 @@ _data = {
 "hit": SubResource("Animation_dabip")
 }
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h8h48"]
-polygon = PackedVector2Array(-9, -18, 9, -18, 9, 0, -9, 0)
-
 [node name="HitBlock" type="StaticBody2D" groups=["HitBlocks"]]
 collision_mask = 3
 script = ExtResource("1_0vgj8")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_h8h48")
 
 [node name="DisabledSprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
@@ -121,8 +124,5 @@ position = Vector2(0, -9)
 libraries = {
 "": SubResource("AnimationLibrary_6j8gi")
 }
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_h8h48")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

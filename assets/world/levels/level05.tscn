@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcbn70sc1tn7j"]
+[gd_scene load_steps=7 format=3 uid="uid://bcbn70sc1tn7j"]
 
 [ext_resource type="PackedScene" path="res://assets/world/level.tscn" id="1_hxa54"]
 [ext_resource type="Texture2D" uid="uid://criotlyv7jq6e" path="res://assets/images/neutral_point_light.png" id="2_dsuwf"]
@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://dl0i1ilaa18vl" path="res://assets/world/tilesets/grass_tileset.tres" id="2_tmrgf"]
 [ext_resource type="PackedScene" uid="uid://ls6shh3f0abg" path="res://assets/world/blocks/hit_blocks/brick_block.tscn" id="5_paidd"]
 [ext_resource type="PackedScene" uid="uid://ch6h47okmddkm" path="res://assets/world/lights/torch.tscn" id="6_5oy64"]
-[ext_resource type="PackedScene" uid="uid://d0lpi7evnvhvr" path="res://assets/enemies/bat.tscn" id="7_e6gq8"]
 
 [node name="Level" instance=ExtResource("1_hxa54")]
 song = "Dungeon"
@@ -22,7 +21,6 @@ position = Vector2(0, -9)
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 4.0
-shadow_item_cull_mask = 3
 texture = ExtResource("2_dsuwf")
 
 [node name="BackgroundMap" type="TileMap" parent="." index="6"]
@@ -48,8 +46,3 @@ position = Vector2(207, 261)
 
 [node name="torch" parent="." index="11" instance=ExtResource("6_5oy64")]
 position = Vector2(441, 324)
-
-[node name="Bat" parent="." index="12" instance=ExtResource("7_e6gq8")]
-
-[node name="Path2D" parent="." index="13" instance=ExtResource("7_e6gq8")]
-position = Vector2(315, 315)
