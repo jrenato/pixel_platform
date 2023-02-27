@@ -14,7 +14,7 @@ config/name="Pixel Platform"
 run/main_scene="res://assets/GUI/menus/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="res://assets/images/pixel_man.png"
 
 [autoload]
 
